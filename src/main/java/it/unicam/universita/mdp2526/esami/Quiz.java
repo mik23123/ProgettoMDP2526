@@ -1,31 +1,30 @@
 package it.unicam.universita.mdp2526.esami;
 
-import java.net.UnixDomainSocketAddress;
 import java.util.List;
 import java.util.Random;
 
-public class Quiz implements Richiedente{
-    List<Domanda> domande;
-    Domanda domandaCorrente;
+public class Quiz implements Applicant {
+    List<Quest> domande;
+    Quest questCorrente;
 
 @Override
-    public Domanda prossimaDomanda(){
+    public Quest prossimaDomanda(){
         Random randomer= new Random();
 
         int index= randomer.nextInt(domande.size()); // in pratica questo metodo estrae random una domanda MA LA ELIMINA PER NON FARE LA STESSA DOMANDA NEL QUIZ
-        Domanda domandaFinale= domande.get(index);
-        Domanda d1= new Domanda(null,false);
+        Quest questFinale = domande.get(index);
+        Quest d1= new Quest(null,false);
         for(int i = 0 ; i<index;i++){
             d1=domande.get(i);
         }
         domande.remove(d1);
-        domandaCorrente=domandaFinale;
-        return domandaFinale;
+        questCorrente = questFinale;
+        return questFinale;
     }
 
     @Override
     public boolean checkRisposta(boolean risposta){
-if (domandaCorrente.isRisposta()==risposta) return  true;
+if (questCorrente.isAnswer()==risposta) return  true;
 return false;
     }
 

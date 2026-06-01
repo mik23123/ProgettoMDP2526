@@ -25,9 +25,13 @@ public class Stato {
         return stamina;
     }
     public void incrementa(int v){
-        this.stamina=stamina+v;
+        if((stamina+v)>staminaMax)
+            stamina=staminaMax;
+    else this.stamina=stamina+v;
     }
     public void decrementa(int v){
+        if((stamina-v)<0) {this.stamina=0;}
+        else
         this.stamina=stamina-v;
     }
 

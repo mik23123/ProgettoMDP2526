@@ -1,7 +1,7 @@
 package it.unicam.universita.mdp2526.esami;
 
-public interface Richiedente {
+public interface Applicant {
 
-    public Domanda prossimaDomanda();
+    public Quest prossimaDomanda();
     public boolean checkRisposta(boolean Risposta);
 }
