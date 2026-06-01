@@ -7,8 +7,17 @@ import java.util.List;
 import java.util.Random;
 
 public class Enemy implements Applicant {
-    List<Quest> domande;
-    Quest currentQuest;
+  private     List<Quest> domande;
+    private Quest currentQuest;
+    private  String nome;
+
+
+
+    public Enemy(String nome){
+        if(this.nome==null) throw new IllegalArgumentException("nome non può essere nullo");
+        this.nome=nome;
+    }
+
 
     @Override
     public Quest prossimaDomanda(){
