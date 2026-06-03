@@ -35,4 +35,8 @@ public class Stato {
         this.stamina=stamina-v;
     }
 
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
+    }
 }

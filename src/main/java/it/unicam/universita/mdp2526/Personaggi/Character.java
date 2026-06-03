@@ -25,15 +25,17 @@ public class Character {
         stress.decrementa(1);
     }
     public void dormi(){
-            energia.decrementa(1);
+            energia.incrementa(1);
     }
     public void mangia(){
         energia.incrementa(1);
         cibo.incrementa(1);
     }
-   public void studia()
+   public void studia(Esame esame)
    {
-
+energia.decrementa(2);
+stress.incrementa(1);
+esame.incrementaStudied(1);
    }
 
     public String getNome() {
