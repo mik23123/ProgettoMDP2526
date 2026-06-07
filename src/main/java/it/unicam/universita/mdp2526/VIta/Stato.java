@@ -24,6 +24,8 @@ public class Stato {
     public int getStamina() {
         return stamina;
     }
+
+
     public void incrementa(int v){
         if((stamina+v)>staminaMax)
             stamina=staminaMax;

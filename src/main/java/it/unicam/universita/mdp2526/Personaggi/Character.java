@@ -1,7 +1,8 @@
 package it.unicam.universita.mdp2526.Personaggi;
 
+import it.unicam.universita.mdp2526.StudioEesami.Quest;
 import it.unicam.universita.mdp2526.VIta.Stato;
-import it.unicam.universita.mdp2526.esami.Esame;
+import it.unicam.universita.mdp2526.StudioEesami.Esame;
 
 import java.util.List;
 
@@ -12,30 +13,51 @@ public class Character {
     Stato energia;
     Stato stress;
     Stato cibo;
-    List<Esame> esami;
-    public Character(String nome, List<Esame> esami){
+
+    public Character(String nome){
         this.vita= new Stato(15,"Vita");
         this.energia=new Stato(10,"Energia");
         this.stress=new Stato(10,"Stress");
         this.cibo=new Stato(10,"cibo");
-        this.esami=esami;
+
     }
 
-    public void esci(){
-        stress.decrementa(1);
+    public void esci(int ore){
+        for(int i = 0 ; i<ore;i++) {
+            stress.decrementa(1);
+        }
+
     }
-    public void dormi(){
-            energia.incrementa(1);
+    public boolean  dormi(int ore){
+        if(getEnergia()>getEnergiaMax()){
+            System.out.println("Non puoi dormire, sei già riposato al massimo");
+        return false;
+        }
+                if((getEnergia()+ore)>getEnergiaMax()){
+                    throw new IllegalArgumentException("la stamina non può essere superiore a" + this.getEnergiaMax());
+                }
+                energia.incrementa(ore);
+            return true;
     }
     public void mangia(){
         energia.incrementa(1);
         cibo.incrementa(1);
     }
-   public void studia(Esame esame)
+
+    /**
+     * se Il personaggio è troppo stressato non ti fa studiare.
+     * @param esame
+     * @return vero se il personaggio puo studiare false altrimenti
+     */
+   public boolean studia(Esame esame)
    {
-energia.decrementa(2);
-stress.incrementa(1);
-esame.incrementaStudied(1);
+       if(getStress()>(int) (getStressMax()*0.75)){
+           System.out.println("sei troppo stressato, riposati");
+           return false;}
+
+           energia.decrementa(4);
+           stress.incrementa(1);
+           return true;
    }
 
     public String getNome() {
@@ -56,6 +78,21 @@ esame.incrementaStudied(1);
 
     public int getStress() {
         return stress.getStamina();
+    }
+    public void incrementaStress(int v){
+        stress.setStamina(stress.getStamina()+v);
+    }
+
+    public int getVitaMax() {
+        return vita.getStaminaMax();
+    }
+
+    public int getEnergiaMax() {
+        return energia.getStaminaMax();
+    }
+
+    public int getStressMax() {
+        return stress.getStaminaMax();
     }
 
 

@@ -1,4 +1,4 @@
-package it.unicam.universita.mdp2526.esami;
+package it.unicam.universita.mdp2526.StudioEesami;
 
 public class Quest {
     String quest;

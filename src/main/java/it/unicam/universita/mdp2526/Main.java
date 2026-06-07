@@ -1,7 +1,7 @@
 package it.unicam.universita.mdp2526;
 
 import it.unicam.universita.mdp2526.Personaggi.Character;
-import it.unicam.universita.mdp2526.Personaggi.Enemy;
+import it.unicam.universita.mdp2526.StudioEesami.Enemy;
 
 public class Main {
     static void main(String[] args) {
