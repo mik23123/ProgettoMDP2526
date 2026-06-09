@@ -6,26 +6,33 @@ import it.unicam.universita.mdp2526.VIta.Stato;
  *
  */
 public  class Esame {
-    private  String nome;
-    private Stato studied;
-    private Stato risultato;
-    private Quiz quizStudio;
+    private  final String nome;
+    private final Stato studied;
+    private final   Stato risultato;
+    public    Quiz quizStudio;
     public Esame(String nome,Quiz quizStudio){
         if(nome==null ) throw new IllegalArgumentException("parametri nulli o sbagliati");
         this.nome=nome;
-        this.studied= new Stato(10,"StaminaStudio");
+        this.studied= new Stato(31,"StaminaStudio");
         this.risultato=new Stato(31,"risultatoEsame");
         this.quizStudio=quizStudio;
+        this.studied.setStamina(0);
     }
-    public void incrementaStudied(int v){
+//    public void incrementaStudied(int v){
+//    if((this.studied.getStamina()+v)>studied.getStaminaMax()) {
+//        this.studied.setStamina(this.studied.getStaminaMax());
+//    }
+//        studied.incrementa(v);
+//    }
 
-        studied.incrementa(v);
-    }
+
+    public void setStudied(int c){
+        this.studied.setStamina(c);    }
 
 
     public void incrementaRisultatoEsame(int v){
 
-        risultato.incrementa(v);
+        risultato.increment(v);
     }
 
 
@@ -68,6 +75,10 @@ public  class Esame {
      */
     public int getStaminaRisultatoMax(){
         return risultato.getStaminaMax();
+    }
+
+public Quiz getQuizStudio(){
+        return this.quizStudio;
     }
 
 }

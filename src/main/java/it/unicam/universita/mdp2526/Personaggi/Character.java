@@ -1,94 +1,90 @@
 package it.unicam.universita.mdp2526.Personaggi;
 
-import it.unicam.universita.mdp2526.StudioEesami.Quest;
 import it.unicam.universita.mdp2526.VIta.Stato;
-import it.unicam.universita.mdp2526.StudioEesami.Esame;
-
-import java.util.List;
 
 public class Character {
-   String nome;
-   String matricola;
-    Stato vita ;
-    Stato energia;
+   String name;
+   String id;
+    Stato life;
+    Stato energy;
     Stato stress;
-    Stato cibo;
+    Stato food;
 
-    public Character(String nome){
-        this.vita= new Stato(15,"Vita");
-        this.energia=new Stato(10,"Energia");
+    public Character(String name){
+        this.life = new Stato(15,"Vita");
+        this.energy =new Stato(10,"Energia");
         this.stress=new Stato(10,"Stress");
-        this.cibo=new Stato(10,"cibo");
+        this.food =new Stato(10,"cibo");
+        this.name = name;
 
+    }
+    public boolean checkStress(){
+        if(getStress()>(int) (getStressMax()*0.75)){
+            return true;
+        }
+        return false;
     }
 
     public void esci(int ore){
-        for(int i = 0 ; i<ore;i++) {
-            stress.decrementa(1);
+int stressfinale=0;
+int energiaFinale=0;
+        while(ore>0){
+            stressfinale=stressfinale+1;
+            energiaFinale=energiaFinale+1;
+            ore--;
         }
-
+this.decrementStress(stressfinale);
+        this.decrementEnergy((int)(energiaFinale)/2);
     }
     public boolean  dormi(int ore){
-        if(getEnergia()>getEnergiaMax()){
+        if(getEnergy()> getEnergyMAx()){
             System.out.println("Non puoi dormire, sei già riposato al massimo");
         return false;
         }
-                if((getEnergia()+ore)>getEnergiaMax()){
-                    throw new IllegalArgumentException("la stamina non può essere superiore a" + this.getEnergiaMax());
+                if((getEnergy()+ore)> getEnergyMAx()){
+                    throw new IllegalArgumentException("la stamina non può essere superiore a" + this.getEnergyMAx());
                 }
-                energia.incrementa(ore);
+                energy.increment(ore);
             return true;
     }
-    public void mangia(){
-        energia.incrementa(1);
-        cibo.incrementa(1);
+
+    public void eat(){
+        energy.increment(1);
+        food.increment(1);
     }
 
-    /**
-     * se Il personaggio è troppo stressato non ti fa studiare.
-     * @param esame
-     * @return vero se il personaggio puo studiare false altrimenti
-     */
-   public boolean studia(Esame esame)
-   {
-       if(getStress()>(int) (getStressMax()*0.75)){
-           System.out.println("sei troppo stressato, riposati");
-           return false;}
 
-           energia.decrementa(4);
-           stress.incrementa(1);
-           return true;
-   }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public String getMatricola() {
-        return matricola;
+    public String getId() {
+        return id;
     }
 
-    public int getVita() {
-        return vita.getStamina();
+    public int getLife() {
+        return life.getStamina();
     }
 
-    public int getEnergia() {
-        return energia.getStamina();
+    public int getEnergy() {
+        return energy.getStamina();
     }
 
     public int getStress() {
         return stress.getStamina();
     }
-    public void incrementaStress(int v){
+    public void incrementStress(int v){
         stress.setStamina(stress.getStamina()+v);
     }
-
-    public int getVitaMax() {
-        return vita.getStaminaMax();
+    public void decrementStress(int v){ stress.setStamina(stress.getStaminaMax()-v);}
+    public void decrementEnergy(int v){ energy.setStamina(energy.getStamina()-v);}
+    public int getLifeMax() {
+        return life.getStaminaMax();
     }
 
-    public int getEnergiaMax() {
-        return energia.getStaminaMax();
+    public int getEnergyMAx() {
+        return energy.getStaminaMax();
     }
 
     public int getStressMax() {
@@ -97,7 +93,7 @@ public class Character {
 
 
 
-    public int getCibo() {
-        return cibo.getStamina();
+    public int getFood() {
+        return food.getStamina();
     }
 }

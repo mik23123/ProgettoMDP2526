@@ -4,5 +4,5 @@ public interface Applicant {
     public Quest getQuestCorrente();
     public Quest prossimaDomanda();
     public boolean checkRisposta(boolean Risposta);
-    public void aggiornaPunteggio();
+
 }

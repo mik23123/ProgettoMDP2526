@@ -1,0 +1,6 @@
+[
+  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
+  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
+  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
+  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
+  ]

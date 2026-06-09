@@ -17,14 +17,14 @@ public class Enemy implements Applicant {
     private Character personaggio;
 
 
-    public Enemy(List<Quest> domande, Esame esame, Character personaggio){
-        if(domande==null|| esame==null|| personaggio==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
+    public Enemy(String nome,List<Quest> domande){
+        if(domande==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
         this.domande=domande;
-        this.esame=esame;
+
         this.indiceDomanda=0;
         this.punteggioFinale=0;
         this.currentQuest=this.prossimaDomanda();
-        this.personaggio=personaggio;
+
         this.vita= new Stato(31," Vita Del Professore ");
     }
 
@@ -46,9 +46,12 @@ public class Enemy implements Applicant {
         if (currentQuest.isAnswer()==risposta) {
             punteggioFinale=punteggioFinale+1;
             rimuoviDomanda(indiceDomanda);
+            this.prossimaDomanda();
             return  true;}
-        this.personaggio.incrementaStress(1);
+
         this.prossimaDomanda();
+        System.out.println("ahh capra,sei una capra sei una capra ignorante non sai niente, cambia indirizzo. " +
+                "Ci sono molti altri indirizzi come scienze gastronomiche!!!");
         return false;
     }
 
@@ -56,16 +59,8 @@ public class Enemy implements Applicant {
         return currentQuest;
     }
 
-    /**
-     * questo metodo aggiorna il punteggio studio. Incremento di 2.5 perchè è il numero piu ragionevole di crescita. in tutto bisogna fare 8 domande in tutto per arrivare al 31.
-     *
-     */
-    public void aggiornaPunteggio(){double divisore = 2.5;
-        esame.incrementaStudied((int)(punteggioFinale/divisore));
-    }
 
-    public void StressaPersonaggio(){
-         this.personaggio.incrementaStress(1);
-    }
+
+
 
 }
