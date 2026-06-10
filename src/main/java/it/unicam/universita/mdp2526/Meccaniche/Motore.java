@@ -78,50 +78,41 @@ while(currentScenary!=Scenari.exit){
                         count++;
                         }
           }
+
           public int iterateQuest(int numeroSceltaEsame){
               int conteggio=exams.get(numeroSceltaEsame).getQuizStudio().getDomande().size();
               while(conteggio>0){// il while serve per gestire la sequenza delle domande del quiz
+
                   System.out.println(exams.get(numeroSceltaEsame).getQuizStudio().getQuestCorrente().getQuest());  // qui prende la domanda
                   String s1 =String.valueOf(readInput());  // prende la risposta
 
-                  if(s1.equals("true"))  exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(true); // se la risposta è true allora fa il check con true
-                  else if (s1.equals("false")) exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(false);// fa la stessa cosa con il false
+                  // se il giocatore risponde true
+                  if(s1.equals("true")){// se la risposta è true allora fa il check con true
+
+                      if (exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(true)) System.out.println("BRAVO");
+
+                      else this.character.incrementStress(1);
+                  }
+                  else if (s1.equals("false")) {// se la risposta è false allora fa il check con false
+                      if (exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(false))
+                          System.out.println("BRAVO");// fa la stessa cosa con il false
+                      else this.character.incrementStress(1);
+                  }
                   conteggio--; // ho pensato di creare una variabile che ogni volta prensa la size delle domande. visto che nella classe quiz cancello le domande giuste, il conteggio inizia direttamente dalla size e ogni domanda tolgo 1                }
               }
               return exams.get(numeroSceltaEsame).getQuizStudio().getPunteggioQuiz();
           }
+
+
+
             public void gestioneStudio(){
                 if (character.checkStress()){
                     System.out.println("sei troppo stressato ,riposati");
                     return;
                 }
 
-//                    System.out.println("scegli la materia da studiare");
-//                int count = 0 ;
-//                        for(Esame e : exams){
-//                            System.out.println(e.getNome()+" inserisci  " +count + "per studiare Questo esame" +
-//                                    " livello di preparazione esame: "+ e.getStaminaStudiedAttuale()+"\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
-//                        count++;
-//                        } questo verrà trasformato in metodo perchè questo metodo fa troppe cose, scelta esame sarà un metodo apparte
-
-
+                this.listOfExam();
              int numeroSceltaEsame=Integer.parseInt(readInput());
-
-
-//                        int conteggio=exams.get(numeroSceltaEsame).getQuizStudio().getDomande().size();
-//
-//                        while(conteggio>0){// il while serve per gestire la sequenza delle domande del quiz
-//         System.out.println(exams.get(numeroSceltaEsame).getQuizStudio().getQuestCorrente().getQuest());  // qui prende la domanda
-//                            String s1 =String.valueOf(readInput());  // prende la risposta
-//
-//                            if(s1.equals("true"))  exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(true); // se la risposta è true allora fa il check con true
-//                            else if (s1.equals("false")) exams.get(numeroSceltaEsame).getQuizStudio().checkRisposta(false);// fa la stessa cosa con il false
-//                            conteggio--; // ho pensato di creare una variabile che ogni volta prensa la size delle domande. visto che nella classe quiz cancello le domande giuste, il conteggio inizia direttamente dalla size e ogni domanda tolgo 1                }
-//
-//
-//            }tutto questo trasformato in un metodo che itera la domanda e vede se è giusta o no
-
-//                exams.get(numeroSceltaEsame).setStudied((int) (exams.get(numeroSceltaEsame).getQuizStudio().getPunteggioQuiz()/1));// da aggiornare a 2,5 quando creerò 31 domande per esame
                 this.exams.get(numeroSceltaEsame).setStudied((int)(this.iterateQuest(numeroSceltaEsame)));
                 this.tornaAlMenu();
             }
