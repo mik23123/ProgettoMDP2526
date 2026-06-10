@@ -9,7 +9,7 @@ public class Quiz implements Applicant {
    private   List<Quest> domande;
     private Quest questCorrente;
     private Esame esame;
-    private int punteggioFinale;
+    private int punteggioQuiz;
     private int indiceDomanda;
     private Character personaggio;
 
@@ -17,7 +17,7 @@ public class Quiz implements Applicant {
         if(domande==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
         this.domande=domande;
         this.indiceDomanda=0;
-        this.punteggioFinale=0;
+        this.punteggioQuiz =0;
         questCorrente=this.prossimaDomanda();
     }
 
@@ -29,8 +29,8 @@ public class Quiz implements Applicant {
         return esame;
     }
 
-    public int getPunteggioFinale() {
-        return punteggioFinale;
+    public int getPunteggioQuiz() {
+        return punteggioQuiz;
     }
 
     public int getIndiceDomanda() {
@@ -57,8 +57,9 @@ public class Quiz implements Applicant {
     @Override
     public boolean checkRisposta(boolean risposta){
 if (questCorrente.isAnswer()==risposta) {
-    punteggioFinale=punteggioFinale+1;
+    punteggioQuiz = punteggioQuiz +1;
     rimuoviDomanda(indiceDomanda);
+    this.punteggioQuiz = punteggioQuiz +1;
     this.prossimaDomanda();
     return  true;}
 
