@@ -1,31 +1,27 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
-import it.unicam.universita.mdp2526.Personaggi.Character;
-import it.unicam.universita.mdp2526.VIta.Stato;
+import it.unicam.universita.mdp2526.Personaggio.Character;
+import it.unicam.universita.mdp2526.Personaggio.State;
 
 import java.util.List;
 import java.util.Random;
 
-public class Enemy implements Applicant {
+public class EnemyProfessor extends Applicant {
   private     List<Quest> domande;
     private Quest currentQuest;
-    private  String nome;
-    private Esame esame;
-    private Stato vita;
+    private  String name;
+    private Exam exam;
+    private State vita;
     private int punteggioFinale;
     private int indiceDomanda;
     private Character personaggio;
 
 
-    public Enemy(String nome,List<Quest> domande){
-        if(domande==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
-        this.domande=domande;
-
-        this.indiceDomanda=0;
-        this.punteggioFinale=0;
-        this.currentQuest=this.prossimaDomanda();
-
-        this.vita= new Stato(31," Vita Del Professore ");
+    public EnemyProfessor (List<Quest> quests,String name){
+        if(quests==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
+        super(quests);
+        this.name=name;
+        this.vita= new State(31," Vita Del Professore ");
     }
 
     @Override
@@ -44,6 +40,7 @@ public class Enemy implements Applicant {
     @Override
     public boolean checkRisposta(boolean risposta){
         if (currentQuest.isAnswer()==risposta) {
+            this.vita.decrement(1);
             punteggioFinale=punteggioFinale+1;
             rimuoviDomanda(indiceDomanda);
             this.prossimaDomanda();

@@ -1,11 +1,11 @@
-package it.unicam.universita.mdp2526.VIta;
+package it.unicam.universita.mdp2526.Personaggio;
 
-public class Stato {
+public class State {
 
     private int staminaMax;
     private String name;
     private int stamina  ;
-    public Stato(int staminaMax,String name){
+    public State(int staminaMax, String name){
         if( staminaMax<0|| name ==null){throw new IllegalArgumentException("I parametri sono sbagliati");
         }
         this.staminaMax=staminaMax;

@@ -1,20 +1,18 @@
-package it.unicam.universita.mdp2526.Personaggi;
-
-import it.unicam.universita.mdp2526.VIta.Stato;
+package it.unicam.universita.mdp2526.Personaggio;
 
 public class Character {
    String name;
    String id;
-    Stato life;
-    Stato energy;
-    Stato stress;
-    Stato food;
+    State life;
+    State energy;
+    State stress;
+    State food;
 
     public Character(String name){
-        this.life = new Stato(15,"Vita");
-        this.energy =new Stato(10,"Energia");
-        this.stress=new Stato(10,"Stress");
-        this.food =new Stato(10,"cibo");
+        this.life = new State(15,"Vita");
+        this.energy =new State(10,"Energia");
+        this.stress=new State(10,"Stress");
+        this.food =new State(10,"cibo");
         this.name = name;
 
     }
@@ -36,7 +34,7 @@ int energiaFinale=0;
 this.decrementStress(stressfinale);
         this.decrementEnergy((int)(energiaFinale)/2);
     }
-    public boolean  dormi(int ore){
+    public boolean sleep(int ore){
         if(getEnergy()> getEnergyMAx()){
             System.out.println("Non puoi dormire, sei già riposato al massimo");
         return false;

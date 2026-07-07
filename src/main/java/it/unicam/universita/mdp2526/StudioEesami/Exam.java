@@ -1,22 +1,25 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
-import it.unicam.universita.mdp2526.VIta.Stato;
+import it.unicam.universita.mdp2526.Personaggio.State;
 
 /**
  *
  */
-public  class Esame {
-    private  final String nome;
-    private final Stato studied;
-    private final   Stato risultato;
-    public    Quiz quizStudio;
-    public Esame(String nome,Quiz quizStudio){
+public  class Exam {
+    private  final String name;
+    private final State studied;
+    private final State risultato;
+    //da decidere se tenere quiz nel json, mi sembra una cosa troppo pesante da tenere
+    private  StudyQuiz studyQuiz;
+    private boolean examPassed;
+    public Exam(String nome, StudyQuiz studyQuizstudyQuiz){
         if(nome==null ) throw new IllegalArgumentException("parametri nulli o sbagliati");
-        this.nome=nome;
-        this.studied= new Stato(31,"StaminaStudio");
-        this.risultato=new Stato(31,"risultatoEsame");
-        this.quizStudio=quizStudio;
+        this.name =nome;
+        this.studied= new State(31,"StaminaStudio");
+        this.risultato=new State(31,"risultatoEsame");
+        this.studyQuiz = studyQuizstudyQuiz;
         this.studied.setStamina(0);
+    this.examPassed=false;
     }
 //    public void incrementaStudied(int v){
 //    if((this.studied.getStamina()+v)>studied.getStaminaMax()) {
@@ -36,15 +39,15 @@ public  class Esame {
     }
 
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public Stato getRisultato() {
+    public State getRisultato() {
         return risultato;
     }
 
-    public Stato getStudied() {
+    public State getStudied() {
         return studied;
     }
 
@@ -77,8 +80,8 @@ public  class Esame {
         return risultato.getStaminaMax();
     }
 
-public Quiz getQuizStudio(){
-        return this.quizStudio;
+public StudyQuiz getQuizStudio(){
+        return this.studyQuiz;
     }
 
 }
