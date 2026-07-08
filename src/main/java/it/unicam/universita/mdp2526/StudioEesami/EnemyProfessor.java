@@ -1,63 +1,58 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
-import it.unicam.universita.mdp2526.Personaggio.Character;
 import it.unicam.universita.mdp2526.Personaggio.State;
 
 import java.util.List;
-import java.util.Random;
 
 public class EnemyProfessor extends Applicant {
-  private     List<Quest> domande;
-    private Quest currentQuest;
     private  String name;
-    private Exam exam;
-    private State vita;
-    private int punteggioFinale;
-    private int indiceDomanda;
-    private Character personaggio;
+    private State tried;
 
 
     public EnemyProfessor (List<Quest> quests,String name){
-        if(quests==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
+        if(quests==null) throw   new IllegalArgumentException("parameter cant be null");
         super(quests);
         this.name=name;
-        this.vita= new State(31," Vita Del Professore ");
+        this.tried = new State(31," Life of professor");
+        this.tried.setStamina(4);
     }
-
-    @Override
-    public Quest prossimaDomanda(){
-        Random randomer= new Random();
-        int index= randomer.nextInt(domande.size()); // in pratica questo metodo estrae random una domanda MA LA ELIMINA PER NON FARE LA STESSA DOMANDA NEL QUIZ
-        Quest questFinale = domande.get(index);
-        this.currentQuest = questFinale;
-        this.indiceDomanda=index;
-        return questFinale;
-    }
-    public void rimuoviDomanda(int index){
-        domande.remove(index);
-    }
-
-    @Override
+    public String getName(){return this.name;}
+    // this change for devcrement of life of professor
+@Override
     public boolean checkRisposta(boolean risposta){
-        if (currentQuest.isAnswer()==risposta) {
-            this.vita.decrement(1);
-            punteggioFinale=punteggioFinale+1;
-            rimuoviDomanda(indiceDomanda);
+        if (getCurrentQuest().isAnswer()==risposta) {
+            incerementQuizScore(1);
+            rimuoviDomanda(getQuestIndex());
             this.prossimaDomanda();
-            return  true;}
+            return  true;
+
+        }
 
         this.prossimaDomanda();
-        System.out.println("ahh capra,sei una capra sei una capra ignorante non sai niente, cambia indirizzo. " +
-                "Ci sono molti altri indirizzi come scienze gastronomiche!!!");
         return false;
     }
+public State getTried(){return tried;}
+    public void decrementTried(){this.tried.decrement(1);}
 
-    public Quest getQuestCorrente(){
-        return currentQuest;
+    /**
+     * this method enable professor to give votation to exam
+     * @param vote
+     * @return
+     */
+    public boolean approveExam(int vote){
+if(getQuizScore()>18) {
+    this.getExam().setTrueExamPassed();
+    this.getExam().setVote(vote);
+    return true;
+}
+return false;
+}
+
+    @Override
+    public String toString() {
+        return "EnemyProfessor{" +
+                "name='" + name + '\'' +
+                ", life=" + tried.getStamina() +
+                '}';
     }
-
-
-
-
-
 }

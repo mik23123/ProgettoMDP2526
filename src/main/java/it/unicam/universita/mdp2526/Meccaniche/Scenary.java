@@ -7,5 +7,6 @@ public enum Scenary {
     hangOutWithFriend,
     sleep,
     save,
+    gameOver,
     exit;
 }

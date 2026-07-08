@@ -5,55 +5,58 @@ import java.util.Random;
 
 public abstract class Applicant {
 
-        private List<Quest> domande;
-        private Quest questCorrente;
+        private List<Quest> quests;
+        private Quest currentQuest;
         private Exam exam;
-        private int punteggioQuiz;
-        private int indiceDomanda;
+        private int quizScore;
+        private int questIndex;
 
         public Applicant(List<Quest> questList){
             if(questList==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
-            this.domande=questList;
-            this.indiceDomanda=0;
-            this.punteggioQuiz =0;
-            questCorrente=this.prossimaDomanda();
+            this.quests =questList;
+            this.questIndex =0;
+            this.quizScore =0;
+            currentQuest =this.prossimaDomanda();
         }
 
-        public List<Quest> getDomande() {
-            return domande;
+        public List<Quest> getQuests() {
+            return quests;
         }
 
-        public Exam getEsame() {
+        public Exam getExam() {
             return exam;
         }
 
-        public int getPunteggioQuiz() {
-            return punteggioQuiz;
+        public int getQuizScore() {
+            return quizScore;
         }
 
-        public int getIndiceDomanda() {
-            return indiceDomanda;
+        public int getQuestIndex() {
+            return questIndex;
         }
 
+    public Quest getCurrentQuest(){
+        return currentQuest;
+    }
+    public void incerementQuizScore(int v ){this.quizScore=quizScore+v;}
 
         public Quest prossimaDomanda(){
             Random randomer= new Random();
-            int index= randomer.nextInt(domande.size()); // in pratica questo metodo estrae random una domanda MA LA ELIMINA PER NON FARE LA STESSA DOMANDA NEL QUIZ
-            Quest questFinale = domande.get(index);
-            this.questCorrente = questFinale;
-            this.indiceDomanda=index;
+            int index= randomer.nextInt(quests.size()); // in pratica questo metodo estrae random una domanda MA LA ELIMINA PER NON FARE LA STESSA DOMANDA NEL QUIZ
+            Quest questFinale = quests.get(index);
+            this.currentQuest = questFinale;
+            this.questIndex =index;
             return questFinale;
         }
         public void rimuoviDomanda(int index){
-            domande.remove(index);
+            quests.remove(index);
         }
 
 
         public boolean checkRisposta(boolean risposta){
-            if (questCorrente.isAnswer()==risposta) {
-                punteggioQuiz = punteggioQuiz +1;
-                rimuoviDomanda(indiceDomanda);
-                this.punteggioQuiz = punteggioQuiz +1;
+            if (currentQuest.isAnswer()==risposta) {
+                quizScore = quizScore +1;
+                rimuoviDomanda(questIndex);
                 this.prossimaDomanda();
                 return  true;}
 
@@ -61,9 +64,7 @@ public abstract class Applicant {
             return false;
         }
 
-        public Quest getQuestCorrente(){
-            return questCorrente;
-        }
+
 
 
     }

@@ -4,9 +4,10 @@ import it.unicam.universita.mdp2526.Persistency.StateOfGameLoader;
 import it.unicam.universita.mdp2526.Persistency.StateOfGameSaver;
 import it.unicam.universita.mdp2526.Persistency.GameState;
 import it.unicam.universita.mdp2526.Personaggio.Character;
-import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
+import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
+import it.unicam.universita.mdp2526.StudioEesami.StudyQuiz;
 import it.unicam.universita.mdp2526.utility.ScannerTextInput;
 
 import java.util.List;
@@ -20,17 +21,16 @@ public class ConsoleEngine extends ScannerTextInput  implements Engine{
     StateOfGameLoader loader;
 
 
-    public ConsoleEngine(Character personaggio, List<Exam> examList, List<EnemyProfessor> professorList){
+    public ConsoleEngine(Character personaggio, List<Exam> examList,List<EnemyProfessor> professors){
         if(personaggio==null) throw  new IllegalArgumentException("professore e personaggio non possono essere nulli");
 this.loader = new StateOfGameLoader();
-        if(loader.load("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\save.json")){
+        if(loader.load("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\saving\\save.json")){
             this.character=this.loader.getSaveState().getCharacter();
             this.exams =this.loader.getSaveState().getExam();
         }
         else{ this.character=personaggio;
             this.exams = examList;}
-
-        this.professors=professorList;
+        this.professors=professors;
         currentScenary= Scenary.menu;
 
     }
@@ -47,10 +47,11 @@ while(currentScenary!= Scenary.exit){
         break;
         case hangOutWithFriend:gestioneUscita();
             break;
-        case examScenary:
+        case examScenary:gestioneEsame();
             break;
         case save:gestioneSalvataggio();
             break;
+        case gameOver:gestioneGameOver();
 
     }
 
@@ -58,7 +59,7 @@ while(currentScenary!= Scenary.exit){
     }
     @Override
         public void gestioneMenu(){
-            System.out.println("ciao sono " + character.getName()+" devo passare tutti gli esami in tempo");
+            System.out.println("ciao sono " + character.getName()+" devo passare tutti gli esami in tempo"+ "prova provina        " + exams.get(1).getExamProfessor().getName());
             System.out.println("i miei parametri vitali sono:"+"vita : " +  +character.getLife()+ "su: "+ character.
                     getLifeMax() +"Energia: " +character.getEnergy() +"su : " + character.getEnergyMAx()+ "Stress:  " +character.
                     getStress() +"su" + character.getStressMax());
@@ -78,45 +79,59 @@ while(currentScenary!= Scenary.exit){
         public void tornaAlMenu(){
         this.currentScenary= Scenary.menu;
         }
+        public void gameOver(){this.currentScenary=Scenary.gameOver;}
 
 
-          public void listOfExam(){
-              System.out.println("scegli la materia da studiare");
+          public void readListOfExam(){
+              System.out.println("scegli la materia da studiare ");
                 int count = 0 ;
                         for(Exam e : exams){
-                            System.out.println(e.getName()+" inserisci  " +count + "per studiare Questo esame" +
-                                    " livello di preparazione esame: "+ e.getStaminaStudiedAttuale()+"\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+                            System.out.println(e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
+                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
                         count++;
                         }
-          }
+    }
 
-          public int iterateQuest(int choosenNumber, Applicant applicant){// questo metodo è stato messo nella classe engine perchè era insensato e
-        // inutilmente complicato metterlo in StudyQuiz
+    public int iterateQuiz( Applicant applicant ) {
+        int conteggio = applicant.getQuests().size();
+        while (conteggio > 0) {
+            System.out.println(applicant.getCurrentQuest().getQuest());
+            if(applicant.checkRisposta(readAnswer())){
+                System.out.println("BRAVO");
+            }
+            else this.character.incrementStress(1);
+            conteggio--;
+        }
+        return applicant.getQuizScore();
+    }
+//
+public boolean readAnswer( ){
+    String answer = String.valueOf(readInput());
+ if(!answer.equals("true")&&!answer.equals("false")) throw new IllegalArgumentException("answer can be only true or false");
 
-              int conteggio= applicant.get(choosenNumber).getQuizStudio().getDomande().size();
-              while(conteggio>0){// il while serve per gestire la sequenza delle domande del quiz
+    if (answer.equals("true")) {// se la risposta è true allora fa il check con true
+    return true;}
 
-                  System.out.println(this.exams.get(choosenNumber).getQuizStudio().getQuestCorrente().getQuest());  // qui prende la domanda
-                  String s1 =String.valueOf(readInput());  // prende la risposta
+return false;
+}
 
-                  // se il giocatore risponde true
-                  if(s1.equals("true")){// se la risposta è true allora fa il check con true
+public void gestioneEsame(){
+    if (character.checkStress()){
+        System.out.println("sei troppo stressato ,riposati");
+        this.tornaAlMenu();
+        return;
+    }
 
-                      if (this.exams.get(choosenNumber).getQuizStudio().checkRisposta(true)) System.out.println("BRAVO");
+    this.readListOfExam();
+    int numeroSceltaEsame=Integer.parseInt(readInput());
 
-                      else this.character.incrementStress(1);
-                  }
-                  else if (s1.equals("false")) {// se la risposta è false allora fa il check con false
-                      if (this.exams.get(choosenNumber).getQuizStudio().checkRisposta(false))
-                          System.out.println("BRAVO");// fa la stessa cosa con il false
-                      else this.character.incrementStress(1);
-                  }
-                  conteggio--; // ho pensato di creare una variabile che ogni volta prensa la size delle domande. visto che nella classe quiz cancello le domande giuste, il conteggio inizia direttamente dalla size e ogni domanda tolgo 1                }
-              }
-              return this.exams.get(choosenNumber).getQuizStudio().getPunteggioQuiz();
-          }
-
-
+   EnemyProfessor professor =  this.exams.get(numeroSceltaEsame).getExamProfessor();
+   if(professor.getTried().getStamina()<0) this.gameOver();
+    this.iterateQuiz(professor);
+    System.out.println("decrement");
+    professor.decrementTried();
+    this.tornaAlMenu();
+}
     @Override
             public void gestioneStudio(){
                 if (character.checkStress()){
@@ -125,9 +140,10 @@ while(currentScenary!= Scenary.exit){
                     return;
                 }
 
-                this.listOfExam();
+                this.readListOfExam();
              int numeroSceltaEsame=Integer.parseInt(readInput());
-                this.exams.get(numeroSceltaEsame).setStudied((int)(this.iterateQuest(numeroSceltaEsame)));
+        StudyQuiz quiz=  this.exams.get(numeroSceltaEsame).getQuizStudio();
+            System.out.println("quiz score : " + this.iterateQuiz(quiz));
                 this.tornaAlMenu();
             }
 
@@ -153,8 +169,12 @@ while(currentScenary!= Scenary.exit){
                         }
                         public void gestioneSalvataggio(){
                             GameState gameState1=new GameState(this.character, exams);
-                            StateOfGameSaver s1 = new StateOfGameSaver(gameState1,"C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\save.json");
+                            StateOfGameSaver s1 = new StateOfGameSaver(gameState1,"C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json");
                             s1.save();
                             this.tornaAlMenu();
                         }
+
+                      public void gestioneGameOver(){
+                    System.out.println("Hai perso");
+}
 }
