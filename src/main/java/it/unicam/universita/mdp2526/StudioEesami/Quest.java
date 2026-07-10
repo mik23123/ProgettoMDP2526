@@ -1,7 +1,7 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
 public class Quest {
-
+    private int id;
     String quest;
     boolean answer;
     public Quest(String quest, boolean answer){

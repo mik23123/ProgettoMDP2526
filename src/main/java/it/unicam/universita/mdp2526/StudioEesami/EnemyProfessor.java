@@ -19,16 +19,16 @@ public class EnemyProfessor extends Applicant {
     public String getName(){return this.name;}
     // this change for devcrement of life of professor
 @Override
-    public boolean checkRisposta(boolean risposta){
+    public boolean checkAnswer(boolean risposta){
         if (getCurrentQuest().isAnswer()==risposta) {
             incerementQuizScore(1);
-            rimuoviDomanda(getQuestIndex());
-            this.prossimaDomanda();
+            removeQuest(getQuestIndex());
+            this.nextQuest();
             return  true;
 
         }
 
-        this.prossimaDomanda();
+        this.nextQuest();
         return false;
     }
 public State getTried(){return tried;}

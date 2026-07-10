@@ -32,7 +32,7 @@ int energiaFinale=0;
             ore--;
         }
 this.decrementStress(stressfinale);
-        this.decrementEnergy((int)(energiaFinale)/2);
+        this.decrementEnergy((energiaFinale));
     }
     public boolean sleep(int ore){
         if(getEnergy()> getEnergyMAx()){

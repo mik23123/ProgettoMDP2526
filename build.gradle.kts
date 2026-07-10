@@ -21,6 +21,9 @@ dependencies {
 tasks.test {
     useJUnitPlatform()
 }
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
 application {
-    mainClass.set("Main")
+    mainClass.set("it.unicam.universita.mdp2526.Main")
 }

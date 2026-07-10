@@ -93,10 +93,15 @@ while(currentScenary!= Scenary.exit){
     }
 
     public int iterateQuiz( Applicant applicant ) {
-        int conteggio = applicant.getQuests().size();
+        int conteggio = applicant.getQuests().size()-1;
+        System.out.println(applicant.getQuests().size());
+        System.out.println(conteggio);
         while (conteggio > 0) {
+            System.out.println(conteggio);
+            System.out.println("size"+ applicant.getQuests().size());
+
             System.out.println(applicant.getCurrentQuest().getQuest());
-            if(applicant.checkRisposta(readAnswer())){
+            if(applicant. checkAnswer(readAnswer())){
                 System.out.println("BRAVO");
             }
             else this.character.incrementStress(1);
@@ -106,8 +111,11 @@ while(currentScenary!= Scenary.exit){
     }
 //
 public boolean readAnswer( ){
-    String answer = String.valueOf(readInput());
- if(!answer.equals("true")&&!answer.equals("false")) throw new IllegalArgumentException("answer can be only true or false");
+ String  answer = String.valueOf(readInput());
+//    while((!answer.equals("true")&&!answer.equals("false")))
+//    {   answer = String.valueOf(readInput());}
+
+// if(!answer.equals("true")&&!answer.equals("false")) throw new IllegalArgumentException("answer can be only true or false");
 
     if (answer.equals("true")) {// se la risposta è true allora fa il check con true
     return true;}
