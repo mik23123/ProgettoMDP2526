@@ -10,6 +10,14 @@ public class Quest {
         this.answer=answer;
     }
 
+    @Override
+    public String toString() {
+        return "Quest{" +
+                "quest='" + quest + '\'' +
+                ", answer=" + answer +
+                '}';
+    }
+
     public boolean isAnswer() {
         return this.answer;
     }

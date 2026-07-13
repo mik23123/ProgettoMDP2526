@@ -18,20 +18,20 @@ public class EnemyProfessor extends Applicant {
     }
     public String getName(){return this.name;}
     // this change for devcrement of life of professor
-@Override
-    public boolean checkRisposta(boolean risposta){
+    @Override
+    public boolean checkAnswer(boolean risposta){
         if (getCurrentQuest().isAnswer()==risposta) {
             incerementQuizScore(1);
-            rimuoviDomanda(getQuestIndex());
-            this.prossimaDomanda();
+            removeQuest(getQuestIndex());
+            this.nextQuest();
             return  true;
 
         }
 
-        this.prossimaDomanda();
+        this.nextQuest();
         return false;
     }
-public State getTried(){return tried;}
+    public State getTried(){return tried;}
     public void decrementTried(){this.tried.decrement(1);}
 
     /**
@@ -39,20 +39,12 @@ public State getTried(){return tried;}
      * @param vote
      * @return
      */
-    public boolean approveExam(int vote){
-if(getQuizScore()>18) {
-    this.getExam().setTrueExamPassed();
-    this.getExam().setVote(vote);
-    return true;
-}
-return false;
-}
-
-    @Override
-    public String toString() {
-        return "EnemyProfessor{" +
-                "name='" + name + '\'' +
-                ", life=" + tried.getStamina() +
-                '}';
+    public boolean approveExam(int vote) {
+        if (getQuizScore() > 18) {
+            this.getExam().setTrueExamPassed();
+            this.getExam().setVote(vote);
+            return true;
+        }
+        return false;
     }
 }

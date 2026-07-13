@@ -91,19 +91,33 @@ while(currentScenary!= Scenary.exit){
                         count++;
                         }
     }
+    public int iterateQuiz(Applicant applicant) {
 
-    public int iterateQuiz( Applicant applicant ) {
-        int conteggio = applicant.getQuests().size();
-        while (conteggio > 0) {
+        while (applicant.getCurrentQuest() != null) {
+
             System.out.println(applicant.getCurrentQuest().getQuest());
-            if(applicant.checkRisposta(readAnswer())){
+
+            if (applicant.checkAnswer(readAnswer())) {
                 System.out.println("BRAVO");
+            } else {
+                character.incrementStress(1);
             }
-            else this.character.incrementStress(1);
-            conteggio--;
         }
+
         return applicant.getQuizScore();
     }
+//    public int iterateQuiz( Applicant applicant ) {
+//        int conteggio = applicant.getQuests().size()-1;
+//        while (conteggio > 0) {
+//            System.out.println(applicant.getCurrentQuest().getQuest());
+//            if(applicant.checkAnswer(readAnswer())){
+//                System.out.println("BRAVO");
+//            }
+//            else this.character.incrementStress(1);
+//            conteggio--;
+//        }
+//        return applicant.getQuizScore();
+//    }
 //
 public boolean readAnswer( ){
     String answer = String.valueOf(readInput());
