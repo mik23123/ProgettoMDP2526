@@ -2,7 +2,7 @@ package it.unicam.universita.mdp2526.gui.Controller;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
-import it.unicam.universita.mdp2526.Meccaniche.SceneManager;
+import it.unicam.universita.mdp2526.gui.SceneManager;
 
 public class GameOverController implements FxController{
     private SceneManager sceneManager;
@@ -18,4 +18,9 @@ public class GameOverController implements FxController{
         this.engine= (GraphicEngine)  engine;
 
     }
+public void restartGame(){
+engine.restartGame();
+sceneManager.showMenuScene();
+}
+
 }

@@ -1,96 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/17.0.12"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="it.unicam.universita.mdp2526.gui.Controller.MenuController">
+<AnchorPane prefHeight="400.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.MenuController">
 
     <children>
 
         <Label fx:id="stateOfLabel" />
 
-        <Button layoutX="31.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#studyStart"
-                text="Studia" />
+        <Button layoutX="31.0" layoutY="331.0" mnemonicParsing="false" onAction="#studyStart" text="Studia" />
 
-        <Button layoutX="121.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#examStart"
-                text="Sfida Il Prof" />
+        <Button layoutX="138.0" layoutY="331.0" mnemonicParsing="false" onAction="#examStart" text="Sfida Il Prof" />
 
-        <Button layoutX="314.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#hangOutWithFriendsStart"
-                text="Esci W friends" />
+        <Button layoutX="366.0" layoutY="331.0" mnemonicParsing="false" onAction="#hangOutWithriends" text="Esci W friends" />
 
-        <Button layoutX="433.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#saveStart"
-                text="Salva" />
+        <Button layoutX="515.0" layoutY="331.0" mnemonicParsing="false" onAction="#saveGame" text="Salva" />
 
-        <Button layoutX="510.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#exitStart"
-                text="Esci"
-                textFill="WHITE" />
+        <Button layoutX="639.0" layoutY="331.0" mnemonicParsing="false" onAction="#exit" text="Esci" textFill="WHITE" />
 
-        <Button layoutX="236.0"
-                layoutY="331.0"
-                mnemonicParsing="false"
-                onAction="#sleepStart"
-                text="Dormi" />
+        <Button layoutX="266.0" layoutY="331.0" mnemonicParsing="false" onAction="#sleepStart" text="Dormi" />
 
 
-        <ImageView fitHeight="73.0"
-                   fitWidth="167.0"
-                   layoutX="537.0"
-                   layoutY="4.0"
-                   pickOnBounds="true"
-                   preserveRatio="true">
+        <ImageView fitHeight="73.0" fitWidth="167.0" layoutX="537.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
 
             <image>
-                <Image url="@/images/logo_.png"/>
+                <Image url="@/images/logo_.png" />
             </image>
 
         </ImageView>
 
 
-        <ProgressBar fx:id="lifeBar"
-                     layoutX="58.0"
-                     layoutY="255.0"
-                     prefHeight="20.0"
-                     prefWidth="107.0"/>
+        <ProgressBar fx:id="lifeBar" layoutX="58.0" layoutY="255.0" prefHeight="20.0" prefWidth="107.0" />
 
-        <ProgressBar fx:id="stressBar"
-                     layoutX="237.0"
-                     layoutY="255.0"
-                     prefHeight="20.0"
-                     prefWidth="107.0"/>
+        <ProgressBar fx:id="stressBar" layoutX="299.0" layoutY="255.0" prefHeight="20.0" prefWidth="107.0" />
 
-        <ProgressBar fx:id="energyBar"
-                     layoutX="423.0"
-                     layoutY="255.0"
-                     prefHeight="20.0"
-                     prefWidth="107.0"/>
+        <ProgressBar fx:id="energyBar" layoutX="537.0" layoutY="255.0" prefHeight="20.0" prefWidth="107.0" />
 
-        <Label fx:id="notify"
-               layoutX="73.0"
-               layoutY="60.0"
-               prefHeight="17.0"
-               prefWidth="436.0"/>
+        <Label fx:id="notify" layoutX="73.0" layoutY="60.0" prefHeight="17.0" prefWidth="436.0" />
 
     </children>
 

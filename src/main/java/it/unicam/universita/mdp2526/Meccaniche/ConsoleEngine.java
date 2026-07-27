@@ -42,13 +42,13 @@ while(currentScenary!= Scenary.exit){
         case menu: gestioneMenu();
         break;
         case sleep:
-            sleepManagemant();
+            sleepManagemant(Integer.parseInt(readInput()));
         break;
         case quizScenary:
-            studyManagemant();
+            studyManagemant(Integer.parseInt(readInput()));
         break;
         case hangOutWithFriend:
-            hangOutManagemant();
+            hangOutManagemant(Integer.parseInt(readInput()));
             break;
         case examScenary:
             examManagemant();
@@ -63,7 +63,7 @@ while(currentScenary!= Scenary.exit){
 
 }
     }
-    @Override
+
         public void gestioneMenu(){
             System.out.println("ciao sono " + character.getName()+" devo passare tutti gli esami in tempo"+ "prova provina        " + exams.get(1).getExamProfessor().getName());
             System.out.println("i miei parametri vitali sono:"+"vita : " +  +character.getLife()+ "su: "+ character.
@@ -145,8 +145,8 @@ public void examManagemant(){
     professor.decrementTried();
     this.tornaAlMenu();
 }
-    @Override
-            public String studyManagemant(){
+
+            public void studyManagemant(int v ){
                 if (character.checkStress()){
                     System.out.println("sei troppo stressato ,riposati");
                     this.tornaAlMenu();
@@ -158,11 +158,10 @@ public void examManagemant(){
         StudyQuiz quiz=  this.exams.get(numeroSceltaEsame).getQuizStudio();
 
         this.tornaAlMenu();
-        return "quiz score : " + this.iterateQuiz(quiz);
             }
 
     @Override
-                        public void hangOutManagemant(){
+                        public void hangOutManagemant(int v){
                             System.out.println("Quante ore vuoi uscire? lo stress per ora è di  : " +character.getStress() + "su: "+ character.getStressMax()+ " Ricorda, le uscite con gli amici alleviano tanto lo stress," +
                                     "ma allo stesso tempo decrementano la tua energia");
                             int ore = Integer.parseInt(readInput());
@@ -175,7 +174,7 @@ public void examManagemant(){
 
 
                 @Override
-                        public void sleepManagemant(){
+                        public void sleepManagemant(int v){
                             System.out.println("Quante ore vuoi dormite? la tua stamina attuale è di : " +character.getEnergy() + "su: "+ character.getEnergyMAx());
                             int ore = Integer.parseInt(readInput());
                             character.sleep(ore);

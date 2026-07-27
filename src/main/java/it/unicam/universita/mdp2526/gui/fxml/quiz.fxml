@@ -15,6 +15,6 @@
       </Label>
       <Button layoutX="188.0" layoutY="21.0" mnemonicParsing="false" onAction="#updateView" prefHeight="25.0" prefWidth="225.0" text="Start Quiz" />
       <Label layoutX="240.0" layoutY="277.0" text="score:" />
-      <Label fx:id="score" layoutX="291.0" layoutY="277.0" prefHeight="17.0" prefWidth="44.0" />
+      <Label fx:id="setScoreLabel" layoutX="291.0" layoutY="277.0" prefHeight="17.0" prefWidth="44.0" />
    </children>
 </AnchorPane>

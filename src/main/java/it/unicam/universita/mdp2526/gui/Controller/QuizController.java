@@ -2,12 +2,12 @@ package it.unicam.universita.mdp2526.gui.Controller;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
-import it.unicam.universita.mdp2526.Meccaniche.SceneManager;
+import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.fxml.FXML;
 
 import java.awt.*;
 
-public abstract class QuizController implements FxController {
+public   class QuizController implements FxController {
     @FXML
     private Label  quizLabel;
     @FXML
@@ -16,7 +16,7 @@ public abstract class QuizController implements FxController {
     private boolean answer;
     private GraphicEngine engine;
 
-    public QuizController( GraphicEngine engine) {
+    public QuizController( ) {
     }
     @Override
     public void setSceneManager(SceneManager sceneManager) {
@@ -26,7 +26,7 @@ public abstract class QuizController implements FxController {
     @Override
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
-
+        updateView();
     }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto

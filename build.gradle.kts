@@ -28,5 +28,5 @@ tasks.test {
     useJUnitPlatform()
 }
 application {
-    mainClass.set("Main")
+    mainClass.set("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\java\\it\\unicam\\universita\\mdp2526\\Main.java")
 }

@@ -2,8 +2,7 @@ package it.unicam.universita.mdp2526.gui.Controller;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
-import it.unicam.universita.mdp2526.Meccaniche.SceneManager;
-import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
+import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -33,15 +32,16 @@ public class SubjectController implements FxController {
     @Override
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
-
+setSubjectList();
+setChoiceBoxeSubject();
     }
 
 
 
-    public void subjectList(){
+    public void setSubjectList(){
         subjectLabel.setText(this.engine.readListOfExam());
     }
-    public void  setChoiceBoxeSubject(GraphicEngine engine){
+    public void  setChoiceBoxeSubject(){
         choiceBoxeSubject.setItems(engine.getExams());
     }
 

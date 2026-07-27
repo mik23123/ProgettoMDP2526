@@ -2,7 +2,7 @@ package it.unicam.universita.mdp2526.gui.Controller;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
-import it.unicam.universita.mdp2526.Meccaniche.SceneManager;
+import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import javafx.scene.control.ProgressBar;
 
 import javax.swing.text.html.ImageView;
 
-public class hangOutWithFriendsController implements FxController{
+public class HangOutWithFriendsController implements FxController{
     @FXML
     private ImageView imageFriends;
     private GraphicEngine engine;
@@ -22,7 +22,7 @@ public class hangOutWithFriendsController implements FxController{
     private ChoiceBox<Integer> hoursChoiceBox;
 
 
-    private hangOutWithFriendsController(){
+    private HangOutWithFriendsController(){
 
     }
 
@@ -49,6 +49,9 @@ public void setStressBar(){
     @Override
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
+        setChoiceBox();
+        setStressBar();
+
     }
     private void confirmHangOut(){
         engine.getCharacter().decrementStress(hoursChoiceBox.getValue());
