@@ -37,40 +37,19 @@ public abstract class Applicant {
     }
 
     public Quest getCurrentQuest(){
-        System.out.println("quest index" + questIndex);
         return currentQuest;
     }
     public void incerementQuizScore(int v ){this.quizScore=quizScore+v;}
 
-//    public Quest nextQuest(){
-//        System.out.println("chiamata next quest");
-//       // in pratica questo metodo estrae random una domanda MA LA ELIMINA PER NON FARE LA STESSA DOMANDA NEL QUIZ
-//        System.out.println(" quest index" + questIndex);
-//
-//        this.questIndex ++;
-//        this.currentQuest =  quests.get(questIndex);
-//        return currentQuest;
-//    }
+
   public void removeQuest(int index){
       System.out.println("rimozione domanda: " + quests.get(index).getQuest() +" index:  "+ index);
       quests.remove(index);
    }
 
 
-//    public boolean checkAnswer(boolean risposta){
-//        if (currentQuest.isAnswer()==risposta) {
-//            quizScore = quizScore +1;
-//            removeQuest(questIndex);
-//            currentQuest=quests.get(questIndex);
-//            return  true;}
-//
-//        this.nextQuest();
-//        return false;
-//    }
-public Quest nextQuest() {
-    System.out.println("chiamata next quest");
-    System.out.println("quest index " + questIndex);
 
+public Quest nextQuest() {
     this.questIndex++;
 
     if (questIndex >= quests.size()) {

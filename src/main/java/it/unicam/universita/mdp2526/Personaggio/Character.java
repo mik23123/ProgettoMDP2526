@@ -9,10 +9,9 @@ public class Character {
     State food;
 
     public Character(String name){
-        this.life = new State(15,"Vita");
+        this.life = new State(10,"Vita");
         this.energy =new State(10,"Energia");
         this.stress=new State(10,"Stress");
-        this.food =new State(10,"cibo");
         this.name = name;
 
     }

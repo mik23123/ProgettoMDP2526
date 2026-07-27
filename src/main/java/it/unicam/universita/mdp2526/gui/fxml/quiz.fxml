@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.QuizController">
+   <children>
+      <Button fx:id="trueButton" layoutX="79.0" layoutY="240.0" mnemonicParsing="false" onAction="#truePressed" prefHeight="107.0" prefWidth="132.0" text="TRUE" />
+      <Button fx:id="falseButton" layoutX="386.0" layoutY="240.0" mnemonicParsing="false" onAction="#falsePressed" prefHeight="107.0" prefWidth="132.0" text="FALSE" />
+      <Label fx:id="quizLable" layoutX="9.0" layoutY="62.0" prefHeight="154.0" prefWidth="582.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="188.0" layoutY="21.0" mnemonicParsing="false" onAction="#updateView" prefHeight="25.0" prefWidth="225.0" text="Start Quiz" />
+      <Label layoutX="240.0" layoutY="277.0" text="score:" />
+      <Label fx:id="score" layoutX="291.0" layoutY="277.0" prefHeight="17.0" prefWidth="44.0" />
+   </children>
+</AnchorPane>

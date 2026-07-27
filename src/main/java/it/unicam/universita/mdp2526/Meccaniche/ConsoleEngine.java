@@ -15,10 +15,10 @@ import java.util.List;
 
 public class ConsoleEngine extends ScannerTextInput  implements Engine{
     Character character;
-    List<EnemyProfessor> professors;
-    List<Exam> exams;
+    private List<EnemyProfessor> professors;
+    private List<Exam> exams;
     public Scenary currentScenary;
-    StateOfGameLoader loader;
+    private StateOfGameLoader loader;
 
 
     public ConsoleEngine(Character personaggio, List<Exam> examList,List<EnemyProfessor> professors){
@@ -34,24 +34,30 @@ this.loader = new StateOfGameLoader();
         currentScenary= Scenary.menu;
 
     }
-    @Override
+
     public void start(){
 while(currentScenary!= Scenary.exit){
 
     switch (currentScenary){
         case menu: gestioneMenu();
         break;
-        case sleep:gestioneDormita();
+        case sleep:
+            sleepManagemant();
         break;
-        case quizScenary:gestioneStudio();
+        case quizScenary:
+            studyManagemant();
         break;
-        case hangOutWithFriend:gestioneUscita();
+        case hangOutWithFriend:
+            hangOutManagemant();
             break;
-        case examScenary:gestioneEsame();
+        case examScenary:
+            examManagemant();
             break;
-        case save:gestioneSalvataggio();
+        case save:
+            saveManagement();
             break;
-        case gameOver:gestioneGameOver();
+        case gameOver:
+            gameOverManagemant();
 
     }
 
@@ -85,9 +91,14 @@ while(currentScenary!= Scenary.exit){
           public void readListOfExam(){
               System.out.println("scegli la materia da studiare ");
                 int count = 0 ;
+                String finalString="";
                         for(Exam e : exams){
-                            System.out.println(e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
-                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+                            finalString= finalString+ (e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
+                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()+ "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+
+                            System.out.println((e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
+                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()+ "\n")); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+
                         count++;
                         }
     }
@@ -106,19 +117,7 @@ while(currentScenary!= Scenary.exit){
 
         return applicant.getQuizScore();
     }
-//    public int iterateQuiz( Applicant applicant ) {
-//        int conteggio = applicant.getQuests().size()-1;
-//        while (conteggio > 0) {
-//            System.out.println(applicant.getCurrentQuest().getQuest());
-//            if(applicant.checkAnswer(readAnswer())){
-//                System.out.println("BRAVO");
-//            }
-//            else this.character.incrementStress(1);
-//            conteggio--;
-//        }
-//        return applicant.getQuizScore();
-//    }
-//
+
 public boolean readAnswer( ){
     String answer = String.valueOf(readInput());
  if(!answer.equals("true")&&!answer.equals("false")) throw new IllegalArgumentException("answer can be only true or false");
@@ -129,7 +128,7 @@ public boolean readAnswer( ){
 return false;
 }
 
-public void gestioneEsame(){
+public void examManagemant(){
     if (character.checkStress()){
         System.out.println("sei troppo stressato ,riposati");
         this.tornaAlMenu();
@@ -147,22 +146,23 @@ public void gestioneEsame(){
     this.tornaAlMenu();
 }
     @Override
-            public void gestioneStudio(){
+            public String studyManagemant(){
                 if (character.checkStress()){
                     System.out.println("sei troppo stressato ,riposati");
                     this.tornaAlMenu();
-                    return;
+
                 }
 
                 this.readListOfExam();
              int numeroSceltaEsame=Integer.parseInt(readInput());
         StudyQuiz quiz=  this.exams.get(numeroSceltaEsame).getQuizStudio();
-            System.out.println("quiz score : " + this.iterateQuiz(quiz));
-                this.tornaAlMenu();
+
+        this.tornaAlMenu();
+        return "quiz score : " + this.iterateQuiz(quiz);
             }
 
     @Override
-                        public void gestioneUscita(){
+                        public void hangOutManagemant(){
                             System.out.println("Quante ore vuoi uscire? lo stress per ora è di  : " +character.getStress() + "su: "+ character.getStressMax()+ " Ricorda, le uscite con gli amici alleviano tanto lo stress," +
                                     "ma allo stesso tempo decrementano la tua energia");
                             int ore = Integer.parseInt(readInput());
@@ -174,21 +174,22 @@ public void gestioneEsame(){
 
 
 
-@Override
-                        public void gestioneDormita(){
+                @Override
+                        public void sleepManagemant(){
                             System.out.println("Quante ore vuoi dormite? la tua stamina attuale è di : " +character.getEnergy() + "su: "+ character.getEnergyMAx());
                             int ore = Integer.parseInt(readInput());
                             character.sleep(ore);
                             this.tornaAlMenu();
                         }
-                        public void gestioneSalvataggio(){
+                        public void saveManagement(){
                             GameState gameState1=new GameState(this.character, exams);
                             StateOfGameSaver s1 = new StateOfGameSaver(gameState1,"C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json");
                             s1.save();
                             this.tornaAlMenu();
                         }
 
-                      public void gestioneGameOver(){
+                      public void gameOverManagemant(){
                     System.out.println("Hai perso");
 }
+public Character getCharacter(){return character;}
 }
