@@ -8,13 +8,14 @@ import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
 import it.unicam.universita.mdp2526.gui.Controller.GameMode;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.List;
 
 
 public class GraphicEngine implements Engine {
-    Character character;
+    private Character character;
     List<EnemyProfessor> professors;
     List<Exam> exams;
     private Scenary currentScenary;
@@ -73,16 +74,13 @@ public class GraphicEngine implements Engine {
         return finalString;
     }
 
-    // questo metodo lo uso per stampare i nomi di tutti gli esami
     public ObservableList<String> getExams() {
-        ObservableList<String> finalList = null;
-        int i = 0;
+        ObservableList<String> finalList = FXCollections.observableArrayList();
         for (Exam e : exams) {
             finalList.add(e.getName());
         }
         return finalList;
     }
-
     public void setApplicant(Applicant applicant) {
         currentQuiz = applicant;
     }
@@ -133,4 +131,5 @@ character.decrementEnergy(v);
 
 
 }
+
 

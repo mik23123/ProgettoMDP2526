@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
 public class SleepController implements FxController {
@@ -17,6 +18,8 @@ public class SleepController implements FxController {
     private ChoiceBox<Integer> hoursChoiceBox;
     @FXML
     private ProgressBar energyBar;
+    @FXML
+    private Label notify;
 
     @Override
     public void setSceneManager(SceneManager sceneManager) {
@@ -38,10 +41,29 @@ public class SleepController implements FxController {
     }
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
+
+    }
+
+    @Override
+    public void updateState() {
         setChoiceBox();
         setEnergyBar();
     }
+
     public void sleep(){
-        engine.getCharacter().sleep(hoursChoiceBox.getValue());
+if(!(engine.getCharacter().sleep(hoursChoiceBox.getValue()))){
+    System.out.println("premuto");
+    setNotify();
+}
+
+
+
+    }
+    public void exit(){
+        sceneManager.showMenuScene();
+    }
+    public void setNotify(){
+        System.out.println("premuto2");
+        notify.setText("La tua stamina è piena, esci per ritornare al menu");
     }
 }

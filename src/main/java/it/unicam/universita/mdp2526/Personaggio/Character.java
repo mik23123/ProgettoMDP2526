@@ -34,13 +34,10 @@ this.decrementStress(stressfinale);
         this.decrementEnergy((int)(energiaFinale)/2);
     }
     public boolean sleep(int ore){
-        if(getEnergy()> getEnergyMAx()){
-            System.out.println("Non puoi dormire, sei già riposato al massimo");
+        if(getEnergy()==getEnergyMAx()){
         return false;
         }
-                if((getEnergy()+ore)> getEnergyMAx()){
-                    throw new IllegalArgumentException("la stamina non può essere superiore a" + this.getEnergyMAx());
-                }
+
                 energy.increment(ore);
             return true;
     }

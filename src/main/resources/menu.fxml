@@ -14,22 +14,14 @@
 
         <Button layoutX="138.0" layoutY="331.0" mnemonicParsing="false" onAction="#examStart" text="Sfida Il Prof" />
 
-        <Button layoutX="366.0" layoutY="331.0" mnemonicParsing="false" onAction="#hangOutWithriends" text="Esci W friends" />
+        <Button layoutX="366.0" layoutY="331.0" mnemonicParsing="false" onAction="#hangOutWithFriendsStart" text="Esci W friends" />
 
-        <Button layoutX="515.0" layoutY="331.0" mnemonicParsing="false" onAction="#saveGame" text="Salva" />
+        <Button layoutX="515.0" layoutY="331.0" mnemonicParsing="false" onAction="#save" text="Salva" />
 
         <Button layoutX="639.0" layoutY="331.0" mnemonicParsing="false" onAction="#exit" text="Esci" textFill="WHITE" />
 
         <Button layoutX="266.0" layoutY="331.0" mnemonicParsing="false" onAction="#sleepStart" text="Dormi" />
 
-
-        <ImageView fitHeight="73.0" fitWidth="167.0" layoutX="537.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-
-            <image>
-                <Image url="@/images/logo_.png" />
-            </image>
-
-        </ImageView>
 
 
         <ProgressBar fx:id="lifeBar" layoutX="58.0" layoutY="255.0" prefHeight="20.0" prefWidth="107.0" />

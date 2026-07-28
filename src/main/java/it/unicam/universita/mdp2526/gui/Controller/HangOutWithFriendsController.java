@@ -22,9 +22,7 @@ public class HangOutWithFriendsController implements FxController{
     private ChoiceBox<Integer> hoursChoiceBox;
 
 
-    private HangOutWithFriendsController(){
 
-    }
 
     //qui setto il choice boxe con i numeri da 1 a 10
     public void setChoiceBox() {
@@ -38,8 +36,9 @@ public class HangOutWithFriendsController implements FxController{
         hoursChoiceBox.setItems(hours);
     }
 
+
 public void setStressBar(){
-        stressBar.setProgress(engine.getCharacter().getStress());
+    stressBar.setProgress(engine.getCharacter().getStress() / 10.0);
 }
     @Override
     public void setSceneManager(SceneManager sceneManager) {
@@ -49,12 +48,23 @@ public void setStressBar(){
     @Override
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
-        setChoiceBox();
-        setStressBar();
+
 
     }
-    private void confirmHangOut(){
+
+    @Override
+    public void updateState() {
+setStressBar();
+setChoiceBox();
+    }
+    public void confirmHangOut(){
+        System.out.println("premuto");
         engine.getCharacter().decrementStress(hoursChoiceBox.getValue());
+        engine.getCharacter().decrementEnergy(hoursChoiceBox.getValue());
+        setStressBar();
+    }
+    public void exit(){
+        sceneManager.showMenuScene();
     }
 
     }

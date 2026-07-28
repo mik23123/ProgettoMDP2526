@@ -4,14 +4,17 @@ import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
 import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.fxml.FXML;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
-import java.awt.*;
 
 public   class QuizController implements FxController {
     @FXML
     private Label  quizLabel;
     @FXML
     private Label  score;
+    @FXML
+    private Label  notify;
     private SceneManager sceneManager;
     private boolean answer;
     private GraphicEngine engine;
@@ -26,24 +29,28 @@ public   class QuizController implements FxController {
     @Override
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
-        updateView();
+
     }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void truePressed(){
-engine.getCurrentQuiz().checkAnswer(true);
-updateView();
+        if(!(engine.getCurrentQuiz().checkAnswer(true))); engine.getCharacter().incrementStress(1);
+updateState();
     }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void falsePressed(){
-        engine.getCurrentQuiz().checkAnswer(true);
-        updateView();
+        if(!(engine.getCurrentQuiz().checkAnswer(false))); engine.getCharacter().incrementStress(1);
+        updateState();
     }
 
     // questo viene azionato ogni volta che si preme conferma o start quiz. Non fa altro che prendere la current quest e metterla nella riga della domanda
     public void setCurrentQuestLabel(){
-        this.quizLabel.setText(engine.getCurrentQuiz().getCurrentQuest().getQuest());
+        if(engine.getCurrentQuiz().getCurrentQuest()==null)
+            notify.setText("Le domande sono finite, esci per tornare al menu principale");
+            else
+            this.quizLabel.setText(engine.getCurrentQuiz().getCurrentQuest().getQuest());
+
     }
 
 
@@ -52,10 +59,11 @@ updateView();
     }
 
 
-public void updateView(){
-        setCurrentQuestLabel();
+public void updateState(){
+    setCurrentQuestLabel();
         setScoreLabel();
 }
 
-
+public void exit(){            sceneManager.showMenuScene();
+}
 }

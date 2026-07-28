@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="712.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.SubjectController">
+   <children>
+      <Label fx:id="subjectLabel" layoutY="-1.0" prefHeight="651.0" prefWidth="678.0" text="SubjectLAbe" textAlignment="JUSTIFY" />
+      <ChoiceBox fx:id="choiceBoxeSubject" layoutX="689.0" layoutY="262.0" mouseTransparent="false" prefWidth="150.0">
+         <effect>
+            <ColorAdjust />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ChoiceBox>
+      <Label layoutX="711.0" layoutY="163.0" text="Seleziona la materia" />
+
+      
+      <Label layoutX="733.0" layoutY="45.0" prefHeight="17.0" prefWidth="106.0" text="Avvisi" />
+      <Label fx:id="notices" layoutX="737.0" layoutY="83.0" prefHeight="17.0" prefWidth="80.0" text="Label" />
+      <Button layoutX="738.0" layoutY="325.0" mnemonicParsing="false" text="Conferma" onAction="#quizStart" />
+   </children>
+</AnchorPane>

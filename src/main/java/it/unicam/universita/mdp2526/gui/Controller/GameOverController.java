@@ -18,7 +18,13 @@ public class GameOverController implements FxController{
         this.engine= (GraphicEngine)  engine;
 
     }
-public void restartGame(){
+
+    @Override
+    public void updateState() {
+
+    }
+
+    public void restartGame(){
 engine.restartGame();
 sceneManager.showMenuScene();
 }
