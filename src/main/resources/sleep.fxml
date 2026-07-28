@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.SleepController">
+   <children>
+      <ImageView fitHeight="608.0" fitWidth="609.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ima2ges.jpg" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="energyBar" layoutX="366.0" layoutY="21.0" prefWidth="200.0" progress="0.0" />
+      <Label layoutX="314.0" layoutY="22.0" text="Energia" />
+      <ChoiceBox fx:id="hoursChoiceBox" layoutX="46.0" layoutY="47.0" prefWidth="150.0" />
+      <Label layoutX="46.0" layoutY="14.0" prefHeight="33.0" prefWidth="150.0" text="per quante ore vuoi Dormire?" />
+      <Button layoutX="87.0" layoutY="81.0" mnemonicParsing="false" onAction="#sleep" text="Conferma" />
+      <Button layoutX="529.0" layoutY="350.0" mnemonicParsing="false" onAction="#exit" text="esci" />
+      <Label fx:id="notify" layoutX="14.0" layoutY="128.0" prefHeight="17.0" prefWidth="167.0" />
+   </children>
+</AnchorPane>

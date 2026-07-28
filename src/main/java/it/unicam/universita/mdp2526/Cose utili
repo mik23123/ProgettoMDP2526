@@ -1,0 +1,37 @@
+public void startGame(){
+        List<Esame> listaEesami = List.of(
+            new Esame("Matematica"),
+            new Esame("Programmazione"),
+            new Esame("Architettura degli Elaboratori"),
+            new Esame("Fondamenti di Informatica"),
+            new Esame("Statistica"),
+            new Esame("Algoritmi e Strutture Dati"),
+            new Esame("Reti di Calcolatori"),
+            new Esame("Sistemi Operativi"),
+            new Esame("Ricerca Operativa"),
+            new Esame("Metodologie di Programmazione"),
+            new Esame("Basi di Dati"),
+            new Esame("Ingegneria del Software"),
+            new Esame("Paradigmi di Programmazione"),
+            new Esame("Linguaggi e Compilatori"),
+            new Esame("Stage"),
+            new Esame("Tesi")
+    );
+        List<Enemy> professori = List.of(
+                new Enemy("Rossi"),
+                new Enemy("Bianchi"),
+                new Enemy("Verdi"),
+                new Enemy("Neri"),
+                new Enemy("Gallo"),
+                new Enemy("Costa"),
+                new Enemy("Ferrari"),
+                new Enemy("Romano"),
+                new Enemy("Esposito"),
+                new Enemy("De Luca"),
+                new Enemy("Greco"),
+                new Enemy("Conti"),
+                new Enemy("Marino"),
+                new Enemy("Lombardi"),
+                new Enemy("Moretti"),
+                new Enemy("Santoro")
+        );

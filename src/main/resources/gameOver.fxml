@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="531.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.GameOverController">
+   <children>
+       <ImageView fitHeight="602.0" fitWidth="485.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+           <image>
+               <Image url="@120564.jpg" />
+           </image>
+       </ImageView>
+      <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" text="Ricomincia" onAction="#restart" />
+      <Button layoutX="279.0" layoutY="491.0" mnemonicParsing="false" text="Esci" onAction="#exit" />
+   </children>
+</AnchorPane>
