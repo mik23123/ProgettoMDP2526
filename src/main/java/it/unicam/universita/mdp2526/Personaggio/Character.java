@@ -22,30 +22,21 @@ public class Character {
         return false;
     }
 
-    public void esci(int ore){
-int stressfinale=0;
-int energiaFinale=0;
-        while(ore>0){
-            stressfinale=stressfinale+1;
-            energiaFinale=energiaFinale+1;
-            ore--;
-        }
-this.decrementStress(stressfinale);
-        this.decrementEnergy((int)(energiaFinale)/2);
+    public boolean hangOut(int ore){
+    if(this.getStress()-ore<=0) this.stress.setStamina(0);
+       else  this.decrementStress(ore);
+    return true;
     }
+
     public boolean sleep(int ore){
-        if(getEnergy()==getEnergyMAx()){
-        return false;
+        if(getEnergy()+ore>=10){
+        this.stress.setStamina(0);
         }
 
                 energy.increment(ore);
             return true;
     }
 
-    public void eat(){
-        energy.increment(1);
-        food.increment(1);
-    }
 
 
 
@@ -71,7 +62,7 @@ this.decrementStress(stressfinale);
     public void incrementStress(int v){
         stress.setStamina(stress.getStamina()+v);
     }
-    public void decrementStress(int v){ stress.setStamina(stress.getStaminaMax()-v);}
+    public void decrementStress(int v){ stress.setStamina(stress.getStamina()-v);}
     public void decrementEnergy(int v){ energy.setStamina(energy.getStamina()-v);}
     public int getLifeMax() {
         return life.getStaminaMax();

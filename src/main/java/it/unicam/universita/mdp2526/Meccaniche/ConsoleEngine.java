@@ -165,7 +165,7 @@ public void examManagemant(){
                             System.out.println("Quante ore vuoi uscire? lo stress per ora è di  : " +character.getStress() + "su: "+ character.getStressMax()+ " Ricorda, le uscite con gli amici alleviano tanto lo stress," +
                                     "ma allo stesso tempo decrementano la tua energia");
                             int ore = Integer.parseInt(readInput());
-                          character.esci(ore);
+                          character.hangOut(ore);
 
                             this.tornaAlMenu();
                         }

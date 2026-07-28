@@ -18,19 +18,7 @@ public class EnemyProfessor extends Applicant {
     }
     public String getName(){return this.name;}
     // this change for devcrement of life of professor
-    @Override
-    public boolean checkAnswer(boolean risposta){
-        if (getCurrentQuest().isAnswer()==risposta) {
-            incerementQuizScore(1);
-            removeQuest(getQuestIndex());
-            this.nextQuest();
-            return  true;
 
-        }
-
-        this.nextQuest();
-        return false;
-    }
     public State getTried(){return tried;}
     public void decrementTried(){this.tried.decrement(1);}
 

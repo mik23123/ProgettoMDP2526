@@ -58,9 +58,9 @@ setStressBar();
 setChoiceBox();
     }
     public void confirmHangOut(){
-        System.out.println("premuto");
-        engine.getCharacter().decrementStress(hoursChoiceBox.getValue());
-        engine.getCharacter().decrementEnergy(hoursChoiceBox.getValue());
+        engine.getCharacter().hangOut(hoursChoiceBox.getValue());
+        System.out.println(engine.getCharacter().getStress());
+        engine.getCharacter().sleep(hoursChoiceBox.getValue());
         setStressBar();
     }
     public void exit(){

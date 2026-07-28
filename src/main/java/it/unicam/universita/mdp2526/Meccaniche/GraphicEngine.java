@@ -60,14 +60,12 @@ public class GraphicEngine implements Engine {
 
     // questo fa la lista degli esami con tutte gli "avanzamenti dello studio"
     public String readListOfExam() {
-        System.out.println("scegli la materia da studiare ");
         int count = 0;
         String finalString = "";
         for (Exam e : exams) {
-            System.out.println(e.getName() +
-                    "  livello di preparazione esame: " + e.getQuizStudio().getQuizScore() + " professore : " + e.getExamProfessor().getName() + " prove esame disponibili : " + e.getExamProfessor().getTried().getStamina()); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
-            finalString = finalString + (e.getName() + " inserisci  " + count + "  per selezionare questo esame " +
-                    "  livello di preparazione esame: " + e.getQuizStudio().getQuizScore() + " professore : " + e.getExamProfessor().getName() + " prove esame disponibili : " + e.getExamProfessor().getTried().getStamina() + "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+            finalString = finalString + (e.getName()+"  livello di preparazione esame: "
+                    + e.getQuizStudio().getQuizScore() + " su 30     professore : " + e.getExamProfessor().getName() +
+                    " prove esame disponibili : " + e.getExamProfessor().getTried().getStamina() + "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
 
             count++;
         }
