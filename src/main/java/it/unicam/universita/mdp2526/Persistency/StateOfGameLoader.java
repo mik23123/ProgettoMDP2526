@@ -30,7 +30,7 @@ public class StateOfGameLoader implements Loader {
  public void deleteSaving(){saveState=null;
      FileWriter writer=null;
      try {
-          writer = new FileWriter("save.json");
+          writer = new FileWriter("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json");
          writer.write("");
          writer.close();
      } catch (IOException e) {

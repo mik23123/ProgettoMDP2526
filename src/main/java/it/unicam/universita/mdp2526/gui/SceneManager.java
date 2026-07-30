@@ -1,6 +1,7 @@
 package it.unicam.universita.mdp2526.gui;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
+import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
 import it.unicam.universita.mdp2526.gui.Controller.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,10 +13,10 @@ import java.io.IOException;
 public class SceneManager {
 
     private final Stage stage;
-    private final Engine engine;
-
+    private final GraphicEngine engine;
+private   FXMLLoader loader;
     public SceneManager(Engine engine, Stage stage) {
-        this.engine = engine;
+        this.engine = (GraphicEngine) engine;
         this.stage = stage;
     }
 
@@ -25,7 +26,8 @@ public class SceneManager {
     private <T extends FxController> void loadScene(String fxml) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/" + fxml));
-            Parent root = loader.load();
+            this.loader=loader;
+          Parent root = loader.load();
 
             T controller = loader.getController();
 

@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
 import javax.swing.text.html.ImageView;
@@ -20,7 +21,8 @@ public class HangOutWithFriendsController implements FxController{
     private ProgressBar stressBar;
     @FXML
     private ChoiceBox<Integer> hoursChoiceBox;
-
+    @FXML
+    private Label notify;
 
 
 
@@ -58,9 +60,9 @@ setStressBar();
 setChoiceBox();
     }
     public void confirmHangOut(){
-        engine.getCharacter().hangOut(hoursChoiceBox.getValue());
+        if(!engine.getCharacter().hangOut(hoursChoiceBox.getValue())){
+            notify.setText("non hai abbastanza energie per uscire così tante ore!!");}
         System.out.println(engine.getCharacter().getStress());
-        engine.getCharacter().sleep(hoursChoiceBox.getValue());
         setStressBar();
     }
     public void exit(){

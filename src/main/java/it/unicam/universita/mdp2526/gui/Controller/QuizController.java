@@ -34,13 +34,13 @@ public   class QuizController implements FxController {
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void truePressed(){
-        if(!(engine.getCurrentQuiz().checkAnswer(true))); engine.getCharacter().incrementStress(1);
+        if(!(engine.getCurrentQuiz().checkAnswer(true)))engine.getCharacter().incrementStress(1);
 updateState();
     }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void falsePressed(){
-        if(!(engine.getCurrentQuiz().checkAnswer(false))); engine.getCharacter().incrementStress(1);
+        if(!(engine.getCurrentQuiz().checkAnswer(false))) engine.getCharacter().incrementStress(1);
         updateState();
     }
 
@@ -64,6 +64,7 @@ public void updateState(){
         setScoreLabel();
 }
 
-public void exit(){            sceneManager.showMenuScene();
+public void exit(){
+        sceneManager.showMenuScene();
 }
 }

@@ -37,7 +37,7 @@ public class SleepController implements FxController {
         hoursChoiceBox.setItems(hours);
     }
     public void setEnergyBar(){
-        energyBar.setProgress(engine.getCharacter().getEnergy());
+        energyBar.setProgress(engine.getCharacter().getEnergy() / 10.0);
     }
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
@@ -51,13 +51,8 @@ public class SleepController implements FxController {
     }
 
     public void sleep(){
-if(!(engine.getCharacter().sleep(hoursChoiceBox.getValue()))){
-    System.out.println("premuto");
-    setNotify();
-}
-
-
-
+engine.sleepManagemant(hoursChoiceBox.getValue());
+        setEnergyBar();
     }
     public void exit(){
         sceneManager.showMenuScene();

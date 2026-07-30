@@ -22,13 +22,14 @@ public class GraphicEngine implements Engine {
     StateOfGameLoader loader;
     private Applicant currentQuiz;
     private GameMode mode;
+    private boolean buttonStudyJustPressed;
 
 
     public GraphicEngine(Character personaggio, List<Exam> examList, List<EnemyProfessor> professors) {
         if (personaggio == null)
             throw new IllegalArgumentException("professore e personaggio non possono essere nulli");
         this.loader = new StateOfGameLoader();
-        if (loader.load("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\saving\\save.json")) {
+        if (loader.load("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json")) {
             this.character = this.loader.getSaveState().getCharacter();
             this.exams = this.loader.getSaveState().getExam();
         } else {
@@ -37,6 +38,7 @@ public class GraphicEngine implements Engine {
         }
         this.professors = professors;
         currentScenary = Scenary.menu;
+        this.buttonStudyJustPressed=false;
 
     }
 
@@ -118,16 +120,30 @@ public class GraphicEngine implements Engine {
     }
 
 
+public boolean checkgGameOver(){
+        if(character.getLife()<=0) {return true;}
+
+        return false;
+}
+// controlla se il personaggio ha la stamina dello stress superiore al 9, se si toglie una vita
+
     public void hangOutManagemant(int v) {
         character.decrementStress(v);
     }
 
 
     public void sleepManagemant(int v) {
-character.decrementEnergy(v);
+character.incrementEnergy(v);
     }
 
 
+    public boolean isButtonStudyJustPressed() {
+        return buttonStudyJustPressed;
+    }
+
+    public void setButtonStudyJustPressed(boolean buttonStudyJustPressed) {
+        this.buttonStudyJustPressed = buttonStudyJustPressed;
+    }
 }
 
 

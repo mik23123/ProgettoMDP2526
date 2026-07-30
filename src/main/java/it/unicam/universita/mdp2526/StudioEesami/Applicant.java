@@ -7,9 +7,9 @@ public abstract class Applicant {
 
     private List<Quest> quests;
     private Quest currentQuest;
-    private Exam exam;
     private int quizScore;
     private int questIndex;
+
 
     public Applicant(List<Quest> questList){
         if(questList==null) throw   new IllegalArgumentException("parametri non possono essere nulli");
@@ -22,10 +22,6 @@ public abstract class Applicant {
 
     public List<Quest> getQuests() {
         return quests;
-    }
-
-    public Exam getExam() {
-        return exam;
     }
 
     public int getQuizScore() {
@@ -61,6 +57,7 @@ public Quest nextQuest() {
     return currentQuest;
 }
     public boolean checkAnswer(boolean risposta){
+        if(currentQuest==null) return false;
         if (currentQuest.isAnswer() == risposta) {
             quizScore++;
             removeQuest(questIndex);

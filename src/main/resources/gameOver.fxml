@@ -11,7 +11,6 @@
                <Image url="@120564.jpg" />
            </image>
        </ImageView>
-      <Button layoutX="70.0" layoutY="491.0" mnemonicParsing="false" text="Ricomincia" onAction="#restart" />
-      <Button layoutX="279.0" layoutY="491.0" mnemonicParsing="false" text="Esci" onAction="#exit" />
+      <Button layoutX="119.0" layoutY="489.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="184.0" text="Esci" />
    </children>
 </AnchorPane>

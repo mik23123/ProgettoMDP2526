@@ -3,6 +3,7 @@ package it.unicam.universita.mdp2526.gui.Controller;
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
 import it.unicam.universita.mdp2526.gui.SceneManager;
+import javafx.fxml.FXML;
 
 public class GameOverController implements FxController{
     private SceneManager sceneManager;
@@ -23,10 +24,13 @@ public class GameOverController implements FxController{
     public void updateState() {
 
     }
+    @FXML
+    public void exit() {
+        engine.restartGame();
 
-    public void restartGame(){
-engine.restartGame();
-sceneManager.showMenuScene();
-}
+        System.exit(0);
+    }
+
+
 
 }
