@@ -51,8 +51,10 @@ public class SubjectController implements FxController {
     }
 
     public void  quizStart(){
-        if(engine.getMode()==GameMode.EXAM)
+        if(engine.getMode()==GameMode.EXAM){
             engine.examManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+            ;
+        }
 else
             engine.studyManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
 

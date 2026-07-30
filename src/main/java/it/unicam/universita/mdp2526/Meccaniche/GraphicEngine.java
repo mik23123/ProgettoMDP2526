@@ -106,11 +106,10 @@ public class GraphicEngine implements Engine {
     }
 
     public void examManagemant(int index) {
-        if (character.checkStress()) {
-
-        }
         int numeroSceltaEsame = index;
-        this.currentQuiz = this.exams.get(numeroSceltaEsame).getExamProfessor();
+        EnemyProfessor e1 =this.exams.get(numeroSceltaEsame).getExamProfessor();
+        this.currentQuiz = e1;
+        e1.decrementTried();
     }
 
     public Character getCharacter() {
@@ -120,8 +119,6 @@ public class GraphicEngine implements Engine {
 
 
     public void studyManagemant(int index) {
-        if (character.checkStress()) {
-        }
         int numeroSceltaEsame = index;
         this.currentQuiz = this.exams.get(numeroSceltaEsame).getQuizStudio();
     }

@@ -13,7 +13,6 @@ public class EnemyProfessor extends Applicant {
         if(quests==null) throw   new IllegalArgumentException("parameter cant be null");
         super(quests);
         this.name=name;
-        this.tried = new State(31," Life of professor");
         this.tried.setStamina(4);
             }
     public String getName(){return this.name;}
