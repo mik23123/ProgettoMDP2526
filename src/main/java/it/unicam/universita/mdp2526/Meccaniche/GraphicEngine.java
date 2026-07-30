@@ -11,6 +11,7 @@ import it.unicam.universita.mdp2526.gui.Controller.GameMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -23,13 +24,15 @@ public class GraphicEngine implements Engine {
     private Applicant currentQuiz;
     private GameMode mode;
     private boolean buttonStudyJustPressed;
+    private static final String SAVE_PATH =
+            System.getProperty("user.dir") + File.separator + "Saving" + File.separator + "save.json";
 
 
     public GraphicEngine(Character personaggio, List<Exam> examList, List<EnemyProfessor> professors) {
         if (personaggio == null)
             throw new IllegalArgumentException("professore e personaggio non possono essere nulli");
         this.loader = new StateOfGameLoader();
-        if (loader.load("C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json")) {
+        if (loader.load("Saving/save.json")) {
             this.character = this.loader.getSaveState().getCharacter();
             this.exams = this.loader.getSaveState().getExam();
         } else {
@@ -43,7 +46,7 @@ public class GraphicEngine implements Engine {
     }
 
     public void restartGame() {
-        this.loader.deleteSaving();
+        this.loader.deleteSaving("Saving/save.json");
 
     }    // questi sono dei metodi che mi serviranno per impostare se il quiz deve essere di studio o esame.
 
@@ -86,12 +89,16 @@ public class GraphicEngine implements Engine {
     }
 
 
-    public void saveManagement() {
-        GameState gameState1 = new GameState(this.character, exams);
-        StateOfGameSaver s1 = new StateOfGameSaver(gameState1, "C:\\Users\\ASUS\\Desktop\\Progetti\\Esame\\src\\main\\resources\\Saving\\save.json");
-        s1.save();
-    }
-
+        public void saveManagement() {
+          // in pratica crea una cartella di nome Saving e poi va a salvare il file json ogni volta su quella cartella
+            File dir = new File(System.getProperty("user.dir") + File.separator + "Saving");
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            GameState gameState1 = new GameState(this.character, exams);
+            StateOfGameSaver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
+            s1.save();
+        }
 
 
     public Applicant getCurrentQuiz() {
@@ -133,7 +140,7 @@ public boolean checkgGameOver(){
 
 
     public void sleepManagemant(int v) {
-character.incrementEnergy(v);
+character.sleep(v);
     }
 
 

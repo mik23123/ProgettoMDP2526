@@ -41,12 +41,12 @@ public class Character {
     }
 
     public boolean sleep(int ore){
-        if(getEnergy()+ore>=10){
-        this.energy.setStamina(0);
+        energy.increment(ore);
+        System.out.println(getEnergy());
+        if(getEnergy()>=10){
+        this.energy.setStamina(10);
         }
-else
-                energy.increment(ore);
-            return true;
+        return true;
     }
 
 
