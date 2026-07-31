@@ -34,7 +34,7 @@ public class Main extends Application {
         EnemyProfessor p8 = new EnemyProfessor(j1.build("ProfessorQuests/ExamricercaOperativa.json"),  "Esposito");
         EnemyProfessor p9 = new EnemyProfessor(j1.build("ProfessorQuests/Exammetodologie.json"),  "De Luca");
         EnemyProfessor p10 = new EnemyProfessor(j1.build("ProfessorQuests/ExambasiDiDati.json"), "Greco");
-        EnemyProfessor p11 = new EnemyProfessor(j1.build("ProfessorQuests/Examtesi.json"),  "Santoro");
+
 
         List<Exam> listaEsami = new ArrayList<>();
         Exam esameProgrammazione = new Exam("Programmazione", new StudyQuiz(j1.build("QuizQuests/programmazione.json")), p1);
@@ -47,7 +47,6 @@ public class Main extends Application {
         Exam esameRicercaOperativa = new Exam("Ricerca Operativa", new StudyQuiz(j1.build("QuizQuests/ricercaOperativa.json")), p8);
         Exam esameMetodologie = new Exam("Metodologie di Programmazione", new StudyQuiz(j1.build("QuizQuests/metodologie.json")), p9);
         Exam esameBasiDiDati = new Exam("Basi di Dati", new StudyQuiz(j1.build("QuizQuests/basiDiDati.json")), p10);
-        Exam esameTesi = new Exam("Tesi", new StudyQuiz(j1.build("QuizQuests/tesi.json")), p11);
 
         p1.setExam(esameProgrammazione);
         p2.setExam(esameArchitettura);
@@ -59,7 +58,6 @@ public class Main extends Application {
         p8.setExam(esameRicercaOperativa);
         p9.setExam(esameMetodologie);
         p10.setExam(esameBasiDiDati);
-        p11.setExam(esameTesi);
 
         listaEsami.add(esameProgrammazione);
         listaEsami.add(esameArchitettura);
@@ -71,10 +69,9 @@ public class Main extends Application {
         listaEsami.add(esameRicercaOperativa);
         listaEsami.add(esameMetodologie);
         listaEsami.add(esameBasiDiDati);
-        listaEsami.add(esameTesi);
 
         List<EnemyProfessor> professors = List.of(
-                p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11
+                p1,p2,p3,p4,p5,p6,p7,p8,p9,p10
         );
 
 

@@ -10,7 +10,7 @@
       <Button layoutX="521.0" layoutY="361.0" mnemonicParsing="false" text="esci" onAction="#exit" />
       <ImageView fitHeight="602.0" fitWidth="485.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Untitled.jpg" />
+            <Image url="@foto/Untitled.jpg" />
          </image>
       </ImageView>
    </children>

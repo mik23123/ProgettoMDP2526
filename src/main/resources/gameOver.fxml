@@ -8,7 +8,7 @@
    <children>
        <ImageView fitHeight="602.0" fitWidth="485.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
            <image>
-               <Image url="@120564.jpg" />
+               <Image url="@foto/120564.jpg" />
            </image>
        </ImageView>
       <Button layoutX="119.0" layoutY="489.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="184.0" text="Esci" />

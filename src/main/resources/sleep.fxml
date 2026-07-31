@@ -8,7 +8,7 @@
    <children>
       <ImageView fitHeight="608.0" fitWidth="609.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@ima2ges.jpg" />
+            <Image url="@foto/ima2ges.jpg" />
          </image>
       </ImageView>
       <ProgressBar fx:id="energyBar" layoutX="366.0" layoutY="21.0" prefWidth="200.0" progress="0.0" />
