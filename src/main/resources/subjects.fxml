@@ -17,6 +17,8 @@
          </cursor>
       </ChoiceBox>
       <Label layoutX="711.0" layoutY="163.0" text="Seleziona la materia" />
-      <Button layoutX="738.0" layoutY="325.0" mnemonicParsing="false" onAction="#quizStart" text="Conferma" />
+      <Button layoutX="689.0" layoutY="325.0" mnemonicParsing="false" onAction="#quizStart" text="Conferma" />
+      <Button layoutX="801.0" layoutY="325.0" mnemonicParsing="false" onAction="#StartClearQuiz" text="Pulisci Quiz" />
+      <Button layoutX="894.0" layoutY="527.0" mnemonicParsing="false" text="Esci"  onAction="#exit"/>
    </children>
 </AnchorPane>

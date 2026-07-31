@@ -27,6 +27,10 @@ public  class Exam {
     }
 
 
+    public boolean isExamPassed() {
+        return examPassed;
+    }
+
     /**
      * Questo parametro sarà gestito dalla classe quiz, e rappresenta il livello di preparazione per il singolo esame
      *
@@ -98,5 +102,18 @@ public  class Exam {
     public void setTrueExamPassed() {
         this.examPassed = true;
     }
+
+    @Override
+    public String toString() {
+        return "Exam{" +
+                "name='" + name + '\'' +
+                ", risultato=" + risultato +
+                ", professor=" + professor +
+                ", examPassed=" + examPassed +
+                ", vote=" + vote +
+                '}';
+    }
 }
+
+
 

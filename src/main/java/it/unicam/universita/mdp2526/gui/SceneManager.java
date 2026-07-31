@@ -70,4 +70,7 @@ private   FXMLLoader loader;
     public void showGameOverScene() {
         loadScene("gameOver.fxml");
     }
+    public void showExamPassedScene() {
+        loadScene("examPassed.fxml");
+    }
 }

@@ -13,7 +13,7 @@ public class EnemyProfessor extends Applicant {
         if(quests==null) throw   new IllegalArgumentException("parameter cant be null");
         super(quests);
         this.name=name;
-        this.tried.setStamina(4);
+
             }
     public String getName(){return this.name;}
 
@@ -22,8 +22,7 @@ public class EnemyProfessor extends Applicant {
         this.exam=exam;
     }
     // this change for devcrement of life of professor
-    public State getTried(){return tried;}
-    public void decrementTried(){this.tried.decrement(1);}
+
 
     public Exam getExam(){
         return this.exam;
@@ -31,15 +30,16 @@ public class EnemyProfessor extends Applicant {
 
     /**
      * this method enable professor to give votation to exam
-     * @param vote
      * @return
      */
-    public boolean approveExam(int vote) {
+    public boolean approveExam() {
         if (getQuizScore() > 18) {
             this.getExam().setTrueExamPassed();
-            this.getExam().setVote(vote);
+            this.getExam().setVote(getQuizScore());
+            this.name=name+"  ESAME PASSATO  ";
             return true;
         }
         return false;
     }
+
 }

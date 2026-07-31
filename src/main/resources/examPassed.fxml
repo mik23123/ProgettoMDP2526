@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.ExamPassedController">
+   <children>
+      <Button layoutX="521.0" layoutY="361.0" mnemonicParsing="false" text="esci" onAction="#exit" />
+      <ImageView fitHeight="602.0" fitWidth="485.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Untitled.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

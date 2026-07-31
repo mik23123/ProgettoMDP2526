@@ -7,6 +7,7 @@ import it.unicam.universita.mdp2526.Personaggio.Character;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
+import it.unicam.universita.mdp2526.StudioEesami.StudyQuiz;
 import it.unicam.universita.mdp2526.gui.Controller.GameMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,6 +24,7 @@ public class GraphicEngine implements Engine {
     StateOfGameLoader loader;
     private Applicant currentQuiz;
     private GameMode mode;
+    private boolean gameOver;
     private boolean buttonStudyJustPressed;
     private static final String SAVE_PATH =
             System.getProperty("user.dir") + File.separator + "Saving" + File.separator + "save.json";
@@ -42,7 +44,7 @@ public class GraphicEngine implements Engine {
         this.professors = professors;
         currentScenary = Scenary.menu;
         this.buttonStudyJustPressed=false;
-
+        this.gameOver=false;
     }
 
     public void restartGame() {
@@ -69,8 +71,7 @@ public class GraphicEngine implements Engine {
         String finalString = "";
         for (Exam e : exams) {
             finalString = finalString + (e.getName()+"  livello di preparazione esame: "
-                    + e.getQuizStudio().getQuizScore() + " su 30     professore : " + e.getExamProfessor().getName() +
-                    " prove esame disponibili : " + e.getExamProfessor().getTried().getStamina() + "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+                    + e.getQuizStudio().getQuizScore() + " su 30     professore : " + e.getExamProfessor().getName() + "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
 
             count++;
         }
@@ -83,9 +84,6 @@ public class GraphicEngine implements Engine {
             finalList.add(e.getName());
         }
         return finalList;
-    }
-    public void setApplicant(Applicant applicant) {
-        currentQuiz = applicant;
     }
 
 
@@ -106,10 +104,13 @@ public class GraphicEngine implements Engine {
     }
 
     public void examManagemant(int index) {
-        int numeroSceltaEsame = index;
-        EnemyProfessor e1 =this.exams.get(numeroSceltaEsame).getExamProfessor();
+        EnemyProfessor e1 =this.exams.get(index).getExamProfessor();
+        e1.clearQuiz();
         this.currentQuiz = e1;
-        e1.decrementTried();
+    }
+    public boolean isExamPassed(){
+        EnemyProfessor e2 =(EnemyProfessor) currentQuiz;
+        return e2.approveExam();
     }
 
     public Character getCharacter() {
@@ -118,17 +119,18 @@ public class GraphicEngine implements Engine {
 
 
 
-    public void studyManagemant(int index) {
-        int numeroSceltaEsame = index;
-        this.currentQuiz = this.exams.get(numeroSceltaEsame).getQuizStudio();
+    public void studyManagemant(int numeroSceltaEsame) {
+
+        StudyQuiz q1 =this.exams.get(numeroSceltaEsame).getQuizStudio();
+        this.currentQuiz = q1;
     }
 
 
-public boolean checkgGameOver(){
-        if(character.getLife()<=0) {return true;}
-
+public boolean  checkgGameOver(){
+        if(character.getLife()<=0 ) {return true;}
         return false;
 }
+
 // controlla se il personaggio ha la stamina dello stress superiore al 9, se si toglie una vita
 
     public void hangOutManagemant(int v) {
@@ -145,8 +147,29 @@ character.sleep(v);
         return buttonStudyJustPressed;
     }
 
+
     public void setButtonStudyJustPressed(boolean buttonStudyJustPressed) {
         this.buttonStudyJustPressed = buttonStudyJustPressed;
+    }
+public void clearQuiz(int indexOfQuiz){
+        this.exams.get(indexOfQuiz).getQuizStudio().clearQuiz();
+}
+public String universityTranscriptStamp(){
+        String s1="";
+        for(Exam e1 : exams){
+        s1= s1 + e1.toString() + "\n";
+}
+return s1;
+}
+    public boolean checkVictory() {
+
+        for (Exam exam : exams) {
+            if (!exam.isExamPassed()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
 

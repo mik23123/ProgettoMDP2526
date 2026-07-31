@@ -94,10 +94,10 @@ while(currentScenary!= Scenary.exit){
                 String finalString="";
                         for(Exam e : exams){
                             finalString= finalString+ (e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
-                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()+ "\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+"\n"); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
 
                             System.out.println((e.getName()+" inserisci  " +count + "  per selezionare questo esame " +
-                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ e.getExamProfessor().getTried().getStamina()+ "\n")); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
+                                    "  livello di preparazione esame: "+ e.getQuizStudio().getQuizScore()+" professore : "+ e.getExamProfessor().getName()+" prove esame disponibili : "+ "\n")); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
 
                         count++;
                         }
@@ -139,10 +139,8 @@ public void examManagemant(){
     int numeroSceltaEsame=Integer.parseInt(readInput());
 
    EnemyProfessor professor =  this.exams.get(numeroSceltaEsame).getExamProfessor();
-   if(professor.getTried().getStamina()<0) this.gameOver();
     this.iterateQuiz(professor);
     System.out.println("decrement");
-    professor.decrementTried();
     this.tornaAlMenu();
 }
 

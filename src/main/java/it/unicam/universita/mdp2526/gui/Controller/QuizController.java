@@ -46,9 +46,11 @@ updateState();
 
     // questo viene azionato ogni volta che si preme conferma o start quiz. Non fa altro che prendere la current quest e metterla nella riga della domanda
     public void setCurrentQuestLabel(){
-        if(engine.getCurrentQuiz().getCurrentQuest()==null)
+        if(engine.getCurrentQuiz().getCurrentQuest()==null) {
             notify.setText("Le domande sono finite, esci per tornare al menu principale");
-            else
+            // se stai facendo l'esame, hai finito le domande e hai passato l'esame
+            if(engine.getMode()==GameMode.EXAM&& engine.isExamPassed()) sceneManager.showExamPassedScene();
+        }   else
             this.quizLabel.setText(engine.getCurrentQuiz().getCurrentQuest().getQuest());
 
     }

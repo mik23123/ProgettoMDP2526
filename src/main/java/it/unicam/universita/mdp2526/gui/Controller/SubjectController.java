@@ -49,11 +49,19 @@ public class SubjectController implements FxController {
         System.out.println("Numero esami: " + lista.size()); // debug
         choiceBoxeSubject.setItems(lista);
     }
+public void clearQuiz(){
+
+}
 
     public void  quizStart(){
-        if(engine.getMode()==GameMode.EXAM){
+        if (choiceBoxeSubject.getSelectionModel().getSelectedIndex() == -1) {
+            notice.setText("Seleziona prima una materia!");
+            return;
+        }
+
+
+        if(engine.getMode()==GameMode.EXAM) {
             engine.examManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
-            ;
         }
 else
             engine.studyManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
@@ -61,5 +69,11 @@ else
 sceneManager.showQuizScene();
 
     }
-
+    public void StartClearQuiz(){
+        engine.clearQuiz(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+        updateState();
+    }
+    public void exit(){
+        sceneManager.showMenuScene();
+    }
 }

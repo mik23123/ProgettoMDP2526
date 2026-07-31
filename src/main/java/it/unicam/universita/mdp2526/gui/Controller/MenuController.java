@@ -72,7 +72,6 @@ public class MenuController implements FxController {
 
 
 public boolean checkGameOver(){
-
         if(this.engine.checkgGameOver()) {
             sceneManager.showGameOverScene();
             return true;
@@ -110,15 +109,26 @@ if (c1.checkStress() ) {
 
     @FXML
     public void examStart() {
+        if(checkGameOver()) return;
+        if(engine.isButtonStudyJustPressed()) {
+            notify.setText("se cerchi di fare l'esame  con cos' tanto stress, perderai vita");
+            return;}
 
+        Character c1 =  engine.getCharacter();
 
-
-        if (engine.getCharacter().checkStress()) {
-            notify.setText("Sei troppo stressato, riposati.");
+// allora, in pratica se il personaggio e stressato e il bottone studia non è stato gia premuto allora applica la penalità
+        if (c1.checkStress() ) {
+            c1.applyStressPenalty();
+            setStateBar();
+            notify.setText("Sei troppo stressato, riposati. Il personaggio sta perdendo vita, ATTENTO");
+            checkGameOver();
+            engine.setButtonStudyJustPressed(true);
             return;
         }
         sceneManager.showSubjectsScene();
         engine.setExamMode();
+        engine.setButtonStudyJustPressed(false);
+
 
 
     }
