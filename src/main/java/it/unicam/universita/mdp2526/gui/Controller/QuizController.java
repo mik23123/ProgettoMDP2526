@@ -50,7 +50,9 @@ updateState();
             notify.setText("Le domande sono finite, esci per tornare al menu principale");
             // se stai facendo l'esame, hai finito le domande e hai passato l'esame
             if(engine.getMode()==GameMode.EXAM&& engine.isExamPassed()) sceneManager.showExamPassedScene();
-        }   else
+             if(engine.getMode()==GameMode.EXAM&& engine.checkVictory()) sceneManager.s
+            }
+        else
             this.quizLabel.setText(engine.getCurrentQuiz().getCurrentQuest().getQuest());
 
     }

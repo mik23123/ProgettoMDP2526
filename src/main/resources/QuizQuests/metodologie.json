@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "La programmazione strutturata si basa sull'uso di sequenze, selezioni e iterazioni?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un algoritmo può essere rappresentato graficamente tramite un diagramma di flusso?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un diagramma di flusso utilizza simboli standard per rappresentare le operazioni di un algoritmo?",
+    "answer": "true"
+  },
+  {
+    "quest": "La fase di analisi di un problema viene eseguita prima della scrittura del codice?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il debugging consiste nel trovare e correggere gli errori presenti in un programma?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un errore sintattico impedisce al programma di essere compilato correttamente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un errore logico produce sempre un errore di compilazione?",
+    "answer": "false"
+  },
+  {
+    "quest": "La complessità di un algoritmo permette di valutare l'efficienza rispetto alla dimensione dell'input?",
+    "answer": "true"
+  },
+  {
+    "quest": "La notazione O-grande descrive il limite superiore asintotico della crescita di un algoritmo?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un algoritmo con complessità O(1) ha tempo di esecuzione indipendente dalla dimensione dell'input?",
+    "answer": "true"
+  },
+  {
+    "quest": "La ricerca sequenziale controlla gli elementi uno alla volta fino a trovare quello cercato?",
+    "answer": "true"
+  },
+  {
+    "quest": "La ricerca binaria può essere applicata solamente su dati ordinati?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'algoritmo Bubble Sort confronta elementi adiacenti per effettuare gli scambi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Merge Sort utilizza una strategia divide et impera?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un algoritmo greedy prende sempre la decisione migliore localmente in ogni passo?",
+    "answer": "true"
+  },
+  {
+    "quest": "La programmazione dinamica risolve problemi dividendo il problema in sottoproblemi e memorizzando risultati già calcolati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La ricorsione consiste nel fatto che una funzione richiama se stessa durante l'esecuzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Ogni funzione ricorsiva deve avere un caso base per terminare correttamente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una variabile globale è accessibile solamente all'interno della funzione in cui è dichiarata?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una variabile locale esiste generalmente solo durante l'esecuzione del blocco in cui è definita?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'incapsulamento è uno dei principi fondamentali della programmazione orientata agli oggetti?",
+    "answer": "true"
+  },
+  {
+    "quest": "In programmazione orientata agli oggetti una classe definisce caratteristiche e comportamenti degli oggetti?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un oggetto è un'istanza di una classe?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'ereditarietà permette a una classe di acquisire proprietà e metodi di un'altra classe?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il polimorfismo permette a oggetti diversi di rispondere allo stesso messaggio in modo differente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un puntatore contiene il valore della variabile a cui fa riferimento e non il suo indirizzo?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una lista concatenata è composta da nodi collegati tramite riferimenti o puntatori?",
+    "answer": "true"
+  },
+  {
+    "quest": "Uno stack segue il principio LIFO (Last In First Out)?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una coda segue generalmente il principio FIFO (First In First Out)?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il testing del software serve a verificare il corretto funzionamento del programma?",
+    "answer": "true"
+  }
+]

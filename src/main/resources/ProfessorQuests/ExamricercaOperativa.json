@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "La Ricerca Operativa utilizza modelli matematici per supportare decisioni ottimali?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un problema di ottimizzazione consiste nel trovare la soluzione migliore tra un insieme di soluzioni possibili?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione obiettivo rappresenta la quantità che si vuole massimizzare o minimizzare?",
+    "answer": "true"
+  },
+  {
+    "quest": "I vincoli di un problema di programmazione matematica rappresentano le limitazioni sulle variabili decisionali?",
+    "answer": "true"
+  },
+  {
+    "quest": "La programmazione lineare utilizza esclusivamente funzioni obiettivo e vincoli lineari?",
+    "answer": "true"
+  },
+  {
+    "quest": "In un problema di programmazione lineare le variabili decisionali possono sempre assumere solamente valori interi?",
+    "answer": "false"
+  },
+  {
+    "quest": "Il metodo del simplesso è un algoritmo utilizzato per risolvere problemi di programmazione lineare?",
+    "answer": "true"
+  },
+  {
+    "quest": "La regione ammissibile di un problema di programmazione lineare contiene tutte le soluzioni che rispettano i vincoli?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una soluzione ottima è una soluzione ammissibile che migliora il valore della funzione obiettivo rispetto alle altre?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un problema di massimizzazione cerca di rendere minima la funzione obiettivo?",
+    "answer": "false"
+  },
+  {
+    "quest": "La programmazione intera richiede che alcune o tutte le variabili decisionali siano numeri interi?",
+    "answer": "true"
+  },
+  {
+    "quest": "La programmazione binaria utilizza variabili decisionali che possono assumere solo i valori 0 e 1?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un problema di assegnamento riguarda l'assegnazione ottimale di risorse a compiti o persone?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il problema del trasporto cerca di minimizzare il costo di distribuzione di beni da origini a destinazioni?",
+    "answer": "true"
+  },
+  {
+    "quest": "Nel problema del trasporto le quantità disponibili e richieste rappresentano vincoli del modello?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un grafo è composto da nodi e archi che collegano coppie di nodi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un grafo orientato presenta archi dotati di una direzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'algoritmo di Dijkstra permette di trovare il cammino minimo da un nodo sorgente agli altri nodi di un grafo pesato?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'algoritmo di Dijkstra funziona correttamente anche con archi aventi pesi negativi?",
+    "answer": "false"
+  },
+  {
+    "quest": "Il problema del cammino minimo consiste nel trovare il percorso con costo totale minimo tra due nodi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un albero è un grafo connesso privo di cicli?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il problema dello zaino (Knapsack Problem) consiste nello scegliere elementi massimizzando un valore sotto un vincolo di capacità?",
+    "answer": "true"
+  },
+  {
+    "quest": "Gli algoritmi euristici garantiscono sempre la soluzione ottima per ogni problema?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una soluzione euristica cerca generalmente un buon compromesso tra qualità della soluzione e tempo di calcolo?",
+    "answer": "true"
+  },
+  {
+    "quest": "La simulazione è una tecnica utilizzata per analizzare il comportamento di sistemi complessi?",
+    "answer": "true"
+  },
+  {
+    "quest": "La teoria delle code studia sistemi caratterizzati da arrivi e servizi di richieste?",
+    "answer": "true"
+  },
+  {
+    "quest": "In un modello di coda, il tempo di attesa dei clienti può essere considerato una misura delle prestazioni del sistema?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un problema NP-completo è noto per essere facilmente risolvibile in tempo polinomiale?",
+    "answer": "false"
+  },
+  {
+    "quest": "La complessità computazionale studia le risorse necessarie per risolvere problemi algoritmici?",
+    "answer": "true"
+  },
+  {
+    "quest": "La Ricerca Operativa viene utilizzata in settori come logistica, produzione e pianificazione?",
+    "answer": "true"
+  }
+]

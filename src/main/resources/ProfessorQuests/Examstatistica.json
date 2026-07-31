@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "La statistica descrittiva si occupa della raccolta, organizzazione e sintesi dei dati osservati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La statistica inferenziale permette di effettuare conclusioni su una popolazione partendo da un campione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una popolazione statistica è l'insieme completo degli elementi oggetto di studio?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un campione è un sottoinsieme della popolazione scelto per effettuare analisi statistiche?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una variabile qualitativa rappresenta generalmente caratteristiche non numeriche?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una variabile quantitativa può assumere valori numerici misurabili?",
+    "answer": "true"
+  },
+  {
+    "quest": "La media aritmetica si calcola sommando tutti i valori e dividendo per il loro numero?",
+    "answer": "true"
+  },
+  {
+    "quest": "La mediana rappresenta il valore centrale di un insieme di dati ordinati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La moda è il valore che compare con maggiore frequenza in un insieme di dati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La media è sempre uguale alla mediana in qualsiasi distribuzione di dati?",
+    "answer": "false"
+  },
+  {
+    "quest": "La varianza misura la dispersione dei dati rispetto alla media?",
+    "answer": "true"
+  },
+  {
+    "quest": "La deviazione standard è la radice quadrata della varianza?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una deviazione standard elevata indica generalmente una maggiore dispersione dei dati?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il coefficiente di variazione permette di confrontare la dispersione relativa di distribuzioni diverse?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un istogramma è utilizzato principalmente per rappresentare variabili quantitative raggruppate in classi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un diagramma a torta è spesso utilizzato per rappresentare frequenze relative?",
+    "answer": "true"
+  },
+  {
+    "quest": "La frequenza assoluta indica quante volte compare un determinato valore nei dati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La frequenza relativa è il rapporto tra frequenza assoluta e numero totale di osservazioni?",
+    "answer": "true"
+  },
+  {
+    "quest": "La probabilità di un evento impossibile è uguale a 1?",
+    "answer": "false"
+  },
+  {
+    "quest": "La probabilità di un evento certo è uguale a 1?",
+    "answer": "true"
+  },
+  {
+    "quest": "La probabilità di un evento è sempre compresa tra 0 e 1?",
+    "answer": "true"
+  },
+  {
+    "quest": "Due eventi indipendenti sono eventi in cui il verificarsi di uno non influenza l'altro?",
+    "answer": "true"
+  },
+  {
+    "quest": "La distribuzione normale è una distribuzione continua caratterizzata da una forma a campana?",
+    "answer": "true"
+  },
+  {
+    "quest": "Nella distribuzione normale media, mediana e moda coincidono?",
+    "answer": "true"
+  },
+  {
+    "quest": "La correlazione misura la relazione lineare tra due variabili?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una correlazione positiva indica che all'aumentare di una variabile tende ad aumentare anche l'altra?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una correlazione pari a zero implica necessariamente che non esista alcuna relazione tra due variabili?",
+    "answer": "false"
+  },
+  {
+    "quest": "La regressione lineare permette di modellare la relazione tra una variabile dipendente e una o più variabili indipendenti?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un test di ipotesi permette di valutare un'affermazione relativa a una popolazione usando dati campionari?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il livello di significatività rappresenta la probabilità di rifiutare l'ipotesi nulla quando essa è vera?",
+    "answer": "true"
+  }
+]

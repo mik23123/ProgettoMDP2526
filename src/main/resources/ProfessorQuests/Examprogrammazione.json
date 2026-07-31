@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "Un programma è un insieme di istruzioni che un computer può eseguire per svolgere un compito?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un linguaggio di programmazione permette di scrivere algoritmi comprensibili dal calcolatore tramite un processo di traduzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il compilatore trasforma generalmente il codice sorgente in codice eseguibile o in una forma intermedia?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un interprete esegue il programma senza tradurre le istruzioni durante l'esecuzione?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una variabile è associata a una zona di memoria che può contenere un valore modificabile?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il tipo di una variabile definisce il tipo di dati che può contenere?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un intero può rappresentare solamente numeri con parte decimale?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una stringa è una sequenza di caratteri?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un booleano può assumere generalmente solo i valori vero e falso?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'operatore di assegnamento serve per modificare il valore contenuto in una variabile?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione if permette di eseguire codice in base al verificarsi di una condizione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il ciclo while continua l'esecuzione finché una condizione risulta vera?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il ciclo for viene utilizzato frequentemente quando il numero di iterazioni è noto a priori?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione break permette di terminare anticipatamente un ciclo?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione continue interrompe definitivamente l'esecuzione del programma?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una funzione permette di raggruppare istruzioni riutilizzabili all'interno di un programma?",
+    "answer": "true"
+  },
+  {
+    "quest": "I parametri di una funzione permettono di fornire dati in ingresso alla funzione stessa?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione può restituire un valore tramite un'istruzione return?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione ricorsiva deve necessariamente richiamare se stessa direttamente o indirettamente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un array permette di memorizzare più elementi dello stesso tipo tramite un indice?",
+    "answer": "true"
+  },
+  {
+    "quest": "Gli elementi di un array sono generalmente memorizzati in celle di memoria consecutive?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una matrice può essere considerata un array con più dimensioni?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un puntatore memorizza l'indirizzo di memoria di un'altra variabile?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'operatore di dereferenziazione permette di accedere al valore puntato da un puntatore?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'allocazione dinamica della memoria permette di richiedere memoria durante l'esecuzione del programma?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una lista concatenata utilizza nodi collegati tramite riferimenti?",
+    "answer": "true"
+  },
+  {
+    "quest": "Uno stack permette di inserire ed estrarre elementi secondo il principio LIFO?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una coda implementa normalmente il principio FIFO?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un'eccezione è un evento anomalo che può essere gestito durante l'esecuzione di un programma?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il garbage collector si occupa automaticamente della gestione della memoria inutilizzata in alcuni linguaggi?",
+    "answer": "true"
+  }
+]

@@ -73,4 +73,7 @@ private   FXMLLoader loader;
     public void showExamPassedScene() {
         loadScene("examPassed.fxml");
     }
+    public void showVictory() {
+        loadScene("victory.fxml");
+    }
 }

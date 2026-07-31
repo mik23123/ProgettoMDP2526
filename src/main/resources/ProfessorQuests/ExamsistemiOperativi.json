@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "Un sistema operativo è il software che gestisce le risorse hardware e fornisce servizi ai programmi applicativi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il kernel è il componente centrale del sistema operativo che gestisce le operazioni fondamentali?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un sistema operativo permette la gestione dei processi, della memoria e dei dispositivi di input/output?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un processo è un programma in esecuzione con il proprio stato e le proprie risorse assegnate?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un programma salvato sul disco e un processo in esecuzione sono sempre la stessa cosa?",
+    "answer": "false"
+  },
+  {
+    "quest": "Il Process Control Block (PCB) contiene informazioni necessarie alla gestione di un processo?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il context switch permette al sistema operativo di passare l'esecuzione da un processo a un altro?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il multitasking permette di eseguire più processi apparentemente contemporaneamente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un processo nello stato Ready è in attesa di essere assegnato alla CPU?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un processo nello stato Running sta utilizzando la CPU?",
+    "answer": "true"
+  },
+  {
+    "quest": "Lo scheduler del sistema operativo decide quale processo deve utilizzare la CPU?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'algoritmo FCFS assegna la CPU seguendo l'ordine di arrivo dei processi?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'algoritmo Round Robin utilizza un quanto di tempo per alternare l'esecuzione dei processi?",
+    "answer": "true"
+  },
+  {
+    "quest": "La starvation si verifica quando un processo rimane in attesa indefinitamente di ottenere una risorsa?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un deadlock si verifica quando due o più processi rimangono bloccati aspettando risorse possedute dagli altri?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il deadlock richiede necessariamente la presenza di almeno due processi coinvolti?",
+    "answer": "false"
+  },
+  {
+    "quest": "La memoria virtuale permette di utilizzare una quantità di memoria superiore alla RAM fisicamente disponibile?",
+    "answer": "true"
+  },
+  {
+    "quest": "La paginazione divide la memoria in blocchi chiamati pagine e frame?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un page fault si verifica quando una pagina richiesta non è presente nella memoria principale?",
+    "answer": "true"
+  },
+  {
+    "quest": "La TLB è una cache utilizzata per velocizzare la traduzione degli indirizzi virtuali in fisici?",
+    "answer": "true"
+  },
+  {
+    "quest": "La memoria cache è generalmente più lenta della memoria RAM principale?",
+    "answer": "false"
+  },
+  {
+    "quest": "La gestione della memoria ha lo scopo di assegnare e liberare spazio ai processi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un file system permette di organizzare, memorizzare e recuperare file dalle memorie secondarie?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una directory può contenere file e altre directory?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un driver permette al sistema operativo di comunicare con dispositivi hardware specifici?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un interrupt è un segnale che permette a un dispositivo o evento di richiedere attenzione alla CPU?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il DMA permette ai dispositivi periferici di trasferire dati in memoria riducendo l'intervento della CPU?",
+    "answer": "true"
+  },
+  {
+    "quest": "La sincronizzazione dei processi serve a coordinare l'accesso a risorse condivise?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un semaforo è un meccanismo utilizzato per sincronizzare processi o thread?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un sistema operativo distribuito gestisce risorse appartenenti a più computer collegati in rete?",
+    "answer": "true"
+  }
+]

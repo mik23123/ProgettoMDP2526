@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "Un database è un insieme organizzato di dati memorizzati e gestiti tramite un sistema informatico?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un DBMS è un software utilizzato per creare, modificare e gestire database?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un database relazionale organizza i dati principalmente tramite tabelle?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una tabella di un database relazionale è composta da righe e colonne?",
+    "answer": "true"
+  },
+  {
+    "quest": "In un database relazionale una riga rappresenta generalmente un record o una tupla?",
+    "answer": "true"
+  },
+  {
+    "quest": "In un database relazionale una colonna rappresenta un attributo di un'entità?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una chiave primaria identifica in modo univoco ogni record di una tabella?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una chiave primaria può contenere valori duplicati all'interno della stessa tabella?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una chiave esterna viene utilizzata per creare collegamenti tra tabelle diverse?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una chiave esterna deve sempre avere lo stesso nome della chiave primaria a cui fa riferimento?",
+    "answer": "false"
+  },
+  {
+    "quest": "Il modello relazionale dei dati è stato introdotto da Edgar F. Codd?",
+    "answer": "true"
+  },
+  {
+    "quest": "SQL è un linguaggio utilizzato per interrogare e manipolare database relazionali?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione SELECT viene utilizzata per estrarre dati da una tabella?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione INSERT permette di inserire nuovi record in una tabella?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione UPDATE permette di modificare dati già presenti nel database?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'istruzione DELETE permette di eliminare record da una tabella?",
+    "answer": "true"
+  },
+  {
+    "quest": "La clausola WHERE permette di specificare condizioni per filtrare i risultati di una query?",
+    "answer": "true"
+  },
+  {
+    "quest": "La clausola ORDER BY permette di ordinare i risultati di una query?",
+    "answer": "true"
+  },
+  {
+    "quest": "La clausola GROUP BY viene utilizzata per raggruppare righe con valori comuni?",
+    "answer": "true"
+  },
+  {
+    "quest": "La JOIN permette di combinare dati provenienti da più tabelle correlate?",
+    "answer": "true"
+  },
+  {
+    "quest": "La normalizzazione dei database serve a ridurre ridondanze e anomalie dei dati?",
+    "answer": "true"
+  },
+  {
+    "quest": "La prima forma normale (1NF) richiede che ogni attributo contenga valori atomici?",
+    "answer": "true"
+  },
+  {
+    "quest": "La seconda forma normale (2NF) elimina dipendenze parziali dalla chiave primaria?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una relazione molti-a-molti viene generalmente rappresentata tramite una tabella intermedia?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un diagramma Entità-Relazione (ER) viene utilizzato nella progettazione concettuale di un database?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un'entità rappresenta un oggetto o concetto del mondo reale che si vuole modellare?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un attributo descrive una proprietà di un'entità?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una transazione è un insieme di operazioni sul database considerate come un'unica unità logica?",
+    "answer": "true"
+  },
+  {
+    "quest": "Le proprietà ACID garantiscono affidabilità nelle transazioni dei database?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il backup di un database serve a creare una copia dei dati per poterli recuperare in caso di problemi?",
+    "answer": "true"
+  }
+]

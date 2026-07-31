@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "L'insieme dei numeri naturali contiene generalmente i numeri interi positivi e lo zero?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'insieme dei numeri reali comprende sia numeri razionali sia numeri irrazionali?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il numero pi greco è un numero razionale?",
+    "answer": "false"
+  },
+  {
+    "quest": "Un numero primo è un numero naturale maggiore di 1 divisibile solamente per 1 e per se stesso?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il prodotto di due numeri negativi è un numero negativo?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una funzione associa ad ogni elemento del dominio un solo elemento del codominio?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il dominio di una funzione rappresenta l'insieme dei valori ammessi come input?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione lineare ha generalmente la forma y = mx + q?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione costante ha sempre derivata diversa da zero?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una funzione crescente aumenta il proprio valore all'aumentare della variabile indipendente?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il limite di una funzione descrive il comportamento della funzione quando la variabile tende a un certo valore?",
+    "answer": "true"
+  },
+  {
+    "quest": "Se una funzione è continua in un punto, il suo limite in quel punto coincide con il valore della funzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una funzione può avere più di un limite nello stesso punto?",
+    "answer": "false"
+  },
+  {
+    "quest": "La derivata prima di una funzione rappresenta il suo tasso di variazione istantaneo?",
+    "answer": "true"
+  },
+  {
+    "quest": "La derivata di una costante è uguale a zero?",
+    "answer": "true"
+  },
+  {
+    "quest": "La derivata di x^2 è uguale a 2x?",
+    "answer": "true"
+  },
+  {
+    "quest": "La derivata seconda permette di studiare la concavità di una funzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un punto in cui la derivata prima è zero è sempre un massimo assoluto?",
+    "answer": "false"
+  },
+  {
+    "quest": "L'integrale indefinito rappresenta una famiglia di primitive di una funzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'integrale definito può essere utilizzato per calcolare aree sotto una curva?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una matrice è una struttura composta da righe e colonne di elementi numerici?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una matrice quadrata possiede lo stesso numero di righe e colonne?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il determinante può essere calcolato solo per matrici quadrate?",
+    "answer": "true"
+  },
+  {
+    "quest": "La matrice identità ha tutti gli elementi diagonali uguali a uno e gli altri uguali a zero?",
+    "answer": "true"
+  },
+  {
+    "quest": "Due matrici possono essere sommate solo se hanno dimensioni compatibili?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un vettore è una grandezza caratterizzata solamente da un valore numerico senza direzione?",
+    "answer": "false"
+  },
+  {
+    "quest": "Il prodotto scalare tra due vettori restituisce generalmente un numero reale?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un sistema lineare è formato da equazioni di primo grado nelle incognite?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un sistema lineare impossibile non possiede alcuna soluzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il logaritmo di un prodotto può essere trasformato nella somma dei logaritmi dei fattori?",
+    "answer": "true"
+  }
+]

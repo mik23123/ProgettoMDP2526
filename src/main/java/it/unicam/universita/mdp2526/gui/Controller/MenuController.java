@@ -83,7 +83,6 @@ public boolean checkGameOver(){
 
     @FXML
     public void studyStart() {
-if(checkGameOver()) return;
 if(engine.isButtonStudyJustPressed()) {
     notify.setText("se cerchi di studiare con cos' tanto stress, perderai vita");
     return;}
@@ -92,11 +91,13 @@ Character c1 =  engine.getCharacter();
 
 // allora, in pratica se il personaggio e stressato e il bottone studia non è stato gia premuto allora applica la penalità
         System.out.println(engine.isButtonStudyJustPressed());
-if (c1.checkStress() ) {
+
+
+        if (c1.checkStress() ) {
     c1.applyStressPenalty();
-    setStateBar();
+    if(checkGameOver()) {return;}
+   setStateBar();
     notify.setText("Sei troppo stressato, riposati. Il personaggio sta perdendo vita, ATTENTO");
-    checkGameOver();
     engine.setButtonStudyJustPressed(true);
     return;
         }
@@ -109,7 +110,6 @@ if (c1.checkStress() ) {
 
     @FXML
     public void examStart() {
-        if(checkGameOver()) return;
         if(engine.isButtonStudyJustPressed()) {
             notify.setText("se cerchi di fare l'esame  con cos' tanto stress, perderai vita");
             return;}
@@ -121,7 +121,6 @@ if (c1.checkStress() ) {
             c1.applyStressPenalty();
             setStateBar();
             notify.setText("Sei troppo stressato, riposati. Il personaggio sta perdendo vita, ATTENTO");
-            checkGameOver();
             engine.setButtonStudyJustPressed(true);
             return;
         }

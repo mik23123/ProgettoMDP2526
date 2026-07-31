@@ -1,6 +1,122 @@
 [
-  {"quest":"esiste il principio SOLID?" ,"answer":"true"},
-  {"quest":"Le classi astratte e le interfacce sono uguali?", "answer":"false"},
-  {"quest":"uno dei principi del clean code  è il principio di liskov?" ,"answer":"false"},
-  {"quest":"il professore di teoria dell'esame di MDP è Rossi?" ,"answer":"false"}
-  ]
+  {
+    "quest": "Un algoritmo è una sequenza ordinata e finita di istruzioni per risolvere un problema?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un algoritmo deve sempre terminare dopo un numero finito di passi?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il linguaggio macchina è composto da istruzioni direttamente eseguibili dal processore?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un linguaggio ad alto livello è più vicino al linguaggio umano rispetto al linguaggio macchina?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un interprete traduce ed esegue il programma istruzione per istruzione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un compilatore esegue sempre il programma senza produrre codice intermedio o macchina?",
+    "answer": "false"
+  },
+  {
+    "quest": "Un bit può assumere solamente due valori possibili?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un byte è formato da 8 bit?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il sistema binario utilizza solamente le cifre 0 e 1?",
+    "answer": "true"
+  },
+  {
+    "quest": "Il sistema esadecimale utilizza sedici simboli differenti?",
+    "answer": "true"
+  },
+  {
+    "quest": "La memoria RAM è una memoria volatile che perde i dati allo spegnimento del computer?",
+    "answer": "true"
+  },
+  {
+    "quest": "La memoria ROM può essere modificata continuamente durante l'esecuzione dei programmi?",
+    "answer": "false"
+  },
+  {
+    "quest": "La CPU è il componente del computer che esegue le istruzioni dei programmi?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'Unità di Controllo della CPU coordina le operazioni svolte dal processore?",
+    "answer": "true"
+  },
+  {
+    "quest": "L'ALU esegue operazioni aritmetiche e logiche sui dati?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un sistema operativo è un software che gestisce le risorse hardware e software del computer?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un driver permette al sistema operativo di comunicare con una periferica hardware?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un processo è semplicemente un file salvato sul disco senza essere in esecuzione?",
+    "answer": "false"
+  },
+  {
+    "quest": "Un file system permette di organizzare e gestire file e directory su una memoria?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una directory può contenere altri file e sottodirectory?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una variabile in programmazione rappresenta uno spazio di memoria associato a un valore?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una costante è un valore che può cambiare durante l'esecuzione del programma?",
+    "answer": "false"
+  },
+  {
+    "quest": "Una struttura condizionale permette di eseguire istruzioni diverse in base a una condizione?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un ciclo permette di ripetere una sequenza di istruzioni più volte?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un array contiene generalmente elementi accessibili tramite un indice numerico?",
+    "answer": "true"
+  },
+  {
+    "quest": "Una struttura dati serve solamente a visualizzare informazioni sullo schermo?",
+    "answer": "false"
+  },
+  {
+    "quest": "Un database è un insieme organizzato di dati memorizzati e gestiti tramite un sistema informatico?",
+    "answer": "true"
+  },
+  {
+    "quest": "Un DBMS è un software utilizzato per creare e gestire database?",
+    "answer": "true"
+  },
+  {
+    "quest": "Internet è una singola rete privata utilizzata solamente da un computer?",
+    "answer": "false"
+  },
+  {
+    "quest": "Un indirizzo IP identifica un dispositivo collegato a una rete informatica?",
+    "answer": "true"
+  }
+]
