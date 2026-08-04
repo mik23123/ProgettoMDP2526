@@ -49,7 +49,8 @@ updateState();
         if(engine.getCurrentQuiz().getCurrentQuest()==null) {
             notify.setText("Le domande sono finite, esci per tornare al menu principale");
             // se stai facendo l'esame, hai finito le domande e hai passato l'esame
-            if(engine.getMode()==GameMode.EXAM&& engine.isExamPassed()) sceneManager.showExamPassedScene();
+            System.out.println(engine.getMode());
+            if(engine.getMode()==GameMode.EXAM && engine.isExamPassed()) sceneManager.showExamPassedScene();
              if(engine.getMode()==GameMode.EXAM&& engine.checkVictory()) sceneManager.showVictory();
             }
         else

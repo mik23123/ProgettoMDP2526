@@ -6,7 +6,6 @@ public class Character {
     State life;
     State energy;
     State stress;
-    State food;
     public boolean justPressed;
 
     public Character(String name){
@@ -25,11 +24,14 @@ public class Character {
         }
         return false;
     }
+    public boolean checkGameOver(){
+        if(this.getLife()<=0 ) {return true;}
+        return false;
+    }
 
     public void applyStressPenalty() {
         if (checkStress()) {
-            this.life.decrement(1);
-        }
+this.decrementLife(1);        }
     }
     public boolean hangOut(int ore){
         if(this.getEnergy()-ore<=0 ) {return false;}
@@ -41,12 +43,13 @@ public class Character {
     }
 
     public boolean sleep(int ore){
-        energy.increment(ore);
+        incrementEnergy(ore);
         System.out.println(getEnergy());
-        if(getEnergy()>=10){
-        this.energy.setStamina(10);
-        }
-        return true;
+
+                    if(getEnergy()>=10){
+                    this.energy.setStamina(10);
+                    }
+                    return true;
     }
 
 
@@ -92,7 +95,4 @@ public class Character {
 
 
 
-    public int getFood() {
-        return food.getStamina();
-    }
 }

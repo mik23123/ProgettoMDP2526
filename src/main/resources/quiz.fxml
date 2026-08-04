@@ -4,18 +4,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.QuizController">
+<AnchorPane prefHeight="574.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.QuizController">
    <children>
-      <Button fx:id="trueButton" layoutX="79.0" layoutY="240.0" mnemonicParsing="false" onAction="#truePressed" prefHeight="107.0" prefWidth="132.0" text="TRUE" />
-      <Button fx:id="falseButton" layoutX="386.0" layoutY="240.0" mnemonicParsing="false" onAction="#falsePressed" prefHeight="107.0" prefWidth="132.0" text="FALSE" />
-      <Label fx:id="quizLabel" layoutX="9.0" layoutY="62.0" prefHeight="154.0" prefWidth="582.0">
+      <Button fx:id="trueButton" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#truePressed" prefHeight="107.0" prefWidth="132.0" text="TRUE" />
+      <Button fx:id="falseButton" layoutX="651.0" layoutY="295.0" mnemonicParsing="false" onAction="#falsePressed" prefHeight="107.0" prefWidth="132.0" text="FALSE" />
+      <Label fx:id="quizLabel" layoutX="9.0" layoutY="62.0" prefHeight="154.0" prefWidth="860.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="240.0" layoutY="277.0" text="score:" />
-      <Label fx:id="score" layoutX="291.0" layoutY="277.0" prefHeight="17.0" prefWidth="44.0" />
-      <Label fx:id="notify" layoutX="36.0" layoutY="45.0" prefHeight="17.0" prefWidth="212.0" text="Label" />
-      <Button layoutX="350.0" layoutY="41.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="161.0" text="Esci" />
+      <Label layoutX="384.0" layoutY="277.0" text="score:" />
+      <Label fx:id="score" layoutX="422.0" layoutY="279.0" prefHeight="17.0" prefWidth="44.0" />
+      <Label fx:id="notify" layoutX="36.0" layoutY="45.0" prefHeight="17.0" prefWidth="212.0" />
+      <Button layoutX="364.0" layoutY="456.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="161.0" text="Esci" />
    </children>
 </AnchorPane>

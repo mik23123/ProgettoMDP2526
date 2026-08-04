@@ -44,15 +44,13 @@ public class MenuController implements FxController {
 
     private SceneManager sceneManager;
 
-    public MenuController() {
 
-    }
 
     public void updateState() {
 
         setStateBar();
 
-        notify.setText(
+        this.notify.setText(
                 "Ciao sono "
                         + engine.getCharacter().getName()
                         + " aiutami, devo passare tutti gli esami in tempo!!"
@@ -60,6 +58,8 @@ public class MenuController implements FxController {
 
 
     }
+
+
 
     public void setStateBar() {
 
@@ -71,65 +71,55 @@ public class MenuController implements FxController {
 
 
 
-public boolean checkGameOver(){
-        if(this.engine.checkgGameOver()) {
-            sceneManager.showGameOverScene();
-            return true;
-        }
-    return false;
-    }
+
+
+        public boolean checkGameOver(){
+                if(this.engine.checkgGameOver()) {
+                    sceneManager.showGameOverScene();
+                    return true;
+                }
+                     return false;
+            }
+
+                private void startActivity(GameMode mode) {
+            // questo bottone l'ho implementato per non far premere piu volte lo stesso bottone e perdere in modo non sensato la vita
+                    if (engine.isButtonStudyJustPressed()) {
+                        notify.setText("Se provi ancora a studiare con così tanto stress perderai vita.");
+                        return;
+                    }
+            // check che puo studiare
+                    if (!engine.canStartStudyOrExam()) {
+            notify.setText("Non puoi fare queste attività con così tanto stress");
+                        if (engine.isGameOver()) {
+                            sceneManager.showGameOverScene();
+                        }
+
+                        return;
+                    }
+                    // per non soccombere a codice duplicato ho creato un enumeration che setta le modalità
+
+                    if (mode == GameMode.STUDY) {
+                        engine.setStudyMode();
+                    } else {
+                        engine.setExamMode();
+                    }
+
+                    engine.setButtonStudyJustPressed(false);
+                    sceneManager.showSubjectsScene();
+                }
+
+
 
 
 
     @FXML
     public void studyStart() {
-if(engine.isButtonStudyJustPressed()) {
-    notify.setText("se cerchi di studiare con cos' tanto stress, perderai vita");
-    return;}
-
-Character c1 =  engine.getCharacter();
-
-// allora, in pratica se il personaggio e stressato e il bottone studia non è stato gia premuto allora applica la penalità
-        System.out.println(engine.isButtonStudyJustPressed());
-
-
-        if (c1.checkStress() ) {
-    c1.applyStressPenalty();
-    if(checkGameOver()) {return;}
-   setStateBar();
-    notify.setText("Sei troppo stressato, riposati. Il personaggio sta perdendo vita, ATTENTO");
-    engine.setButtonStudyJustPressed(true);
-    return;
+        startActivity(GameMode.STUDY);
         }
-        sceneManager.showSubjectsScene();
-        engine.setStudyMode();
-        engine.setButtonStudyJustPressed(false);
-
-
-    }
 
     @FXML
     public void examStart() {
-        if(engine.isButtonStudyJustPressed()) {
-            notify.setText("se cerchi di fare l'esame  con cos' tanto stress, perderai vita");
-            return;}
-
-        Character c1 =  engine.getCharacter();
-
-// allora, in pratica se il personaggio e stressato e il bottone studia non è stato gia premuto allora applica la penalità
-        if (c1.checkStress() ) {
-            c1.applyStressPenalty();
-            setStateBar();
-            notify.setText("Sei troppo stressato, riposati. Il personaggio sta perdendo vita, ATTENTO");
-            engine.setButtonStudyJustPressed(true);
-            return;
-        }
-        sceneManager.showSubjectsScene();
-        engine.setExamMode();
-        engine.setButtonStudyJustPressed(false);
-
-
-
+    startActivity(GameMode.EXAM);
     }
 
     @FXML
@@ -139,7 +129,6 @@ Character c1 =  engine.getCharacter();
 
     @FXML
     public void hangOutWithFriendsStart() {
-        engine.setButtonStudyJustPressed(false);
         sceneManager.showHangOutWithFriendsScene();
     }
 
@@ -148,7 +137,6 @@ Character c1 =  engine.getCharacter();
 
         engine.saveManagement();
 
-        notify.setText("Salvataggio completato.");
     }
 
     @FXML
@@ -160,12 +148,18 @@ Character c1 =  engine.getCharacter();
     public void setSceneManager(SceneManager sceneManager) {
 
         this.sceneManager = sceneManager;
+        }
+
+
+        public Label getNotify() {
+        return notify;
     }
-public Label getNotify()
-{
-    return notify;
-}@Override
-    public void setEngine(Engine engine) {
-        this.engine = (GraphicEngine) engine;
-    }
+
+
+    @Override
+        public void setEngine(Engine engine) {
+            this.engine = (GraphicEngine) engine;
+        }
+
+
 }
