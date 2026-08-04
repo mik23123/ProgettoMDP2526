@@ -34,20 +34,20 @@ public   class QuizController implements FxController {
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void truePressed(){
-        if(!(engine.getCurrentQuiz().checkAnswer(true)))engine.getCharacter().incrementStress(1);
+        engine.checkAnswer(true);
 updateState();
     }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void falsePressed(){
-        if(!(engine.getCurrentQuiz().checkAnswer(false))) engine.getCharacter().incrementStress(1);
+      engine.checkAnswer(false);
         updateState();
     }
 
     // questo viene azionato ogni volta che si preme conferma o start quiz. Non fa altro che prendere la current quest e metterla nella riga della domanda
     public void setCurrentQuestLabel(){
         if(engine.getCurrentQuiz().getCurrentQuest()==null) {
-            notify.setText("Le domande sono finite, esci per tornare al menu principale");
+          setNotify("Le domande sono finite, esci per tornare al menu principale");
             // se stai facendo l'esame, hai finito le domande e hai passato l'esame
             System.out.println(engine.getMode());
             if(engine.getMode()==GameMode.EXAM && engine.isExamPassed()) sceneManager.showExamPassedScene();
@@ -68,7 +68,9 @@ public void updateState(){
     setCurrentQuestLabel();
         setScoreLabel();
 }
-
+public void setNotify(String s  ){
+        this.notify.setText(s);
+}
 public void exit(){
         sceneManager.showMenuScene();
 }

@@ -17,7 +17,7 @@ public class SubjectController implements FxController {
     @FXML
     private Button confirmButton;
     @FXML
-    private Label notice;
+    private Label notify;
     private SceneManager sceneManager;
     private GraphicEngine engine;
 
@@ -46,34 +46,36 @@ public class SubjectController implements FxController {
     }
     public void  setChoiceBoxeSubject(){
         ObservableList<String> lista = engine.getExams();
-        System.out.println("Numero esami: " + lista.size()); // debug
         choiceBoxeSubject.setItems(lista);
     }
-public void clearQuiz(){
-
-}
 
     public void  quizStart(){
         if (choiceBoxeSubject.getSelectionModel().getSelectedIndex() == -1) {
-            notice.setText("Seleziona prima una materia!");
+            setNotify("Seleziona prima una materia!");
             return;
         }
 
 
-        if(engine.getMode()==GameMode.EXAM) {
-            engine.examManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+            if(engine.getMode()==GameMode.EXAM) {
+                engine.examManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+            }
+            else
+                engine.studyManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+
+
+        sceneManager.showQuizScene();
+    }
+
+        public void StartClearQuiz(){
+            engine.clearQuiz(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
+            updateState();
         }
-else
-            engine.studyManagemant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
 
-sceneManager.showQuizScene();
 
+    public void setNotify(String s){
+        this.notify.setText(s);
     }
-    public void StartClearQuiz(){
-        engine.clearQuiz(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
-        updateState();
-    }
-    public void exit(){
+   public void exit(){
         sceneManager.showMenuScene();
     }
 }

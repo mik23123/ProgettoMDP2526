@@ -34,22 +34,17 @@ public class Character {
 this.decrementLife(1);        }
     }
     public boolean hangOut(int ore){
-        if(this.getEnergy()-ore<=0 ) {return false;}
-        System.out.println(getEnergy());
+        if(this.energy.getStamina()-ore<=0 ) {return false;}
+
+
       this.decrementStress(ore);
         this.decrementEnergy(ore);
-        if(this.getStress()-ore<=0) {this.stress.setStamina(0); }
     return true;
     }
 
-    public boolean sleep(int ore){
+    public void sleep(int ore){
         incrementEnergy(ore);
         System.out.println(getEnergy());
-
-                    if(getEnergy()>=10){
-                    this.energy.setStamina(10);
-                    }
-                    return true;
     }
 
 
@@ -74,13 +69,47 @@ this.decrementLife(1);        }
     public int getStress() {
         return stress.getStamina();
     }
+
     public void incrementStress(int v){
+        if(this.stress.getStamina()+v>=this.getStressMax())
+        {
+            stress.setStamina(this.getStressMax());
+            return;
+        }
         stress.setStamina(stress.getStamina()+v);
     }
-    public void incrementEnergy(int v){energy.setStamina(energy.getStamina()+v);}
-    public void decrementStress(int v){ stress.setStamina(stress.getStamina()-v);}
-    public void decrementEnergy(int v){ energy.setStamina(energy.getStamina()-v);}
-    public void decrementLife(int v ){life.setStamina(life.getStamina()-v);}
+
+
+    public void incrementEnergy(int v){
+        if(this.energy.getStamina()+v>=getEnergyMAx()){
+        energy.setStamina(getEnergyMAx());
+        return ;}
+
+        energy.setStamina(energy.getStamina()+v);}
+
+
+    public void decrementStress(int v){
+        if(this.stress.getStamina()-v<=0)
+        {
+            stress.setStamina(0);
+            return;
+        }
+        stress.setStamina(stress.getStamina()-v);}
+    public void decrementEnergy(int v){
+        if(this.energy.getStamina()-v<=0)
+    {
+        energy.setStamina(0);
+        return;
+    }
+        energy.setStamina(energy.getStamina()-v);}
+
+
+
+    public void decrementLife(int v ){
+        life.setStamina(life.getStamina()-v);}
+
+
+
     public int getLifeMax() {
         return life.getStaminaMax();
     }

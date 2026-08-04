@@ -23,10 +23,8 @@ public class GraphicEngine implements Engine {
     private Applicant currentQuiz;
     private GameMode mode;
     // questo serve per non far premere il bottone di esame/ studia piu volte. se venisse premuto piu volte il personaggio perderebbe vita inumerevole volte
-private  String notify;
     private boolean buttonStudyJustPressed;
     // serve per il controllo nei controller grafici
-    private boolean gameOver;
     private static final String SAVE_PATH =
             System.getProperty("user.dir") + File.separator + "Saving" + File.separator + "save.json";
 
@@ -43,8 +41,6 @@ private  String notify;
             this.exams = examList;
         }
         this.buttonStudyJustPressed = false;
-        this.gameOver = false;
-        this.notify="";
     }
 
 
@@ -92,9 +88,6 @@ private  String notify;
         }
         return false;
     }
-    public String getNotify(){
-        return this.notify;
-    }
 
 public boolean canStartStudyOrExam(){
         if (!character.checkStress()) {
@@ -138,14 +131,13 @@ public boolean canStartStudyOrExam(){
         GameState gameState1 = new GameState(this.character, exams);
         StateOfGameSaver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
         s1.save();
-        notify="salvataggio completato";
     }
 
 
     public boolean examManagemant(int index) {
         EnemyProfessor e1 = this.exams.get(index).getExamProfessor();
         if (e1 == null) return false;
-
+        e1.setExam( this.exams.get(index));   // <-- questa riga mancava
         e1.clearQuiz();
         this.currentQuiz = e1;
         return true;
@@ -195,11 +187,29 @@ public boolean canStartStudyOrExam(){
         return true;
     }
 
+    public void checkAnswer(boolean answer){
+        if(!(getCurrentQuiz().checkAnswer(answer)))getCharacter().incrementStress(1);
+    }
+
+
     public void restartGame() {
         this.loader.deleteSaving(SAVE_PATH);
 
     }
-public boolean isGameOver(){return gameOver;}
+    public int getNumberOfRemaningExam(){
+        int num=0;
+        for(Exam e : exams){
+            if(!e.isExamPassed()) num++;
+        }
+        return num;
+    }
+    public double  getAvgOfExamPassed(){
+        double avg=0.0;
+        for(Exam e : exams){
+        avg= avg+e.getRisultato().getStamina();
+        }
+        return avg/exams.size();
+    }
 
 }
 

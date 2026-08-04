@@ -39,9 +39,9 @@ public class SleepController implements FxController {
     public void setEnergyBar(){
         energyBar.setProgress(engine.getCharacter().getEnergy() / 10.0);
     }
+
     public void setEngine(Engine engine) {
         this.engine= (GraphicEngine)  engine;
-
     }
 
     @Override
@@ -54,11 +54,14 @@ public class SleepController implements FxController {
 engine.sleepManagemant(hoursChoiceBox.getValue());
         setEnergyBar();
     }
+
+    public void setNotify(String s ){
+        notify.setText("La tua stamina è piena, esci per ritornare al menu");
+    }
+
+
     public void exit(){
         sceneManager.showMenuScene();
     }
-    public void setNotify(){
-        System.out.println("premuto2");
-        notify.setText("La tua stamina è piena, esci per ritornare al menu");
-    }
+
 }

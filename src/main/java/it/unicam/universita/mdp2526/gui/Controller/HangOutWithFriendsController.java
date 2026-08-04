@@ -61,7 +61,7 @@ setChoiceBox();
     }
     public void confirmHangOut(){
         if(!engine.hangOutManagemant(hoursChoiceBox.getValue())){
-            notify.setText("non hai abbastanza energie per uscire così tante ore!!");}
+          setNotify("non hai abbastanza energie per uscire così tante ore!!");}
         System.out.println(engine.getCharacter().getStress());
         setStressBar();
     }
@@ -69,4 +69,7 @@ setChoiceBox();
         sceneManager.showMenuScene();
     }
 
+    public void setNotify(String notify){
+        this.notify.setText(notify);
+    }
     }

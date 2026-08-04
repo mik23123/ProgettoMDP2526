@@ -12,5 +12,7 @@
            </image>
        </ImageView>
       <Button layoutX="119.0" layoutY="489.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="184.0" text="Esci" />
+       <Label fx:id="notify"  layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="432.0" />
+
    </children>
 </AnchorPane>

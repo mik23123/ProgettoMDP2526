@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
+import java.security.spec.ECGenParameterSpec;
+
 public class MenuController implements FxController {
 
     @FXML
@@ -49,8 +51,7 @@ public class MenuController implements FxController {
     public void updateState() {
 
         setStateBar();
-
-        this.notify.setText(
+setNotify(
                 "Ciao sono "
                         + engine.getCharacter().getName()
                         + " aiutami, devo passare tutti gli esami in tempo!!"
@@ -73,24 +74,19 @@ public class MenuController implements FxController {
 
 
 
-        public boolean checkGameOver(){
-                if(this.engine.checkgGameOver()) {
-                    sceneManager.showGameOverScene();
-                    return true;
-                }
-                     return false;
-            }
+
 
                 private void startActivity(GameMode mode) {
             // questo bottone l'ho implementato per non far premere piu volte lo stesso bottone e perdere in modo non sensato la vita
                     if (engine.isButtonStudyJustPressed()) {
-                        notify.setText("Se provi ancora a studiare con così tanto stress perderai vita.");
+                        this.setNotify("Se provi ancora a studiare con così tanto stress perderai vita.");
                         return;
                     }
             // check che puo studiare
                     if (!engine.canStartStudyOrExam()) {
-            notify.setText("Non puoi fare queste attività con così tanto stress");
-                        if (engine.isGameOver()) {
+            setNotify("Non puoi fare queste attività con così tanto stress");
+            updateState();
+            if (engine.checkgGameOver()) {
                             sceneManager.showGameOverScene();
                         }
 
@@ -151,8 +147,8 @@ public class MenuController implements FxController {
         }
 
 
-        public Label getNotify() {
-        return notify;
+        public void setNotify(String s ) {
+                this.notify.setText(s);
     }
 
 
