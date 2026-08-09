@@ -1,6 +1,8 @@
 ## University Simulator  🎓
 
 Un simulatore di vita universitaria sviluppato in JavaFX. Vesti i panni di uno studente alle prese con esami, stress ed energia: studia, sostieni gli esami tramite quiz a risposta vero/falso, gestisci le tue risorse e cerca di superare tutti gli esami prima che la vita del personaggio arrivi a zero.
+
+
 Progetto sviluppato per l'esame di Metodologie di Programmazione — A.A. 2025/2026.
 
 <img width="661" height="426" alt="Screenshot 2026-08-06 103007" src="https://github.com/user-attachments/assets/8f0042ce-57d7-41dd-aebf-5fe12dca56ea" />
