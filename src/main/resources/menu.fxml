@@ -4,7 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.MenuController">
+<AnchorPane prefHeight="400.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.MenuController">
 
     <children>
         <!-- Immagine di sfondo -->

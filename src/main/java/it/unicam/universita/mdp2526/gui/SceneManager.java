@@ -2,7 +2,7 @@ package it.unicam.universita.mdp2526.gui;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
-import it.unicam.universita.mdp2526.gui.Controller.*;
+import it.unicam.universita.mdp2526.gui.GraphicController.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

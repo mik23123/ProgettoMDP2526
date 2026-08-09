@@ -4,7 +4,7 @@ import it.unicam.universita.mdp2526.Personaggio.State;
 
 import java.util.List;
 
-public class EnemyProfessor extends Applicant {
+public class EnemyProfessor extends Applicant implements ExamEvaluator{
     private  String name;
     private State tried;
     private transient Exam exam;
@@ -32,14 +32,19 @@ public class EnemyProfessor extends Applicant {
      * this method enable professor to give votation to exam
      * @return
      */
+    @Override
     public boolean approveExam() {
         if (getQuizScore() > 18) {
             this.getExam().setTrueExamPassed();
-            this.getExam().setVote(getQuizScore());
+            this.setVote(getQuizScore());
             this.name=name+"  ESAME PASSATO  ";
             return true;
         }
         return false;
+    }
+    @Override
+    public void setVote(int vote){
+        this.getExam().setVote(vote);
     }
 
 }

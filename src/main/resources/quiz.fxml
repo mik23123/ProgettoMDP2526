@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="574.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.QuizController">
+<AnchorPane prefHeight="574.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.QuizController">
    <children>
       <Button fx:id="trueButton" layoutX="76.0" layoutY="295.0" mnemonicParsing="false" onAction="#truePressed" prefHeight="107.0" prefWidth="132.0" text="TRUE" />
       <Button fx:id="falseButton" layoutX="651.0" layoutY="295.0" mnemonicParsing="false" onAction="#falsePressed" prefHeight="107.0" prefWidth="132.0" text="FALSE" />

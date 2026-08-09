@@ -8,7 +8,7 @@ import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
 import it.unicam.universita.mdp2526.StudioEesami.StudyQuiz;
-import it.unicam.universita.mdp2526.gui.Controller.GameMode;
+import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

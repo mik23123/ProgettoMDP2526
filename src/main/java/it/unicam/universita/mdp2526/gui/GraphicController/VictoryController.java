@@ -1,12 +1,10 @@
-package it.unicam.universita.mdp2526.gui.Controller;
+package it.unicam.universita.mdp2526.gui.GraphicController;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
 import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-
-import java.awt.*;
 
 public class VictoryController implements  FxController{
     private SceneManager sceneManager;

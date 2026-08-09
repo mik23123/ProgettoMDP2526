@@ -5,7 +5,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="712.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.Controller.SubjectController">
+<AnchorPane prefHeight="712.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.SubjectController">
    <children>
       <Label fx:id="subjectLabel" layoutY="85.0" prefHeight="404.0" prefWidth="678.0" textAlignment="JUSTIFY" textFill="#111111" />
       <ChoiceBox fx:id="choiceBoxeSubject" layoutX="689.0" layoutY="262.0" mouseTransparent="false" prefWidth="150.0">
