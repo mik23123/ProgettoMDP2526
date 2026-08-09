@@ -9,6 +9,8 @@ Progetto sviluppato per l'esame di Metodologie di Programmazione — A.A. 2025/2
 
 
 ## Funzionalità
+
+
 Il giocatore dispone di tre statistiche principali:
 
 ❤️ Vita
@@ -43,12 +45,13 @@ Tecnologie utilizzate
 
 
 
-Come eseguire il progetto
+## Come eseguire il progetto
 
 Requisiti
 
 -JDK 25 (o versione compatibile)
 -Git
+-Gradle
 
 Avvio
 ```bash
@@ -58,16 +61,27 @@ git clone https://github.com/mik23123/ProgettoMDP2526.git](https://github.com/mi
 cd ProgettoMDP2526
 ```
 ```bash
-gradle run
+./gradlew build
 ```
 
-Al primo avvio non è presente alcun salvataggio: il gioco parte da una nuova partita. I salvataggi successivi vengono creati  nella cartella `Saving/` all'interno della root del progetto.
+```bash
+./gradlew run
+```
 
+## 🤖 Uso di strumenti di AI
 
-Autore
+L'uso dell'AI è stato limitato a scopi di documentazione e apprendimento, code-review e studio dei casi d'uso per i design pattern, nessuna parte di codice del progetto è stata generata da AI.
+
+Gemini: Help nello scovare errori logici presenti nel codice.
+
+Claude Code: utilizzato come strumento didattico per discutere e approfondire le possibili soluzioni architetturali e strutturali della parte funzionale del progetto.
+
+## Autore
 
 
 Michele Grillo — [130479]
+
+
 Informatica — Università di Camerino
 
 
