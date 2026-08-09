@@ -47,8 +47,8 @@ Come eseguire il progetto
 
 Requisiti
 
-JDK 25 (o versione compatibile)
-Git
+-JDK 25 (o versione compatibile)
+-Git
 
 Avvio
 ```bash
