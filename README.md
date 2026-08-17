@@ -28,10 +28,15 @@ Studiare aumenta la preparazione dell'esame.
 Per superare il gioco è necessario superare tutti gli esami
 
 -Gestione del personaggio: statistiche di vita, energia e stress che influenzano le azioni disponibili
+
 -Sistema di studio: quiz preparatori per ogni materia, con punteggio persistente
+
 -Sistema d'esame: alla fine di ogni esame, il professore approva o respinge lo studente in base al punteggio ottenuto
+
 -Conseguenze realistiche: uno stress troppo alto penalizza la vita del personaggio; energia e stress vanno gestiti dormendo o uscendo con gli amici
+
 -Salvataggio e caricamento: la partita viene salvata in locale in formato JSON e ripresa automaticamente al riavvio
+
 -Game Over: la partita termina se la vita del personaggio arriva a zero
 
 
@@ -39,8 +44,11 @@ Per superare il gioco è necessario superare tutti gli esami
 Tecnologie utilizzate
 
 - Java (JDK 25)
+
 - JavaFX 25 — interfaccia grafica
+
 - Gradle — build automation
+
 - Gson — serializzazione/deserializzazione dei salvataggi in JSON
 
 
@@ -50,7 +58,9 @@ Tecnologie utilizzate
 Requisiti
 
 -JDK 25 (o versione compatibile)
+
 -Git
+
 -Gradle
 
 Avvio
