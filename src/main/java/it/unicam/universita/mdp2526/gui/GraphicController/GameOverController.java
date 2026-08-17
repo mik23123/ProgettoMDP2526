@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 public class GameOverController implements FxController{
     private SceneManager sceneManager;
     private  GraphicEngine engine;
-    @FXML
+
     private Label notify;
 
 
