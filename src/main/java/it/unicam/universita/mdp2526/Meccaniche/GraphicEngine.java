@@ -1,8 +1,6 @@
 package it.unicam.universita.mdp2526.Meccaniche;
 
-import it.unicam.universita.mdp2526.Persistency.GameState;
-import it.unicam.universita.mdp2526.Persistency.StateOfGameLoader;
-import it.unicam.universita.mdp2526.Persistency.StateOfGameSaver;
+import it.unicam.universita.mdp2526.Persistency.*;
 import it.unicam.universita.mdp2526.Personaggio.Character;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
@@ -18,8 +16,8 @@ import java.util.List;
 
 public class GraphicEngine implements Engine {
     private Character character;
-    List<Exam> exams;
-    StateOfGameLoader loader;
+  private  List<Exam> exams;
+   private  Loader <GameState> gameLoader;
     private Applicant currentQuiz;
     private GameMode mode;
     // questo serve per non far premere il bottone di esame/ studia piu volte. se venisse premuto piu volte il personaggio perderebbe vita inumerevole volte
@@ -32,10 +30,10 @@ public class GraphicEngine implements Engine {
     public GraphicEngine(Character personaggio, List<Exam> examList, List<EnemyProfessor> professors) {
         if (personaggio == null)
             throw new IllegalArgumentException("professore e personaggio non possono essere nulli");
-        this.loader = new StateOfGameLoader();
-        if (loader.load(SAVE_PATH)) {
-            this.character = this.loader.getSaveState().getCharacter();
-            this.exams = this.loader.getSaveState().getExam();
+        this.gameLoader = new StateOfGameLoader();
+        if (gameLoader.load(SAVE_PATH)) {
+            this.character = this.gameLoader.getSaveState().getCharacter();
+            this.exams = this.gameLoader.getSaveState().getExam();
         } else {
             this.character = personaggio;
             this.exams = examList;
@@ -129,7 +127,7 @@ public boolean canStartStudyOrExam(){
             dir.mkdirs();
         }
         GameState gameState1 = new GameState(this.character, exams);
-        StateOfGameSaver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
+        Saver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
         s1.save();
     }
 
@@ -193,7 +191,7 @@ public boolean canStartStudyOrExam(){
 
 
     public void restartGame() {
-        this.loader.deleteSaving(SAVE_PATH);
+        this.gameLoader.deleteSaving(SAVE_PATH);
 
     }
     public int getNumberOfRemaningExam(){

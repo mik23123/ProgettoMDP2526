@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class StateOfGameLoader implements Loader {
+public class StateOfGameLoader implements Loader<GameState> {
     GameState saveState;
 
  public boolean load(String path){
@@ -37,6 +37,6 @@ public class StateOfGameLoader implements Loader {
          throw new RuntimeException(e);
      }
     }
- public GameState getSaveState(){ return this.saveState;}
+ public GameState  getSaveState(){ return this.saveState;}
 }
 
