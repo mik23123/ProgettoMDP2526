@@ -40,7 +40,7 @@ public class HangOutWithFriendsController implements FxController{
 
 
 public void setStressBar(){
-    stressBar.setProgress(engine.getCharacter().getStress() / 10.0);
+    stressBar.setProgress(engine.getCharachter().getStress() / 10.0);
 }
     @Override
     public void setSceneManager(SceneManager sceneManager) {
@@ -62,7 +62,7 @@ setChoiceBox();
     public void confirmHangOut(){
         if(!engine.hangOutManagemant(hoursChoiceBox.getValue())){
           setNotify("non hai abbastanza energie per uscire così tante ore!!");}
-        System.out.println(engine.getCharacter().getStress());
+        System.out.println(engine.getCharachter().getStress());
         setStressBar();
     }
     public void exit(){

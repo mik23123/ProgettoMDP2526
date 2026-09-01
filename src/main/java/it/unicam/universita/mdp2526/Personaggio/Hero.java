@@ -1,6 +1,6 @@
 package it.unicam.universita.mdp2526.Personaggio;
 
-public class Character {
+public class Hero implements Charachter{
    String name;
    String id;
     State life;
@@ -8,7 +8,7 @@ public class Character {
     State stress;
     public boolean justPressed;
 
-    public Character(String name){
+    public Hero(String name){
         this.life = new State(3,"Vita");
         this.energy =new State(10,"Energia");
         this.stress=new State(10,"Stress");
@@ -24,12 +24,9 @@ public class Character {
         }
         return false;
     }
-    public boolean checkGameOver(){
-        if(this.getLife()<=0 ) {return true;}
-        return false;
-    }
 
-    public void applyStressPenalty() {
+// questo metodo serve per decrementare la vita del personaggio
+    public void applyPenality() {
         if (checkStress()) {
 this.decrementLife(1);        }
     }

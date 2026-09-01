@@ -1,6 +1,7 @@
 package it.unicam.universita.mdp2526.Meccaniche;
 
-import it.unicam.universita.mdp2526.Personaggio.Character;
+import it.unicam.universita.mdp2526.Personaggio.Charachter;
+import it.unicam.universita.mdp2526.Personaggio.Hero;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 
@@ -12,7 +13,7 @@ public interface Engine {
     void sleepManagemant(int v);
     void saveManagement();
     void restartGame();
-    public Character getCharacter();
+    public Charachter getCharachter();
     boolean checkgGameOver();
     boolean canStartStudyOrExam();
     void setStudyMode();

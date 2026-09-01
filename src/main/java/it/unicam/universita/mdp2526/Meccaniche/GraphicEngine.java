@@ -1,7 +1,8 @@
 package it.unicam.universita.mdp2526.Meccaniche;
 
 import it.unicam.universita.mdp2526.Persistency.*;
-import it.unicam.universita.mdp2526.Personaggio.Character;
+import it.unicam.universita.mdp2526.Personaggio.Charachter;
+import it.unicam.universita.mdp2526.Personaggio.Hero;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
@@ -15,7 +16,7 @@ import java.util.List;
 
 
 public class GraphicEngine implements Engine {
-    private Character character;
+    private Charachter hero;
   private  List<Exam> exams;
    private  Loader <GameState> gameLoader;
     private Applicant currentQuiz;
@@ -27,15 +28,16 @@ public class GraphicEngine implements Engine {
             System.getProperty("user.dir") + File.separator + "Saving" + File.separator + "save.json";
 
 
-    public GraphicEngine(Character personaggio, List<Exam> examList, List<EnemyProfessor> professors) {
+    public GraphicEngine(Charachter personaggio, List<Exam> examList, List<EnemyProfessor> professors) {
         if (personaggio == null)
             throw new IllegalArgumentException("professore e personaggio non possono essere nulli");
+
         this.gameLoader = new StateOfGameLoader();
         if (gameLoader.load(SAVE_PATH)) {
-            this.character = this.gameLoader.getSaveState().getCharacter();
+            this.hero = this.gameLoader.getSaveState().getCharacter();
             this.exams = this.gameLoader.getSaveState().getExam();
         } else {
-            this.character = personaggio;
+            this.hero = personaggio;
             this.exams = examList;
         }
         this.buttonStudyJustPressed = false;
@@ -88,20 +90,20 @@ public class GraphicEngine implements Engine {
     }
 
 public boolean canStartStudyOrExam(){
-        if (!character.checkStress()) {
-            return true;
-        }
+    if (!hero.checkStress()) {
+        return true;
+    }
 
-        character.applyStressPenalty();
-        checkgGameOver();
-        setButtonStudyJustPressed(true);
+    hero.applyPenality();
+    checkgGameOver();
+    setButtonStudyJustPressed(true);
 
-        return false;
+    return false;
     }
 
 
-    public Character getCharacter() {
-        return character;
+    public Hero getCharachter() {
+        return (Hero) hero;
     }
 
 
@@ -126,7 +128,7 @@ public boolean canStartStudyOrExam(){
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        GameState gameState1 = new GameState(this.character, exams);
+        GameState gameState1 = new GameState(this.hero, exams);
         Saver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
         s1.save();
     }
@@ -154,19 +156,21 @@ public boolean canStartStudyOrExam(){
 
 
     public boolean checkgGameOver() {
-        return this.character.checkGameOver();
+       if(this.hero.getLife()<=0) return true;
+
+       return false;
     }
 
 // controlla se il personaggio ha la stamina dello stress superiore al 9, se si toglie una vita
 
     public boolean hangOutManagemant(int v) {
         setButtonStudyJustPressed(false);
-        return this.character.hangOut(v);
+        return hero.hangOut(v);
     }
 
 
     public void sleepManagemant(int v) {
-        character.sleep(v);
+        hero.sleep(v);
     }
 
 
@@ -186,7 +190,7 @@ public boolean canStartStudyOrExam(){
     }
 
     public void checkAnswer(boolean answer){
-        if(!(getCurrentQuiz().checkAnswer(answer)))getCharacter().incrementStress(1);
+        if(!(getCurrentQuiz().checkAnswer(answer))) this.getCharachter().incrementStress(1);
     }
 
 

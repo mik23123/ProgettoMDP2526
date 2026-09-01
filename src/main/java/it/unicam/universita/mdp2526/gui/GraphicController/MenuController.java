@@ -50,7 +50,7 @@ public class MenuController implements FxController {
         setStateBar();
 setNotify(
                 "Ciao sono "
-                        + engine.getCharacter().getName()
+                        + engine.getCharachter().getName()
                         + " aiutami, devo passare tutti gli esami in tempo!!"
         );
 
@@ -62,9 +62,9 @@ setNotify(
     public void setStateBar() {
 
         // ProgressBar vuole valori tra 0 e 1
-        stressBar.setProgress(engine.getCharacter().getStress() / 10.0);
-        energyBar.setProgress(engine.getCharacter().getEnergy() / 10.0);
-        lifeBar.setProgress(engine.getCharacter().getLife() / 3.0);
+        stressBar.setProgress(engine.getCharachter().getStress() / 10.0);
+        energyBar.setProgress(engine.getCharachter().getEnergy() / 10.0);
+        lifeBar.setProgress(engine.getCharachter().getLife() / 3.0);
     }
 
 

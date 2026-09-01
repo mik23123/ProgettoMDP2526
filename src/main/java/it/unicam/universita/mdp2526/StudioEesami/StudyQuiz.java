@@ -1,7 +1,5 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
-import it.unicam.universita.mdp2526.Personaggio.Character;
-
 import java.util.List;
 
 public class StudyQuiz extends Applicant {

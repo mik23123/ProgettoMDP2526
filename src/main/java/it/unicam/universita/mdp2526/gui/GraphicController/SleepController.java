@@ -37,7 +37,7 @@ public class SleepController implements FxController {
         hoursChoiceBox.setItems(hours);
     }
     public void setEnergyBar(){
-        energyBar.setProgress(engine.getCharacter().getEnergy() / 10.0);
+        energyBar.setProgress(engine.getCharachter().getEnergy() / 10.0);
     }
 
     public void setEngine(Engine engine) {
