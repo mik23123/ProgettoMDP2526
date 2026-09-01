@@ -140,7 +140,7 @@ public boolean canStartStudyOrExam(){
         e1.setExam( this.exams.get(index));   // <-- questa riga mancava
         e1.clearQuiz();
         this.currentQuiz = e1;
-        return true;
+         return true;
     }
 
 
