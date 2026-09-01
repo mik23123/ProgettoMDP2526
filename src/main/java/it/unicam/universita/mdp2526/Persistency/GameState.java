@@ -7,9 +7,9 @@ import it.unicam.universita.mdp2526.StudioEesami.Exam;
 import java.util.List;
 
 public class GameState {
-   private Charachter hero;
+   private Hero hero;
     private  List<Exam> listOfExam;
-    public GameState(Charachter hero, List<Exam> listOfExam){
+    public GameState(Hero hero, List<Exam> listOfExam){
         this.hero = hero;
         this.listOfExam=listOfExam;
     }

@@ -128,7 +128,7 @@ public boolean canStartStudyOrExam(){
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        GameState gameState1 = new GameState(this.hero, exams);
+        GameState gameState1 = new GameState((Hero) this.hero, exams);
         Saver s1 = new StateOfGameSaver(gameState1, SAVE_PATH);
         s1.save();
     }
