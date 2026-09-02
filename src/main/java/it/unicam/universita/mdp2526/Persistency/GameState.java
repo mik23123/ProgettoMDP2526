@@ -13,7 +13,7 @@ public class GameState {
         this.hero = hero;
         this.listOfExam=listOfExam;
     }
-public Charachter getCharacter(){
+public Hero  getHero(){
         return this.hero;
 }
 public List<Exam> getExam(){

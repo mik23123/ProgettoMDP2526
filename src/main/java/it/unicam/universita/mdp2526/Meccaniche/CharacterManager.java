@@ -3,9 +3,7 @@ package it.unicam.universita.mdp2526.Meccaniche;
 import it.unicam.universita.mdp2526.Personaggio.Charachter;
 
 public interface CharacterManager {
-    Charachter getCharachter();
-
-    boolean hangOutManagemant(int hours);
+    Charachter getHero();
     void sleepManagemant(int hours);
 
     boolean checkgGameOver();

@@ -2,6 +2,7 @@ package it.unicam.universita.mdp2526.gui.GraphicController;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
+import it.unicam.universita.mdp2526.Personaggio.SocializeAble;
 import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +24,7 @@ public class HangOutWithFriendsController implements FxController{
     private ChoiceBox<Integer> hoursChoiceBox;
     @FXML
     private Label notify;
-
+    private SocializeAble socializeAble;
 
 
     //qui setto il choice boxe con i numeri da 1 a 10
@@ -40,7 +41,7 @@ public class HangOutWithFriendsController implements FxController{
 
 
 public void setStressBar(){
-    stressBar.setProgress(engine.getCharachter().getStress() / 10.0);
+    stressBar.setProgress(engine.getHero().getStress() / 10.0);
 }
     @Override
     public void setSceneManager(SceneManager sceneManager) {
@@ -62,7 +63,7 @@ setChoiceBox();
     public void confirmHangOut(){
         if(!engine.hangOutManagemant(hoursChoiceBox.getValue())){
           setNotify("non hai abbastanza energie per uscire così tante ore!!");}
-        System.out.println(engine.getCharachter().getStress());
+        System.out.println(engine.getHero().getStress());
         setStressBar();
     }
     public void exit(){

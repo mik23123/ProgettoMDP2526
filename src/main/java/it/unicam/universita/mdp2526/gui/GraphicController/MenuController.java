@@ -50,7 +50,7 @@ public class MenuController implements FxController {
         setStateBar();
 setNotify(
                 "Ciao sono "
-                        + engine.getCharachter().getName()
+                        + engine.getHero().getName()
                         + " aiutami, devo passare tutti gli esami in tempo!!"
         );
 
@@ -62,9 +62,9 @@ setNotify(
     public void setStateBar() {
 
         // ProgressBar vuole valori tra 0 e 1
-        stressBar.setProgress(engine.getCharachter().getStress() / 10.0);
-        energyBar.setProgress(engine.getCharachter().getEnergy() / 10.0);
-        lifeBar.setProgress(engine.getCharachter().getLife() / 3.0);
+        stressBar.setProgress(engine.getHero().getStress() / 10.0);
+        energyBar.setProgress(engine.getHero().getEnergy() / 10.0);
+        lifeBar.setProgress(engine.getHero().getLife() / 3.0);
     }
 
 
@@ -75,7 +75,7 @@ setNotify(
 
                 private void startActivity(GameMode mode) {
             // questo bottone l'ho implementato per non far premere piu volte lo stesso bottone e perdere in modo non sensato la vita
-                    if (engine.isButtonStudyJustPressed()) {
+                    if (engine.isJustPressed()) {
                         this.setNotify("Se provi ancora a studiare con così tanto stress perderai vita.");
                         return;
                     }
@@ -97,7 +97,7 @@ setNotify(
                         engine.setExamMode();
                     }
 
-                    engine.setButtonStudyJustPressed(false);
+                    engine.setJustPressed(false);
                     sceneManager.showSubjectsScene();
                 }
 
@@ -108,6 +108,7 @@ setNotify(
     @FXML
     public void studyStart() {
         startActivity(GameMode.STUDY);
+
         }
 
     @FXML

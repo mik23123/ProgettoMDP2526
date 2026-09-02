@@ -1,6 +1,6 @@
 package it.unicam.universita.mdp2526.Personaggio;
 
-public class Hero implements Charachter{
+public class Hero implements Charachter,SocializeAble,StressAble,SleepAble{
    String name;
    String id;
     State life;
@@ -120,5 +120,8 @@ this.decrementLife(1);        }
     }
 
 
-
+    @Override
+    public Charachter getCharacter() {
+        return this;
+    }
 }

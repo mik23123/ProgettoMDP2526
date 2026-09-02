@@ -9,5 +9,5 @@ public interface Engine
         ExamManager,
         QuizManager,
         GameModeManager,
-        GamePersistence {
+        GamePersistence,JustPressedStateManager{
 }
