@@ -120,8 +120,5 @@ this.decrementLife(1);        }
     }
 
 
-    @Override
-    public Charachter getCharacter() {
-        return this;
-    }
+
 }
