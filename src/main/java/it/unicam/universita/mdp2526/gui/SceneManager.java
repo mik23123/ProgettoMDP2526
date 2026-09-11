@@ -13,10 +13,10 @@ import java.io.IOException;
 public class SceneManager {
 
     private final Stage stage;
-    private final GraphicEngine engine;
+    private final Engine engine;
 private   FXMLLoader loader;
     public SceneManager(Engine engine, Stage stage) {
-        this.engine = (GraphicEngine) engine;
+        this.engine =  engine;
         this.stage = stage;
     }
 

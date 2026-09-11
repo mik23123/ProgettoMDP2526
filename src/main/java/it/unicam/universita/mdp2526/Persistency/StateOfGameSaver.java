@@ -13,7 +13,7 @@ this.stateOfGame=stateOfGame;
 this.path=path;
 }
 public void save(){
-    Gson gson = new Gson();
+    Gson gson = GsonFactory.create();
 
     try (FileWriter writer = new FileWriter(path)) {
         gson.toJson(this.stateOfGame, writer);

@@ -6,6 +6,7 @@ public class State {
     private String name;
     private int stamina  ;
     public State(int staminaMax, String name){
+
         if( staminaMax<0|| name ==null){throw new IllegalArgumentException("I parametri sono sbagliati");
         }
         this.staminaMax=staminaMax;

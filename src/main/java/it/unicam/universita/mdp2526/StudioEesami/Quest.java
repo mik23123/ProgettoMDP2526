@@ -1,5 +1,7 @@
 package it.unicam.universita.mdp2526.StudioEesami;
 
+import java.util.Objects;
+
 public class Quest {
 
     String quest;
@@ -10,6 +12,17 @@ public class Quest {
         this.answer=answer;
     }
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Quest quest1)) return false;
+        return answer == quest1.answer && Objects.equals(quest, quest1.quest);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(quest, answer);
+    }
     @Override
     public String toString() {
         return "Quest{" +

@@ -11,7 +11,7 @@ public class StateOfGameLoader implements Loader<GameState> {
     GameState saveState;
 
  public boolean load(String path){
-     Gson gson = new Gson();
+     Gson gson = GsonFactory.create();
    try(FileReader reader = new FileReader(path)){
 
        this.saveState = gson.fromJson(reader, GameState.class);

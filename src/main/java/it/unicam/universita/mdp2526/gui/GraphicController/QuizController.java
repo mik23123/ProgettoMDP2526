@@ -18,18 +18,7 @@ public   class QuizController implements FxController {
     private boolean answer;
     private GraphicEngine engine;
 
-    public QuizController( ) {
-    }
-    @Override
-    public void setSceneManager(SceneManager sceneManager) {
-        this.sceneManager=sceneManager;
-    }
 
-    @Override
-    public void setEngine(Engine engine) {
-        this.engine= (GraphicEngine)  engine;
-
-    }
 
     //questo metodo viene chiamato ogni volta che si preme true. in pratica dai la risposta e il back fa tutto il resto
     public void truePressed(){
@@ -41,7 +30,7 @@ updateState();
     public void falsePressed(){
       engine.checkAnswer(false);
         updateState();
-    }
+    } // da risolvere la ripetizione violazione dry clean code
 
     // questo viene azionato ogni volta che si preme conferma o start quiz. Non fa altro che prendere la current quest e metterla nella riga della domanda
     public void setCurrentQuestLabel(){
@@ -58,18 +47,32 @@ updateState();
     }
 
 
+
+
+    public void updateState(){
+        setCurrentQuestLabel();
+            setScoreLabel();
+    }
+
     public void setScoreLabel(){
         score.setText(Integer.toString(engine.getCurrentQuiz().getQuizScore()));
     }
 
+    @Override
+    public void setSceneManager(SceneManager sceneManager) {
+        this.sceneManager=sceneManager;
+    }
 
-public void updateState(){
-    setCurrentQuestLabel();
-        setScoreLabel();
-}
-public void setNotify(String s  ){
+    @Override
+    public void setEngine(Engine engine) {
+        this.engine= (GraphicEngine)  engine;
+
+    }
+
+    public void setNotify(String s  ){
         this.notify.setText(s);
 }
+
 public void exit(){
         sceneManager.showMenuScene();
 }

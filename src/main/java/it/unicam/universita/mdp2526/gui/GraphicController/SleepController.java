@@ -21,28 +21,8 @@ public class SleepController implements FxController {
     @FXML
     private Label notify;
 
-    @Override
-    public void setSceneManager(SceneManager sceneManager) {
-        this.sceneManager=sceneManager;
-    }
 
-    public void setChoiceBox() {
 
-        ObservableList<Integer> hours = FXCollections.observableArrayList();
-
-        for (int i = 1; i <= 10; i++) {
-            hours.add(i);
-        }
-
-        hoursChoiceBox.setItems(hours);
-    }
-    public void setEnergyBar(){
-        energyBar.setProgress(engine.getHero().getEnergy() / 10.0);
-    }
-
-    public void setEngine(Engine engine) {
-        this.engine= (GraphicEngine)  engine;
-    }
 
     @Override
     public void updateState() {
@@ -55,10 +35,35 @@ engine.sleepManagemant(hoursChoiceBox.getValue());
         setEnergyBar();
     }
 
+
+
+    public void setChoiceBox() {
+
+        ObservableList<Integer> hours = FXCollections.observableArrayList();
+
+        for (int i = 1; i <= 10; i++) {
+            hours.add(i);
+        }
+
+        hoursChoiceBox.setItems(hours);
+    }
+
+    @Override
+    public void setSceneManager(SceneManager sceneManager) {
+        this.sceneManager=sceneManager;
+    }
+
+    public void setEnergyBar(){
+        energyBar.setProgress(engine.getHero().getEnergy() / 10.0);
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine= (GraphicEngine)  engine;
+    }
+
     public void setNotify(String s ){
         notify.setText("La tua stamina è piena, esci per ritornare al menu");
     }
-
 
     public void exit(){
         sceneManager.showMenuScene();

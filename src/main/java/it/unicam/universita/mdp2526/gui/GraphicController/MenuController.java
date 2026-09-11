@@ -97,7 +97,7 @@ setNotify(
                         engine.setExamMode();
                     }
 
-                    engine.setJustPressed(false);
+                    engine.setNotPressedButton();
                     sceneManager.showSubjectsScene();
                 }
 
@@ -129,12 +129,12 @@ setNotify(
     @FXML
     public void save() {
 
-        engine.saveManagement();
+        engine.saveGame();
 
     }
 
-    @FXML
-    public void exit() {
+     @FXML
+     public void exit() {
         System.exit(0);
     }
 

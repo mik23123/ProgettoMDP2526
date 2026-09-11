@@ -4,6 +4,7 @@ import it.unicam.universita.mdp2526.Meccaniche.JsonQuestGetter;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.StudyQuiz;
+import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,10 +14,8 @@ import java.util.List;
  * definizione dichiarativa (EXAM_DEFINITIONS).
  * <p>
  * Aggiungere una nuova materia richiede di aggiungere una sola riga a
- * EXAM_DEFINITIONS: nessun'altra parte del codice va toccata (Open/Closed
- * Principle). La classe non conosce JavaFX né la UI: la sua unica
- * responsabilità è costruire il modello di dominio (Single Responsibility
- * Principle), separando questa logica da Main, che si occupa solo di avviare
+ * EXAM_DEFINITIONS: nessun'altra parte del codice va toccata (principio O ). La classe non conosce JavaFX né la UI: la sua unica
+ * responsabilità è costruire il modello di dominio (srp), separando questa logica da main, che si occupa solo di avviare
  * l'applicazione.
  */
 public final class GameSetup {
@@ -106,7 +105,7 @@ public final class GameSetup {
     public static List<EnemyProfessor> extractProfessors(List<Exam> exams) {
         List<EnemyProfessor> professors = new ArrayList<>();
         for (Exam exam : exams) {
-            professors.add(exam.getExamProfessor());
+            professors.add((EnemyProfessor) exam.getApplicant(GameMode.EXAM));
         }
         return professors;
     }
