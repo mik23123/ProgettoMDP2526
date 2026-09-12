@@ -7,8 +7,9 @@
 
 <AnchorPane prefHeight="712.0" prefWidth="967.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.SubjectController">
    <children>
-      <Label fx:id="subjectLabel" layoutY="85.0" prefHeight="404.0" prefWidth="678.0" textAlignment="JUSTIFY" textFill="#111111" />
-      <ChoiceBox fx:id="choiceBoxeSubject" layoutX="689.0" layoutY="262.0" mouseTransparent="false" prefWidth="150.0">
+      <ListView fx:id="examListView" layoutX="20.0" layoutY="60.0" prefHeight="492.0" prefWidth="716.0" styleClass="exam-list" />
+
+      <ChoiceBox fx:id="choiceBoxeSubject" layoutX="772.0" layoutY="263.0" mouseTransparent="false" prefWidth="150.0">
          <effect>
             <ColorAdjust />
          </effect>
@@ -16,8 +17,8 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ChoiceBox>
-      <Label layoutX="711.0" layoutY="163.0" text="Seleziona la materia" />
-      <Button layoutX="730.0" layoutY="324.0" mnemonicParsing="false" onAction="#quizStart" text="Conferma" />
-      <Button layoutX="894.0" layoutY="527.0" mnemonicParsing="false" onAction="#exit" text="Esci" />
+      <Label layoutX="794.0" layoutY="162.0" text="Seleziona la materia" />
+      <Button layoutX="813.0" layoutY="331.0" mnemonicParsing="false" onAction="#quizStart" text="Conferma" />
+      <Button layoutX="904.0" layoutY="527.0" mnemonicParsing="false" onAction="#exit" text="Esci" />
    </children>
 </AnchorPane>

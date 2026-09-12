@@ -1,20 +1,23 @@
 package it.unicam.universita.mdp2526.Meccaniche.MechanicInterfaceManager;
 
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
+import it.unicam.universita.mdp2526.StudioEesami.ExamEvaluator;
 import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 
 public interface QuizManager {
 
-    Applicant getCurrentQuiz();
 
-    boolean checkAnswer(boolean answer);
 
-    boolean isExamPassed();
+    boolean checkAnswer(boolean answer,Applicant applicant);
 
-    void setCurrentQuiz(Applicant currentQuiz);
+    boolean isExamPassed(ExamEvaluator examEvaluator);
 
-    boolean currentQuizSelector(int indexOfQuiz, GameMode mode);
+
+    Applicant currentQuizSelector(int indexOfQuiz, GameMode mode);
 
     void clearQuiz(int indexOfQuiz,GameMode mode);
 
+    void setVote(int index,ExamEvaluator examEvaluator);
+    boolean areQuizFinished(Applicant applicant);
+    public void setExamPAssed(int indexOfExam,ExamEvaluator examEvaluator);
 }

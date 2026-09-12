@@ -7,6 +7,7 @@ import it.unicam.universita.mdp2526.Personaggio.*;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
+import it.unicam.universita.mdp2526.StudioEesami.ExamEvaluator;
 import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 
 import java.io.File;
@@ -19,7 +20,7 @@ public class GraphicEngine implements Engine {
     private Applicant currentQuiz;
     private GameMode mode;
     private List<Exam> examList;
-
+    private int indexOfApplicant;
 
     private VictoryChecker victoryChecker;
     private QuizManager quizManager;
@@ -109,14 +110,18 @@ public boolean canStartStudyOrExam(){
     // sistemiamo il problema di srp
 
 public void checkAnswer(boolean answer){
-       if(!(this.quizManager.checkAnswer(answer)))
+       if(!(this.quizManager.checkAnswer(answer,currentQuiz)))
 this.hero.incrementStress(1);
     }
-public boolean isExamPassed(){
-        return this.quizManager.isExamPassed();
+public boolean isExamPassed(ExamEvaluator examEvaluator){
+        return this.quizManager.isExamPassed(examEvaluator);
+}
+public void  setVote(ExamEvaluator examEvaluator){
+    this.quizManager.setExamPAssed(getIndexOfApplicant(),examEvaluator);
+        this.quizManager.setVote(getIndexOfApplicant(),examEvaluator);
 }
 public Applicant getCurrentQuiz(){
-        return this.quizManager.getCurrentQuiz();
+        return this.currentQuiz;
 }
 
 //sistemata la responsabilità pressed button
@@ -130,8 +135,12 @@ public Applicant getCurrentQuiz(){
     }
 
     // questo metodo setta il quiz corrente da dare in pasto alla parte "front end"
-    public boolean setApplicant(int index,GameMode mode) {
-        return  quizManager.currentQuizSelector(index,mode);
+    public void setApplicant(int index,GameMode mode) {
+        this.currentQuiz=quizManager.currentQuizSelector(index,mode);
+        this.indexOfApplicant=index;
+    }
+    public boolean areQuizFinished(){
+         return  this.quizManager.areQuizFinished(currentQuiz);
     }
 
     public void restartGame() {
@@ -147,8 +156,9 @@ return this.examManager.getNumberOfRemaningExam();
     public double  getAvgOfExamPassed(){
 return this.examManager.getAvgOfExamPassed();
     }
-    public String readListOfExam() {
-return this.examManager.readListOfExam();
+
+    public List<String> readListOfExam() {
+return this.examManager.readDetailsOfExam();
     }
     public List<String> getExams() {
         return this.examManager.getExams();
@@ -174,7 +184,10 @@ public GameState loadGame(){
     public boolean checkVictory() {
         return this.victoryChecker.checkVictory();
     }
-
+public void setIndexOfApplicant(int index){
+        this.indexOfApplicant=index;
+}
+public int getIndexOfApplicant(){return this.indexOfApplicant;}
 
 }
 

@@ -2,6 +2,7 @@ package it.unicam.universita.mdp2526.gui.GraphicController;
 
 import it.unicam.universita.mdp2526.Meccaniche.Engine;
 import it.unicam.universita.mdp2526.Meccaniche.GraphicEngine;
+import it.unicam.universita.mdp2526.StudioEesami.ExamEvaluator;
 import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -34,22 +35,56 @@ updateState();
 
     // questo viene azionato ogni volta che si preme conferma o start quiz. Non fa altro che prendere la current quest e metterla nella riga della domanda
     public void setCurrentQuestLabel(){
-        if(engine.getCurrentQuiz().getCurrentQuest()==null) {
+        if(engine.areQuizFinished()) {
           setNotify("Le domande sono finite, esci per tornare al menu principale");
             // se stai facendo l'esame, hai finito le domande e hai passato l'esame
-            System.out.println(engine.getMode());
-            if(engine.getMode()==GameMode.EXAM && engine.isExamPassed()) sceneManager.showExamPassedScene();
-             if(engine.getMode()==GameMode.EXAM&& engine.checkVictory()) sceneManager.showVictory();
-            }
+            System.out.println(engine.getMode());}
         else
             this.quizLabel.setText(engine.getCurrentQuiz().getCurrentQuest().getQuest());
 
+    }
+
+    public boolean checkExamMode(){
+        return engine.getMode() == GameMode.EXAM ;
+
+    }
+    public ExamEvaluator getExamValutator() {
+        if (checkExamMode()) {
+            ExamEvaluator examEvaluator = (ExamEvaluator) engine.getCurrentQuiz();
+            return examEvaluator;
+        }
+    return null;
+    }
+    public boolean cheeckExamPassed(){
+     if(checkExamMode()){ExamEvaluator examEvaluator=getExamValutator();
+
+            if(engine.isExamPassed(examEvaluator))
+            {   engine.setVote(examEvaluator);
+
+                return true;
+            }
+        }
+return false;
+    }
+    public void loadExamPassed(){
+       if(cheeckExamPassed()&& engine.areQuizFinished()){
+        sceneManager.showExamPassedScene();}
+       }
+
+
+    public boolean checkVictory(){
+        return checkExamMode() && engine.checkVictory();
+    }
+    public void loadVictory(){
+        if(checkVictory() ) sceneManager.showVictory();
     }
 
 
 
 
     public void updateState(){
+        loadExamPassed();
+        loadVictory();
         setCurrentQuestLabel();
             setScoreLabel();
     }

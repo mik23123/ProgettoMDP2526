@@ -30,7 +30,6 @@ setNotify("s");
     @FXML
     public void exit() {
         engine.restartGame();
-
         System.exit(0);
     }
     public void setNotify(String s){

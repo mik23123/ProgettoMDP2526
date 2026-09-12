@@ -6,18 +6,13 @@ import it.unicam.universita.mdp2526.gui.SceneManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
-import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class SubjectController implements FxController {
     @FXML
-    private Label subjectLabel;
+    private ListView<String> examListView;
     @FXML
     private ChoiceBox choiceBoxeSubject;
     @FXML
@@ -31,11 +26,28 @@ public class SubjectController implements FxController {
     @Override
     public void updateState() {
         setChoiceBoxeSubject();
-        setSubjectList();
+        setExamListView();
     }
 
-    public void setSubjectList(){
-        subjectLabel.setText(this.engine.readListOfExam());
+    public void setExamListView(){
+        ObservableList<String> details = FXCollections.observableArrayList(engine.readListOfExam());
+        examListView.setItems(details);
+        examListView.setCellFactory(list -> new ListCell<>() {
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    setText(item);
+                    setWrapText(true);
+                    setStyle("-fx-padding: 12; -fx-font-size: 13px;");
+                    getStyleClass().add("exam-card");
+                }
+            }
+        });
     }
 
     public void  setChoiceBoxeSubject(){
@@ -53,7 +65,7 @@ public class SubjectController implements FxController {
         }
 
                 engine.setApplicant(choiceBoxeSubject.getSelectionModel().getSelectedIndex(),engine.getMode());
-
+                engine.setIndexOfApplicant(choiceBoxeSubject.getSelectionModel().getSelectedIndex());
 
         sceneManager.showQuizScene();
     }

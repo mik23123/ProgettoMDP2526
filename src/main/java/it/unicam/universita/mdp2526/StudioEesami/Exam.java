@@ -72,18 +72,17 @@ public  class Exam {
     public void setTrueExamPassed() {
         this.examPassed = true;
     }
+    public int getVote(){return this.risultato.getStamina();}
 
     @Override
     public String toString() {
         EnemyProfessor prof= (EnemyProfessor) applicants.get(GameMode.EXAM);
-        return "Exam{" +
-                "name='" + name + '\'' +
-                ", livello di studio =" + getStaminaStudiedAttuale() +
-                "risultato=" + getStaminaRisultatoAttuale() +
+        return
+                "esame = '" + name + '\'' +
+                " livello di studio = " + getStaminaStudiedAttuale() +
                 ", professor=" +  prof.getName()+
                 ", EsamePassato?=" + isExamPassed() +
-                ", vote=" + getRisultato() +
-                '}';
+                ", vote=" + getVote()+ "\n";
     }
 }
 

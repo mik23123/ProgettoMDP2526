@@ -85,7 +85,6 @@ public final class GameSetup {
             // Il campo "exam" in EnemyProfessor è transient (per evitare cicli
             // nella serializzazione JSON), quindi va sempre ricollegato qui
             // esplicitamente dopo la costruzione.
-            professor.setExam(exam);
 
             exams.add(exam);
         }

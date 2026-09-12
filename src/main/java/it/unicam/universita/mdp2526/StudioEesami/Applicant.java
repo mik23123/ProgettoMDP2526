@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Applicant {
 
     private List<Quest> quests;
-    private final  List<Quest> cleanQuest;
+    private final  List<Quest> cleanQuest;// risolvere questo problema di clean code mettendo una lista sola e aggiungere una variabile in Quest
     private Quest currentQuest;
     private int quizScore;
     private int questIndex;

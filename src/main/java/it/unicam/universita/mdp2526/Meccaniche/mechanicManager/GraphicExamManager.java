@@ -33,15 +33,12 @@ public List<Exam> exams;
     }
 
     @Override
-    public String readListOfExam() {
-        int count = 0;
-        String finalString = "";
+    public List<String> readDetailsOfExam() {
+        List<String> details = new ArrayList<>();
         for (Exam e : exams) {
-            finalString = finalString + e.toString(); // stampo direttamente tutti gli esami con gli indici vicino. In modo tale che ogni indice sia uguale all'indice della lista
-
-            count++;
+            details.add(e.toString());
         }
-        return finalString;
+        return details;
     }
 
     @Override

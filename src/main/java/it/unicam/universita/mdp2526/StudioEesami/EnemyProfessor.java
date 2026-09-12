@@ -6,7 +6,7 @@ import java.util.List;
 
 public class EnemyProfessor extends Applicant implements ExamEvaluator{
     private  String name;
-    private transient Exam exam;
+
 
     public EnemyProfessor (List<Quest> quests,String name){
         if(quests==null) throw   new IllegalArgumentException("parameter cant be null");
@@ -17,34 +17,20 @@ public class EnemyProfessor extends Applicant implements ExamEvaluator{
 
     public String getName(){return this.name;}
 
-// ho pensato di fare un set in caso il professore cambi materia da insegnare
-    public void setExam(Exam exam){
-        this.exam=exam;
-    }
-    // this change for devcrement of life of professor
 
-
-    public Exam getExam(){
-        return this.exam;
-    }
 
 
 
     @Override
     public boolean approveExam() {
-        if (getQuizScore() > 18) {
-            this.getExam().setTrueExamPassed();
-            this.setVote(getQuizScore());
-            this.name=name+"  ESAME PASSATO  ";
-            return true;
-        }
-        return false;
+        return getQuizScore() >= 18;
     }
-
-
     @Override
-    public void setVote(int vote){
-        this.getExam().setVote(vote);
+    public int getVotationOfExam(){
+        return getQuizScore();
     }
+
+
+
 
 }

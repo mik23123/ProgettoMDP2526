@@ -50,7 +50,8 @@ public boolean existASave(){
 
     @Override
     public void restartGame() {
-        this.gameLoader.deleteSaving(savePath);
+    if(existASave())
+    {this.gameLoader.deleteSaving(savePath);}
 
     }
 }

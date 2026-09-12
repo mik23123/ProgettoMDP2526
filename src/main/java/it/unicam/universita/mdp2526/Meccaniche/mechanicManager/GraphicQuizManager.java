@@ -5,56 +5,66 @@ import it.unicam.universita.mdp2526.Personaggio.Hero;
 import it.unicam.universita.mdp2526.StudioEesami.Applicant;
 import it.unicam.universita.mdp2526.StudioEesami.EnemyProfessor;
 import it.unicam.universita.mdp2526.StudioEesami.Exam;
+import it.unicam.universita.mdp2526.StudioEesami.ExamEvaluator;
 import it.unicam.universita.mdp2526.gui.GraphicController.GameMode;
 
 import java.util.List;
 
 public class GraphicQuizManager implements QuizManager {
-    private Applicant currentQuiz;
+//    private Applicant currentQuiz;
+    private ExamEvaluator examEvaluator;
     private Hero hero;
     private  List<Exam> exams;
 
     public GraphicQuizManager(List<Exam> exams,Hero hero) {
     if (hero == null) throw new IllegalArgumentException("quiz vuoto");
-    this.hero = hero;
     this.exams=exams;
+    this.hero = hero;
 }
 
-    @Override
-    public Applicant getCurrentQuiz() {
-        return currentQuiz;    }
 
     @Override
-    public boolean checkAnswer(boolean answer) {
-         return (getCurrentQuiz().checkAnswer(answer));
+    public boolean checkAnswer(boolean answer,Applicant applicant) {
+         return (applicant.checkAnswer(answer));
 
     }
 
     @Override
-    public boolean isExamPassed() {
-        if (currentQuiz instanceof EnemyProfessor) {
-            EnemyProfessor e2 = (EnemyProfessor) currentQuiz;
-            return e2.approveExam();
-        }
-        return false;
+    public boolean isExamPassed(ExamEvaluator examEvaluator) {
+        return examEvaluator.approveExam();
     }
+
+    public void setVote(int indexOfExam,ExamEvaluator examEvaluator){
+
+        this.exams.get(indexOfExam).setVote(examEvaluator.getVotationOfExam());
+    }
+
     @Override
-    public void setCurrentQuiz(Applicant currentQuiz){
-    this.currentQuiz=currentQuiz;
+    public void setExamPAssed(int indexOfExam, ExamEvaluator examEvaluator) {
+        this.exams.get(indexOfExam).setTrueExamPassed();
     }
+
 
     // seleziona tramite indice e modalità quale applicant restituire.
     @Override
-    public boolean currentQuizSelector(int index, GameMode mode) {
-       Applicant selectedApplicant = this.exams.get(index).getApplicant(mode);
-        if(selectedApplicant== null) return  false;
+    public Applicant currentQuizSelector(int indexOfExam, GameMode mode) {
+       Applicant selectedApplicant = this.exams.get(indexOfExam).getApplicant(mode);
+        if(selectedApplicant== null) throw new IllegalArgumentException();
         selectedApplicant.clearQuiz();
-setCurrentQuiz(selectedApplicant);
-return true;
+return selectedApplicant;
+
     }
 
     @Override
     public void clearQuiz(int indexOfQuiz,GameMode mode) {
         this.exams.get(indexOfQuiz).getApplicant(mode).clearQuiz();
     }
+
+
+
+    public boolean areQuizFinished(Applicant applicant){
+        return applicant.getCurrentQuest()==null;
+    }
+
+
 }
