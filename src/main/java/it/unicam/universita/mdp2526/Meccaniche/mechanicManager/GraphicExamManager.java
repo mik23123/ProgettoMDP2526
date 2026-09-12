@@ -27,7 +27,7 @@ public List<Exam> exams;
     public double getAvgOfExamPassed() {
         double avg=0.0;
         for(Exam e : exams){
-            avg= avg+e.getRisultato().getStamina();
+            avg= avg+e.getVote();
         }
         return avg/exams.size();
     }

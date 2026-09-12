@@ -35,7 +35,7 @@ public class GraphicQuizManager implements QuizManager {
     }
 
     public void setVote(int indexOfExam,ExamEvaluator examEvaluator){
-
+    System.out.println(examEvaluator.getVotationOfExam());
         this.exams.get(indexOfExam).setVote(examEvaluator.getVotationOfExam());
     }
 

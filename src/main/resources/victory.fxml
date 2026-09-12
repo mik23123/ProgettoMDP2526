@@ -4,7 +4,8 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="531.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.VictoryController">
+<AnchorPane prefHeight="531.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.VictoryController"    stylesheets="@gameStyle.css">
+
     <children>
         <ImageView fitHeight="458.0" fitWidth="485.0" layoutX="-6.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -12,6 +13,6 @@
             </image>
         </ImageView>
         <Button layoutX="131.0" layoutY="466.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="184.0" text="Esci" />
-      <Label fx:id="notify" layoutX="37.0" layoutY="53.0" prefHeight="17.0" prefWidth="397.0" />
+      <Label fx:id="notify" layoutX="37.0" layoutY="53.0" prefHeight="17.0" prefWidth="397.0" styleClass="notifyLabel" />
     </children>
 </AnchorPane>

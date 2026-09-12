@@ -66,7 +66,7 @@ public  class Exam {
     }
 
     public void setVote(int vote) {
-        this.vote = vote;
+        this.risultato.setStamina(vote);
     }
 
     public void setTrueExamPassed() {

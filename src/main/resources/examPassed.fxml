@@ -4,14 +4,15 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.ExamPassedController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.universita.mdp2526.gui.GraphicController.ExamPassedController" stylesheets="@gameStyle.css">
+
    <children>
-      <Button layoutX="521.0" layoutY="361.0" mnemonicParsing="false" onAction="#exit" text="esci" />
+      <Button layoutX="521.0" layoutY="361.0" mnemonicParsing="false" onAction="#exit" text="esci" styleClass="button" />
       <ImageView fitHeight="602.0" fitWidth="485.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@foto/Untitled.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="notify"  layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="432.0" />
+      <Label fx:id="notify"  layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="432.0" styleClass="notifyLabel" />
    </children>
 </AnchorPane>
