@@ -5,7 +5,7 @@ Un simulatore di vita universitaria sviluppato in JavaFX. Vesti i panni di uno s
 
 Progetto sviluppato per l'esame di Metodologie di Programmazione — A.A. 2025/2026.
 
-<img width="661" height="426" alt="Screenshot 2026-08-06 103007" src="https://github.com/user-attachments/assets/8f0042ce-57d7-41dd-aebf-5fe12dca56ea" />
+<img width="662" height="426" alt="image" src="https://github.com/user-attachments/assets/c38065c6-3283-4475-ab9b-d3183e099fd5" />
 
 
 ## Funzionalità
