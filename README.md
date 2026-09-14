@@ -65,7 +65,7 @@ Requisiti
 
 Avvio
 ```bash
-git clone https://github.com/mik23123/ProgettoMDP2526.git](https://github.com/mik23123/ProgettoMDP2526.git
+git clone https://github.com/mik23123/ProgettoMDP2526.git
 ```
 ```bash
 cd ProgettoMDP2526
